@@ -4,6 +4,8 @@
 #知乎
 https://api.zhihu.com/(ad|drama|fringe|commercial|market/popover|search/(top|preset|tab)|.*featured-comment-ad) url reject-200
 # YouTube去广告
+# 如果您是 YouTube Premium，请不要开启此模块。
+URL-REGEX,^https?:\/\/[\w-]+\.googlevideo\.com\/.+&(oad|ctier),REJECT
 ^https?:\/\/.+\.googlevideo\.com\/.+&oad url reject-img
 ^https?:\/\/.+\.googlevideo\.com\/.+ctier url reject-img
 ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/.+ad_ url reject-img
@@ -23,7 +25,7 @@ http-response ^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positiv
 http-request ^https://mp\.weixin\.qq\.com/mp/getappmsgad script-path=https://Choler.github.io/Surge/Script/WeChat.js,tag=微信公众号广告
 
 # > YouTube 
-http-request ^https://[\s\S]*\.googlevideo\.com/.*&(oad|ctier) script-path=https://Choler.github.io/Surge/Script/YouTube.js,tag=YouTube去广告
+http-request ^https://[\s\S]*\.googlevideo\.com/.*&(oad|ctier) script-path=https://raw.githubusercontent.com/Choler/Surge/master/Script/YouTube.js,tag=YouTube去广告
 
 # >腾讯新闻 去广告
 http-response ^https://r\.inews\.qq.com\/get(QQNewsUnreadList|RecommendList) requires-body=1,script-path=https://raw.githubusercontent.com/Choler/Surge/master/Script/QQNews.js,tag=腾讯新闻去广告
@@ -53,4 +55,4 @@ http-response ^https:\/\/www\.xmind\.cn\/_res\/devices requires-body=1,max-size=
 http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js
 
 [MITM]
-hostname = api2.mubu.com, *.kuwo.cn, vip1.kuwo.cn, *.zhihu.com, pan.baidu.com, www.xmind.cn, account.wps.*, r.inews.qq.com, www.youtube.com, s.youtube.com, api.weibo.cn, *.zhihu.com, mp.weixin.qq.com
+hostname =  *.googlevideo.com, api2.mubu.com, *.kuwo.cn, vip1.kuwo.cn, *.zhihu.com, pan.baidu.com, www.xmind.cn, account.wps.*, r.inews.qq.com, www.youtube.com, s.youtube.com, api.weibo.cn, *.zhihu.com, mp.weixin.qq.com
