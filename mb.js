@@ -1,0 +1,3 @@
+var obj = JSON.parse($response.body);
+obj = {"code":0,"msg":"success","data":{"googleId":"","gender":"1","year":"2019","city":"","remark":"","view":"grid","province":"","googleName":"","id":7246186,"wxName":"","email":"","vipEndDate":"20330726","level":1,"encryptPassword":"","facebookId":"","photo":"https://api2.mubu.com/v3/photo/fac9d1e1-74c8-4a32-b22f-41b2559f5b23.jpg","updateTime":1595551725058,"wxId":"","passSecure":false,"sort":"time","appleId":"","qqId":"UID_D6D4A335A3389F30A3E8F80BFCF3D4D8","appleName":"","agreeTermService":false,"phone":"","createTime":1587912729854,"name":"执意","anonymUserFlag":0,"qqName":"执意","toutiaoId":"","facebookName":"","larkId":""}}
+$done({body: JSON.stringify(obj)});
