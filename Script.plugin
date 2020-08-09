@@ -18,42 +18,33 @@ https://api.zhihu.com/(ad|drama|fringe|commercial|market/popover|search/(top|pre
 ^https?:\/\/.+\.youtube\.com\/pagead\/ url reject-img
 ^https?:\/\/.+\.youtube\.com\/ptracking url reject-img
 [Script]
+# > 小小影视Vip (By Meeta)
+http-response https:\/\/.*\.xiaoxiao.*\.com\/(vod\/reqplay\/|ucp/index|getGlobalData) requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xxys.js,tag=小小影视
 # > 微博去广告
 http-response ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js,tag=微博启动广告
 http-response ^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/photos/pic_recommend_status|video/tiny_stream_video_list|photo/info) requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js,tag=微博广告
-
 # > 微信公众号
 http-request ^https://mp\.weixin\.qq\.com/mp/getappmsgad script-path=https://Choler.github.io/Surge/Script/WeChat.js,tag=微信公众号广告
-
 # > YouTube 
 http-request ^https://[\s\S]*\.googlevideo\.com/.*&(oad|ctier) script-path=https://raw.githubusercontent.com/Choler/Surge/master/Script/YouTube.js,tag=YouTube去广告
-
 # >腾讯新闻 去广告
 http-response ^https://r\.inews\.qq.com\/get(QQNewsUnreadList|RecommendList) requires-body=1,script-path=https://raw.githubusercontent.com/Choler/Surge/master/Script/QQNews.js,tag=腾讯新闻去广告
-
 # > onewayticket255
-
 # > 知乎 去广告
 http-response https://api.zhihu.com/moments/recommend requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20feed.js,tag=知乎
 http-response https://api.zhihu.com/topstory/recommend requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20recommend.js,tag=知乎
 http-response https://api.zhihu.com/v4/questions requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20answer.js,tag=知乎
 http-response https://api.zhihu.com/people/ requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20people.js,tag=知乎
-
 # > 酷我音乐SVIP (By yxiaocai)
 http-response ^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/user\/vip|vip\/spi/mservice) requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Kuwo.js,tag=酷我音乐
 ^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/theme)  url script-response-body   https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/themekuwo.js
-
 # > WPS (By eHpo)
 http-response ^https://account.wps.*/api/users/ requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js,tag=WPS
-
-# > 幕布
+# > 幕布(修正)
 http-response https:\/\/api2\.mubu\.com\/v3\/api\/user\/current_user requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Loon/master/mb.js,tag=幕布
-
 #xmind
 http-response ^https:\/\/www\.xmind\.cn\/_res\/devices requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Loon/master/xmind.js,tag=xmind
-
 #百度网盘倍速
 http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js
-
 [MITM]
-hostname =  *.googlevideo.com, api2.mubu.com, *.kuwo.cn, vip1.kuwo.cn, *.zhihu.com, pan.baidu.com, www.xmind.cn, account.wps.*, r.inews.qq.com, www.youtube.com, s.youtube.com, api.weibo.cn, *.zhihu.com, mp.weixin.qq.com
+hostname =  *.googlevideo.com, api2.mubu.com, *.kuwo.cn, vip1.kuwo.cn, *.zhihu.com, pan.baidu.com, www.xmind.cn, account.wps.*, r.inews.qq.com, www.youtube.com, s.youtube.com, api.weibo.cn, *.zhihu.com, mp.weixin.qq.com, *.xiao*.com, *.xiaoxiao*.com,
