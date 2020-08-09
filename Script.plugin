@@ -1,11 +1,12 @@
+[Rule]
+# 如果您是 YouTube Premium，请不要开启此模块。
+URL-REGEX,^https?:\/\/[\w-]+\.googlevideo\.com\/.+&(oad|ctier),REJECT
 [URL Rewrite]
 #酷我
 ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?uid\=\d+ url 302 http://musicpay.kuwo.cn/music.pay?uid=1
 #知乎
 https://api.zhihu.com/(ad|drama|fringe|commercial|market/popover|search/(top|preset|tab)|.*featured-comment-ad) url reject-200
 # YouTube去广告
-# 如果您是 YouTube Premium，请不要开启此模块。
-URL-REGEX,^https?:\/\/[\w-]+\.googlevideo\.com\/.+&(oad|ctier),REJECT
 ^https?:\/\/.+\.googlevideo\.com\/.+&oad url reject-img
 ^https?:\/\/.+\.googlevideo\.com\/.+ctier url reject-img
 ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/.+ad_ url reject-img
