@@ -10,7 +10,7 @@ cron "0 1 8 * * *" script-path=https://raw.githubusercontent.com/NobyDa/Script/m
 # > 京东
 cron "1 0 8 * * *" script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js,tag=京东
 # > 爱奇艺
-cron "0 2 8 * * *" script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/iQIYI-DailyBonus/iQIYI_DailyBonus.js,tag=爱奇艺
+cron "0 2 8 * * *" script-path=https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js,tag=爱奇艺
 # 网易云音乐
 #浏览器访问并登录: https://music.163.com/m/login
 cron "1 1 8 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/neteasemusic.js,tag=网易云音乐
