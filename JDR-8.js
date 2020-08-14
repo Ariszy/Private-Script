@@ -8,7 +8,8 @@
  ******** 以下为 tamperJS 自动生成的 rewrite 相关信息，可能需要根据情况适当调整 ********
 
 [rewrite]
-https:\/\/blindbox\.jd\.com\/ url script-response-body JDR-8.js
+https:\/\/blindbox\.jd\.com\/ url script-response-body https://raw.githubusercontent.com/ZhiYi-N/Loon/master/JDR-8.js
+
 
 [mitm]
 , blindbox.jd.com
