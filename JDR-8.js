@@ -1,29 +1,67 @@
-/**。  我是搬运工
- * 名称：JDR-8.js
- * 原执行代码作者：小赤佬ByQQ83802712 
- *
- ******** 以下为 tamperJS 自动生成的 rewrite 相关信息，可能需要根据情况适当调整 ********
+let html = $response.body
 
-[rewrite]
-https:\/\/blindbox\.jd\.com\/ url script-response-body JDR-8.js
+html = html.replace(/(<\/html>)/g, "") +
+`
+  <script>
 
-[mitm]
-, blindbox.jd.com
+    const script = document.createElement('script');
+    script.src = "https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js";
+    // script.doneState = { loaded: true, complete: true};
+    script.onload = function() {
+        init();
+    };
+    
+    
+    document.getElementsByTagName('head')[0].appendChild(script);
+    
+    
+    window.alert = () => {};
+    document.querySelector(".receive-btn").click();
+    document.querySelector(".my-value span").click();
+    document.querySelector(".task:last-child .task-btn").click();
+    
+    function init () {
+      window.vConsole = new VConsole({ defaultPlugins: ["system", "element"] });
+      const myPlugin = new VConsole.VConsolePlugin("jd_r8", "京东热8");
+      vConsole.addPlugin(myPlugin);
 
- ********
- * 工具: tamperJS BY @elecV2
- * 频道: https://t.me/elecV2
-**/
+      myPlugin.on("renderTab", function (callback) {
+        var html = \`
+                    <ul>
+                      <li> 📎已自动获取活动信息，解决运行脚本没反应的问题</li>
+                      <li> 📎脚本已自动领取热力值</li>
+                      <li> 👇点击下方执行按钮运行任务脚本</li>
+                    </ul>  
+                    \`;
+                    
+        callback(html);
+      });
+      
+      myPlugin.on("addTool", function (callback) {
+       
+        var toolList = [];
+        toolList.push({
+          name: "执行",
+          global: false,
+          onClick: function (event) {
+            vConsole.showTab("default");
+            
+            eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\\\b'+e(c)+'\\\\b','g'),k[c]);return p}(' e 9=4.3(\\'9\\');9.d="b/6";9.a="5://c.2/8/7.8";4.1.0(9);',62,15,'appendChild|body|com|createElement|document|https|javascript|jdmh|js|script|src|text|tyh52|type|var'.split('|'),0,{}))
 
-let body = $response.body
+          },
+        });
+        callback(toolList);
+      });
+      
+      myPlugin.on('ready', function() {
+      
+          vConsole.show();
+	      setTimeout(() => vConsole.showTab("jd_r8"), 300);
 
-if (/<\/html>|<\/body>/.test(body)) {
-  body = body.replace('</body>', `
-<script>const elecJSPack = function(elecV2){
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\\\b'+e(c)+'\\\\b','g'),k[c]);return p}(' e 9=4.3(\\'9\\');9.d="b/6";9.a="5://c.2/8/7.8";4.1.0(9);',62,15,'appendChild|body|com|createElement|document|https|javascript|jdmh|js|script|src|text|tyh52|type|var'.split('|'),0,{}))
-}(console)</script></body>`)
+      });
+    }
+  </script>
+</html>
+`
 
-  console.log('添加 tamperJS：JDR-8.js')
-}
-
-$done({ body })
+$done({body: html})
