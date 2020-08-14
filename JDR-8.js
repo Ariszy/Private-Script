@@ -1,8 +1,8 @@
 
-/*
-我是搬运工
+/**
+*我是搬运工
+**/
 
-*/
 let html = $response.body
 
 html = html.replace(/(<\/html>)/g, "") +
