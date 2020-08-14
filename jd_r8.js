@@ -1,6 +1,15 @@
 
 /*
 我是搬运工
+
+[rewrite_local]
+#京东热8盲盒
+https://blindbox\.jd\.com/$ url script-response-body https://raw.githubusercontent.com/ZhiYi-N/Loon/master/jd_r8.js
+
+hostname = blindbox.jd.com
+Safari浏览器打开京东热8超级盲盒活动地址自动脚本注入，点击脚本左下的执行按键就行了，很方便。
+活动地址：https://blindbox.jd.com/
+
 */
 let html = $response.body
 
