@@ -50,7 +50,7 @@ cron "0 3 8 * * *" script-path=https://raw.githubusercontent.com/Sunert/Scripts/
 # 2.阅读一篇文章，获取阅读请求body，
 # 3.在阅读文章最下面有个惊喜红包，点击获取惊喜红包请求
 # 4.激励视频获取方法: 关闭vpn，进入任务中心=>抽奖赚点击下面第一个宝箱，出现视频广告页面，然后打开vpn，等待视频播放完毕，点击点我继续领青豆，再重复一次上面操作，获取激励视频请求的body
-cron "*/6 */2 * * * *" script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js,tag=中青看点极速版
+cron "* */6 */2 * * *" script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js,tag=中青看点极速版
 # > 滴滴出行 (By @zZPiglet)
 # 进入"滴滴出行"，若弹出"首次写入滴滴出行 Token 成功"
 cron "1 3 8 * * *" script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/DiDi/DiDi.js,tag=滴滴出行
