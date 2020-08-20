@@ -1,5 +1,11 @@
 /*
 我是搬运工
+
+[rewrite_local]
+https://xeq1kjnhr\.m\.jd\.com/static/index\.html url script-response-body https://raw.githubusercontent.com/ZhiYi-N/Loon/master/jd_hd.js
+[mitm]
+xeq1kjnhr.m.jd.com
+
 */
 let html = $response.body
 
