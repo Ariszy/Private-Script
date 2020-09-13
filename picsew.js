@@ -1,4 +1,7 @@
-/* https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/ZhiYi-N/Loon/master/picsew.js
+/*
+数据包来自网球，自用脚本， 不传播，如有冒犯，请告知，删掉
+
+https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/ZhiYi-N/Loon/master/picsew.js
 
 hostname=buy.itunes.apple.com
 */
