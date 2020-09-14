@@ -1,5 +1,5 @@
 /* 本脚本，标准版免费，专业版6块，标准版试过，成功购买，专业版请自行测试
-
+出现问题自行负责，只是测试使用，请勿牟利
 #作者：执意
 
 https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/ZhiYi-N/Loon/master/picsew2.js
