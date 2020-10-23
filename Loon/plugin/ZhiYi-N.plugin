@@ -7,4 +7,4 @@ http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user script-pat
 [URL Rewrite]
 https://api.maimemo.com/api/v1/system/check _ reject
 [MITM]
-hostname = api2.mubu.com,buy.itunes.apple.com,api.maimemo.com, pan.baidu.com
+hostname = api2.mubu.com,buy.itunes.apple.com,api.maimemo.com,pan.baidu.com
