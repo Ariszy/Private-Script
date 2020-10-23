@@ -2,7 +2,7 @@
 墨墨背单词3.5.4版本
 #圈x
 ［rewrite］
-^https\:\/\/api\.maimemo\.com\/api\/v1/users/info url script-response-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/momobdcjs
+^https\:\/\/api\.maimemo\.com\/api\/v1/users/info url script-response-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/momobdc.js
 https://api.maimemo.com/api/v1/system/check url reject
 #Loon
 http-response ^https\:\/\/api\.maimemo\.com\/api\/v1/users/info script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/momobdc.js, requires-body=true, timeout=10, enabled=false, tag=默默背单词
