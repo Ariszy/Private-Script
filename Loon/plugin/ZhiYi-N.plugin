@@ -1,3 +1,5 @@
+[URL Rewrite]
+ctier=[A-Z] citer=A 302
 [Script]
 #执意
 http-response https:\/\/api2\.mubu\.com\/v3\/api\/user\/current_user script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/mubu.js, requires-body=true, timeout=10, tag=幕布
@@ -26,19 +28,7 @@ DOMAIN,mesu-cdn.origin-apple.com.akadns.net,REJECT
 DOMAIN,mesu.g.aaplimg.com,REJECT
 DOMAIN,appldnld.apple.com,REJECT
 DOMAIN,appldnld.apple.com.akadns.net,REJECT
-[URL Rewrite]
-#默默背单词
-https://api.maimemo.com/api/v1/system/check _ reject
-#YouTube去广告
-^https?:\/\/.+\.googlevideo\.com\/.+&oad url reject-img
-^https?:\/\/.+\.googlevideo\.com\/.+ctier url reject-img
-^https?:\/\/youtubei\.googleapis\.com\/youtubei\/.+ad_ url reject-img
-^https?:\/\/youtubei\.googleapis\.com\/youtubei\/.+log_ url reject-img
-^https?:\/\/.+\.youtube\.com\/get_midroll_ url reject-img
-^https?:\/\/premiumyva\.appspot\.com\/vmclickstoadvertisersite url reject-img
-^https?:\/\/.+\.youtube\.com\/api\/stats\/ads url reject-img
-^https?:\/\/.+\.youtube\.com\/api\/stats\/.+adformat url reject-img
-^https?:\/\/.+\.youtube\.com\/pagead\/ url reject-img
-^https?:\/\/.+\.youtube\.com\/ptracking url reject-img
+#Youtube去广告
+URL-REGEX,https:\/\/[\s\S]*\.googlevideo\.com/.*&(oad|ctier),REJECT
 [MITM]
-hostname = api2.mubu.com,buy.itunes.apple.com,api.maimemo.com,pan.baidu.com,vip1.kuwo.cn,*.googlevideo.com,account.wps.cn,api.weibo.cn,mapi.weibo.com,*.uve.weibo.com,mp.weixin.qq.com,
+hostname = api2.mubu.com,buy.itunes.apple.com,api.maimemo.com,pan.baidu.com,vip1.kuwo.cn,*.googlevideo.com,account.wps.cn,api.weibo.cn,mapi.weibo.com,*.uve.weibo.com,mp.weixin.qq.com
