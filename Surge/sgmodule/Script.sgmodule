@@ -29,4 +29,4 @@ http-response ^https://account.wps.*/api/users/ requires-body=1,script-path=http
 http-response ^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js, tag=百度网盘倍速
 
 [MITM]
-hostname =  mb3admin.com,buy.itunes.apple.com,api.weibo.cn,mapi.weibo.com,*.uve.weibo.com,trade-acs.m.taobao.com,api2.mubu.com,mp.weixin.qq.com,vip1.kuwo.cn,account.wps.cn, pan.baidu.com
+hostname = %APPEND% mb3admin.com,buy.itunes.apple.com,api.weibo.cn,mapi.weibo.com,*.uve.weibo.com,trade-acs.m.taobao.com,api2.mubu.com,mp.weixin.qq.com,vip1.kuwo.cn,account.wps.cn, pan.baidu.com
