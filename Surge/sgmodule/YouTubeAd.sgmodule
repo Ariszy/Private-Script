@@ -1,4 +1,5 @@
-
+#!name=YouTube 15.26.4
+#!desc=Block YouTube Ads
 [Rule]
 URL-REGEX,https?:\/\/.+.googlevideo.com\/ptracking\?pltype=adhost,REJECT
 URL-REGEX,https?:\/\/.+.youtube.com\/api\/stats\/ads,REJECT
