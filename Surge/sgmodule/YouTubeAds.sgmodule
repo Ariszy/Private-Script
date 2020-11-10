@@ -1,5 +1,6 @@
 #!name=YouTube
 #!desc=Block YouTube Ads
+#!system=ios
 
 [Rule]
 URL-REGEX,^https:\/\/.+\.googlevideo\.com\/.+&oad,REJECT
