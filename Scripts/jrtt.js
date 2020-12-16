@@ -188,7 +188,7 @@ return new Promise((resolve, reject) => {
    $.post(openboxurl,(error, response, data) =>{
      const result = JSON.parse(data)
         $.log(data)
-      if(result.status_code == 0) {
+      if(result.err_no == 0) {
         //$.log(1111)
         other += '开启成功\n'
         other += '获得金币'+result.data.score_amount+'个\n'
