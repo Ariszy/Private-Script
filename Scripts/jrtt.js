@@ -49,6 +49,7 @@ var readkey = $.getdata('readkey')
 var boxnum = ''
 var boxlast = ''
 let other = ''
+var article = ''
 //CK运行
 
 let isGetCookie = typeof $request !== 'undefined'
