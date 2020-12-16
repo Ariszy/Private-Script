@@ -242,9 +242,6 @@ return new Promise((resolve, reject) => {
    })
   }  
 function double_reward() {
-let uri = JSON.parse(farmkey)
-$.log(uri)
-
 //$.log(farmkey)
 return new Promise((resolve, reject) => {
 //$.log(farmkey)
