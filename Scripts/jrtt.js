@@ -6,7 +6,32 @@
 开农场宝箱
 
 脚本初成，非专业人士制作，欢迎指正
-圈x
+
+#右上角签到即可获取签到cookie
+#进一次农场即可获取农场cookie
+#读文章弹出金币获取读文章cookie
+
+&&&&&&&第一天做好签到无法实验，测试了读书和农场宝箱ok
+[mitm]
+hostname = api3-normal-c-lq.snssdk.com
+
+#圈x
+[rewrite local]
+^https:\/\/api3-normal-c-lq\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus) url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js
+^https:\/\/api3-normal-c-lq\.snssdk\.com\/ttgame\/game_farm\/home_info url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js
+[task]
+5,35 8-21 * * * https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版, enabled=true
+
+#loon
+http-request ^https:\/\/api3-normal-c-lq\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus) script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版sign
+http-request ^https:\/\/api3-normal-c-lq\.snssdk\.com\/ttgame\/game_farm\/home_info script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版farm
+cron "5,35 8-21 * * * " script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版
+
+#surge
+jrttsign = type=http-request,pattern=^https:\/\/api3-normal-c-lq\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+jrttfarm = type=^https:\/\/api3-normal-c-lq\.snssdk\.com\/ttgame\/game_farm\/home_info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+jrtt = type=cron,cronexp="5,35 8-21 * * *",wake-system=1,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+
 
 */
 const jsname='今日头条极速版'
