@@ -28,10 +28,10 @@ http-request ^https:\/\/api3-normal-c-lq\.snssdk\.com\/ttgame\/game_farm\/home_i
 cron "5,35 8-21 * * *" script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版
 
 #surge
-jrttsign = type=http-request,pattern=^https:\/\/api3-normal-c-lq\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
-jrttfarm = type=^https:\/\/api3-normal-c-lq\.snssdk\.com\/ttgame\/game_farm\/home_info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
-jrtt = type=cron,cronexp="5,35 8-21 * * *",wake-system=1,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
 
+jrttsign = type=http-request,pattern=^https:\/\/api3-normal-c-lq\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+jrttfarm = type=http-request,pattern=^https:\/\/api3-normal-c-lq\.snssdk\.com\/ttgame\/game_farm\/home_info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+jrtt = type=cron,cronexp="5,35 8-21 * * *",wake-system=1,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
 
 */
 const jsname='今日头条极速版'
@@ -49,7 +49,7 @@ var readkey = $.getdata('readkey')
 var boxnum = ''
 var boxlast = ''
 let other = ''
-var article = ''
+var article =''
 //CK运行
 
 let isGetCookie = typeof $request !== 'undefined'
@@ -63,6 +63,7 @@ await sign_in()
 await openbox()
 await reading()
 await openfarmbox()
+await double_reward()
 await showmsg()
 })()
   .catch((e) => {
@@ -132,12 +133,14 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
         $.log(data)
       if(result.err_no == 0) {
+          other +='📣首页签到\n'
           other +='签到完成\n'
           other +='获得'+result.data.score_amount+'金币\n'
           other +='连续签到'+result.data.sign_times+'天\n'
   
 }else{
-          other +='已完成签到\n'
+          other +='📣首页签到\n'
+          other +='今日已完成签到\n'
            }
         //$.log(1111)
         //$.msg(111)
@@ -162,10 +165,12 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
         $.log(data)
       if(result.err_no == 0) {
+          other +='📣文章阅读\n'
           other +='阅读完成\n'
           other +='获得'+result.data.score_amount+'金币\n'
           
 }else{
+          other +='📣文章阅读\n'
           other +='这篇已经读过了\n'
            }
         //$.log(1111)
@@ -190,11 +195,13 @@ return new Promise((resolve, reject) => {
         $.log(data)
       if(result.err_no == 0) {
         //$.log(1111)
-        other += '开启成功\n'
+        other +='📣首页宝箱\n'
+        other += '开启成功'
         other += '获得金币'+result.data.score_amount+'个\n'
         }
       else{
-        other +="开宝箱时间错误\n"
+        other +='📣首页宝箱\n'
+        other +="不在开宝箱时间\n"
            }
         //$.log(1111)
         //$.msg(111)
@@ -220,11 +227,44 @@ return new Promise((resolve, reject) => {
       if(result.status_code == 0) {
         //$.log(1111)
         boxnum = "第"+(5-result.data.box_num)+"开启成功"
-        boxlast = "还可以开启"+result.data.box_num+"个\n"
+        boxlast = "还可以开启"+result.data.box_num+"个"
+        other +='📣农场宝箱\n'
         other +=boxnum+boxlast+'\n'
         }
       if(result.status_code == 5003){
-        other +="已全部开启"
+        other +='📣农场宝箱\n'
+        other +="已全部开启\n"
+           }
+        //$.log(1111)
+        //$.msg(111)
+          resolve()
+    })
+   })
+  }  
+function double_reward() {
+let uri = JSON.parse(farmkey)
+$.log(uri)
+
+//$.log(farmkey)
+return new Promise((resolve, reject) => {
+//$.log(farmkey)
+  let double_rewardurl ={
+    url: `https://api3-normal-c-lq.snssdk.com/ttgame/game_farm/double_reward?watch_ad=1&${farmurl}`,
+    headers :JSON.parse(farmkey),
+      timeout: 60000,
+}
+
+   $.get(double_rewardurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+        $.log(data)
+      if(result.status_code == 0) {
+        //$.log(1111)
+        other +='📣农场视频双倍奖励\n'
+        other += '获得成功'
+        }
+      else{
+        other +='📣农场视频双倍奖励\n'
+        other +="无离线产量可领取\n"
            }
         //$.log(1111)
         //$.msg(111)
