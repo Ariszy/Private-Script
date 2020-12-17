@@ -58,6 +58,8 @@ if (isGetCookie) {
 } 
 
 !(async () => {
+await userinfo()
+await profit()
 await sign_in()
 await openbox()
 await reading()
@@ -118,6 +120,60 @@ $.log(jrttreadKey)
     $.msg(`获取readkey: 成功🎉`, ``)
     }
   }
+function userinfo() {
+//$.log(signkey)
+return new Promise((resolve, reject) => {
+//$.log(signkey)
+  let userinfourl ={
+    url: `https://api3-normal-c-hl.snssdk.com/passport/account/info/v2/?${signurl}`,
+    headers :JSON.parse(signkey),
+      timeout: 60000,
+}
+
+   $.get(userinfourl,(error, response, data) =>{
+     const result = JSON.parse(data)
+        $.log(data)
+      if(result.message == 'success') {
+          other +='🎉'+result.data.name+'\n'
+  
+}else{
+          other += '异常\n'
+           }
+        //$.log(1111)
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
+
+function profit() {
+//$.log(signkey)
+return new Promise((resolve, reject) => {
+//$.log(signkey)
+  let profiturl ={
+    url: `https://api3-normal-c-lq.snssdk.com/score_task/v1/user/info/?${signurl}`,
+    headers :JSON.parse(signkey),
+      timeout: 60000,
+}
+
+   $.get(profiturl,(error, response, data) =>{
+     const result = JSON.parse(data)
+        $.log(data)
+      if(result.err_no == 0) {
+          other +='🎉金币收益'+result.data.score.amount+'\n🎉'+'现金收益'+result.data.cash.amount+'\n'
+      //$.log('11111111'+result.data.cash.amount)
+          
+}else{
+          other += '异常\n'
+           }
+        //$.log(1111)
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
+
+
 function sign_in() {
 //$.log(signkey)
 return new Promise((resolve, reject) => {
@@ -167,10 +223,10 @@ return new Promise((resolve, reject) => {
           other +='📣文章阅读\n'
           other +='阅读完成\n'
           other +='获得'+result.data.score_amount+'金币\n'
-          
-}else{
+          other +='阅读进度'+result.data.icon_data.done_times+'/'+result.data.icon_data.read_limit
+}     if(result.err_no == 4) {
           other +='📣文章阅读\n'
-          other +='这篇已经读过了\n'
+          other +='已经读完30篇'
            }
         //$.log(1111)
         //$.msg(111)
