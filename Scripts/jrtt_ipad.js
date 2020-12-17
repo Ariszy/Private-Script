@@ -160,7 +160,7 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
         $.log(data)
       if(result.err_no == 0) {
-          other +='🎉金币收益'+result.data.score.amount+'\n🎉'+'现金收益'+result.data.cash.amount+'\n'
+          other +='🎉金币收益:'+result.data.score.amount+'\n🎉估计兑换现金:'+(result.data.score.amount/30000).toFixed(2)+'\n🎉'+'现金收益:'+result.data.cash.amount+'\n'
       //$.log('11111111'+result.data.cash.amount)
           
 }else{
