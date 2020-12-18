@@ -322,7 +322,7 @@ return new Promise((resolve, reject) => {
         //$.log(1111)
         other +='📣农场宝箱\n'
         other += "第"+(5-result.data.box_num)+"开启成功"
-        other += "还可以开启"+result.data.box_num+"个"
+        other += "还可以开启"+result.data.box_num+"个\n"
         
         }
       if(result.status_code == 5003){
