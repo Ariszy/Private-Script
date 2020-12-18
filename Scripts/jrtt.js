@@ -384,7 +384,7 @@ return new Promise((resolve, reject) => {
        if(result.data.sleeping == false){
           other +='当前状态:清醒着呢\n'
 //$.log('jjjjjjjjjj'+hour)
-         if(hour >= 20){
+         if(hour >= 20 || hour<=2){
           collect=0 //await sleepstart()
            }else{
             collect=2 //no opreation
