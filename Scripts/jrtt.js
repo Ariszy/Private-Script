@@ -4,6 +4,10 @@
 开首页宝箱
 读文章（具体效果自测）
 开农场宝箱
+农场离线奖励(农场宝箱开完后，需要进农场再运行脚本才能开，有点问题)
+20点睡觉，获取完全后（3600），自动醒来（防止封号）
+目前需要自己去手动收获睡觉金币，手动收取，手动收取
+##定时睡觉没问题，能不能醒是个问题，没有实验
 
 脚本初成，非专业人士制作，欢迎指正
 
@@ -11,26 +15,25 @@
 #进一次农场即可获取农场cookie
 #读文章弹出金币获取读文章cookie
 
-&&&&&&&第一天做好签到无法实验，测试了读书和农场宝箱ok
 [mitm]
-hostname = api3-normal-c-lq.snssdk.com
+hostname = api3-normal-c-\w+.snssdk.com
 
 #圈x
 [rewrite local]
-^https:\/\/api3-normal-c-lq\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus) url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js
-^https:\/\/api3-normal-c-lq\.snssdk\.com\/ttgame\/game_farm\/home_info url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js
+^https:\/\/api3-normal-c-\w+\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus) url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js
+^https:\/\/api3-normal-c-\w+\.snssdk\.com\/ttgame\/game_farm\/home_info url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js
 [task]
 5,35 8-21 * * * https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版, enabled=true
 
 #loon
-http-request ^https:\/\/api3-normal-c-lq\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus) script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版sign
-http-request ^https:\/\/api3-normal-c-lq\.snssdk\.com\/ttgame\/game_farm\/home_info script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版farm
+http-request ^https:\/\/api3-normal-c-\w+\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus) script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版sign
+http-request ^https:\/\/api3-normal-c-\w+\.snssdk\.com\/ttgame\/game_farm\/home_info script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版farm
 cron "5,35 8-21 * * *" script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版
 
 #surge
 
-jrttsign = type=http-request,pattern=^https:\/\/api3-normal-c-lq\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
-jrttfarm = type=http-request,pattern=^https:\/\/api3-normal-c-lq\.snssdk\.com\/ttgame\/game_farm\/home_info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+jrttsign = type=http-request,pattern=^https:\/\/api3-normal-c-\w+\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+jrttfarm = type=http-request,pattern=^https:\/\/api3-normal-c-\w+\.snssdk\.com\/ttgame\/game_farm\/home_info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
 jrtt = type=cron,cronexp="5,35 8-21 * * *",wake-system=1,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
 
 */
@@ -46,10 +49,16 @@ var signkey = $.getdata('signkey')
 var readurl = $.getdata('readurl')
 var readkey = $.getdata('readkey')
 //var article = $.getdata('article')
-var boxnum = ''
-var boxlast = ''
+
 let other = ''
 var article =''
+var collect = ''
+const hour = (new Date()).getHours();
+const minute = (new Date()).getMinutes();
+
+const onece = hour == 8 && minute < 30;
+const conclusion = !!(hour == 20 || hour == 21);
+
 //CK运行
 
 let isGetCookie = typeof $request !== 'undefined'
@@ -59,11 +68,17 @@ if (isGetCookie) {
 } 
 
 !(async () => {
+await userinfo()
+await profit()
 await sign_in()
 await openbox()
 await reading()
 await openfarmbox()
 await double_reward()
+await sleepstatus()
+await control()
+//await sleepstart()
+//await sleepstop()
 await showmsg()
 })()
   .catch((e) => {
@@ -131,7 +146,7 @@ return new Promise((resolve, reject) => {
 
    $.post(sign_inurl,(error, response, data) =>{
      const result = JSON.parse(data)
-        $.log(data)
+       // $.log(data)
       if(result.err_no == 0) {
           other +='📣首页签到\n'
           other +='签到完成\n'
@@ -149,7 +164,76 @@ return new Promise((resolve, reject) => {
    })
   } 
 
+async function control(){
+   if(collect == 0){
+      await sleepstart();
+ //$.log('qqqqq'+collect)
+   }
+   if(collect == 1){
+  //$.log('1111111'+collect)
+      await sleepstop();
+   }
+   if(collect == 2){
+      $.log('no opreation')
+      other +='\n\n生前何必久睡，死后自会长眠'
+   }
+}
+function userinfo() {
+//$.log(signkey)
+return new Promise((resolve, reject) => {
+//$.log(signkey)
+  let userinfourl ={
+    url: `https://api3-normal-c-hl.snssdk.com/passport/account/info/v2/?${signurl}`,
+    headers :JSON.parse(signkey),
+      timeout: 60000,
+}
 
+   $.get(userinfourl,(error, response, data) =>{
+     const result = JSON.parse(data)
+       // $.log(data)
+      if(result.message == 'success') {
+          other +='🎉'+result.data.name+'\n'
+  
+}     else if(result.message == 'error'){
+          other += '⚠️异常:result,data.description\n'
+           }else{
+          other += '⚠️异常'
+}
+        //$.log(1111)
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
+
+function profit() {
+//$.log(signkey)
+return new Promise((resolve, reject) => {
+//$.log(signkey)
+  let profiturl ={
+    url: `https://api3-normal-c-lq.snssdk.com/score_task/v1/user/info/?${signurl}`,
+    headers :JSON.parse(signkey),
+      timeout: 60000,
+}
+
+   $.get(profiturl,(error, response, data) =>{
+     const result = JSON.parse(data)
+        //$.log(data)
+      if(result.err_no == 0) {
+          other +='🎉金币收益:'+result.data.score.amount+'\n🎉估计兑换现金:'+(result.data.score.amount/30000).toFixed(2)+'\n🎉'+'现金收益:'+result.data.cash.amount+'\n'
+      //$.log('11111111'+result.data.cash.amount)
+          
+}else{
+          other += '⚠️异常\n'
+           }
+        //$.log(1111)
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
+
+//文章阅读30篇每天
 function reading() {
 //$.log(article)
 const articles = readurl.replace(/\d{3}$/,Math.floor(Math.random()*1000));
@@ -166,13 +250,18 @@ return new Promise((resolve, reject) => {
         $.log(data)
       if(result.err_no == 0) {
           other +='📣文章阅读\n'
-          other +='阅读完成\n'
+          other +='阅读完成'
           other +='获得'+result.data.score_amount+'金币\n'
-          
-}else{
+          other +='阅读进度'+result.data.icon_data.done_times+'/'+result.data.icon_data.read_limit+'\n'
+      }
+       if(result.err_no == 4){
           other +='📣文章阅读\n'
-          other +='这篇已经读过了\n'
-           }
+          other +='文章阅读已达上限\n'
+        }
+       if(result.err_no == 1028){
+          other +='📣文章阅读\n'
+          other +='这篇文章已经读过了\n'
+        }
         //$.log(1111)
         //$.msg(111)
           resolve()
@@ -194,15 +283,20 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
         $.log(data)
       if(result.err_no == 0) {
-        //$.log(1111)
+//$.log('111111111'+result.next_treasure_time)
         other +='📣首页宝箱\n'
         other += '开启成功'
         other += '获得金币'+result.data.score_amount+'个\n'
         }
       else{
+         if(result.err_no == 9){
+        other +='📣首页宝箱\n'
+        other += result.err_tips+'\n'
+        }else{
         other +='📣首页宝箱\n'
         other +="不在开宝箱时间\n"
            }
+    }
         //$.log(1111)
         //$.msg(111)
           resolve()
@@ -226,10 +320,10 @@ return new Promise((resolve, reject) => {
         $.log(data)
       if(result.status_code == 0) {
         //$.log(1111)
-        boxnum = "第"+(5-result.data.box_num)+"开启成功"
-        boxlast = "还可以开启"+result.data.box_num+"个"
         other +='📣农场宝箱\n'
-        other +=boxnum+boxlast+'\n'
+        other += "第"+(5-result.data.box_num)+"开启成功"
+        other += "还可以开启"+result.data.box_num+"个"
+        
         }
       if(result.status_code == 5003){
         other +='📣农场宝箱\n'
@@ -242,6 +336,7 @@ return new Promise((resolve, reject) => {
    })
   }  
 function double_reward() {
+//这个离线奖励当宝箱全部开完后，需要进入农场再运行脚本，才能获取离线奖励，应该有一个判定，目前没有找到
 //$.log(farmkey)
 return new Promise((resolve, reject) => {
 //$.log(farmkey)
@@ -255,13 +350,14 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
         $.log(data)
       if(result.status_code == 0) {
-        //$.log(1111)
-        other +='📣农场视频双倍奖励\n'
+        other +='📣农场视频双倍离线奖励\n'
         other += '获得成功'
         }
       else{
-        other +='📣农场视频双倍奖励\n'
+        //$.log('8888888'+result.service_time)
+        other +='📣农场视频双倍离线奖励\n'
         other +="无离线产量可领取\n"
+        other +='⚠️长时间离线请去APP打开农场，再运行一遍\n'
            }
         //$.log(1111)
         //$.msg(111)
@@ -269,6 +365,101 @@ return new Promise((resolve, reject) => {
     })
    })
   }  
+function sleepstatus() {
+//$.log(signkey)
+return new Promise((resolve, reject) => {
+//$.log(signkey)
+  let sleepstatusurl ={
+    url: `https://api3-normal-c-lq.snssdk.com/luckycat/lite/v1/sleep/status/?_request_from=web&${signurl}`,
+    headers :JSON.parse(signkey),
+      timeout: 60000,
+}
+
+   $.get(sleepstatusurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+       // $.log(data)
+      if(result.err_no == 0) {
+          other +='📣查询睡觉状态\n🎉查询'+result.err_tips+'\n'
+        
+       if(result.data.sleeping == false){
+          other +='当前状态:清醒着呢\n'
+//$.log('jjjjjjjjjj'+hour)
+         if(hour >= 20){
+          collect=0 //await sleepstart()
+           }else{
+            collect=2 //no opreation
+             }
+            }else{
+          other +='当前状态:酣睡中,已睡'+parseInt(result.data.sleep_last_time/3600)+'小时'+parseInt((result.data.sleep_last_time%3600)/60)+'分钟'+parseInt((result.data.sleep_last_time%3600)%60)+'秒\n'
+          other +='预计可得金币'+result.data.sleep_unexchanged_score+'\n'
+         if(result.data.sleep_unexchanged_score == 3600){ 
+         collect =1 //collect coins&sleepstop
+          }else{
+         collect =2
+}
+  
+           }
+     }
+        //$.log(1111)
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
+function sleepstart() {
+//$.log(signkey)
+return new Promise((resolve, reject) => {
+//$.log(signkey)
+  let sleepstarturl ={
+    url: `https://api3-normal-c-lq.snssdk.com/luckycat/lite/v1/sleep/start/?_request_from=web&${signurl}`,
+    headers :JSON.parse(signkey),
+      timeout: 60000,
+}
+
+   $.post(sleepstarturl,(error, response, data) =>{
+     const result = JSON.parse(data)
+       // $.log(data)
+      if(result.err_no == 0) {
+          other +='📣开始睡觉\n该睡觉了，开始睡觉'+result.err_tips+'\n'
+  
+}     else if(result.err_no == 1052){
+          other +='📣开始睡觉\n'+result.err_tips+'\n'
+           }else{
+          other += '📣开始睡觉:'+'⚠️异常'
+}
+        //$.log(1111)
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
+function sleepstop() {
+//$.log(signkey)
+return new Promise((resolve, reject) => {
+//$.log(signkey)
+  let sleepstopurl ={
+    url: `https://api3-normal-c-lq.snssdk.com/luckycat/lite/v1/sleep/stop/?_request_from=web&${signurl}`,
+    headers :JSON.parse(signkey),
+      timeout: 60000,
+}
+
+   $.post(sleepstopurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+       // $.log(data)
+      if(result.err_no == 0) {
+          other +='📣停止睡觉\n'+result.err_tips+'\n'
+          
+}     else if(result.err_no == 1052){
+          other += '📣停止睡觉\n'+'还没开始睡觉\n'
+           }else{
+          other +='📣停止睡觉:'+'\n⚠️异常'
+}
+        //$.log(1111)
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
 
 async function showmsg(){
       $.msg(jsname, "", other)
