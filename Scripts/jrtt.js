@@ -195,7 +195,7 @@ return new Promise((resolve, reject) => {
           other +='🎉'+result.data.name+'\n'
   
 }     else if(result.message == 'error'){
-          other += '⚠️异常:result.data.description\n'
+          other += '⚠️异常:'+result.data.description+'\n'
            }else{
           other += '⚠️异常'
 }
