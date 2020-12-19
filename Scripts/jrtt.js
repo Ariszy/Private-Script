@@ -5,9 +5,9 @@
 读文章（具体效果自测）
 开农场宝箱
 农场离线奖励(农场宝箱开完后，需要进农场再运行脚本才能开，有点问题)
-20点睡觉，获取完全后（3600），自动醒来（防止封号）
-目前需要自己去手动收获睡觉金币，手动收取，手动收取
-##定时睡觉没问题，能不能醒是个问题，没有实验
+20点睡觉，获取完全后（3600）或睡觉12小时，自动醒来（防止封号）
+自动收取睡觉金币
+
 
 脚本初成，非专业人士制作，欢迎指正
 
@@ -49,15 +49,12 @@ var signkey = $.getdata('signkey')
 var readurl = $.getdata('readurl')
 var readkey = $.getdata('readkey')
 //var article = $.getdata('article')
-
+var coins=''
 let other = ''
 var article =''
 var collect = ''
 const hour = (new Date()).getHours();
 const minute = (new Date()).getMinutes();
-
-const onece = hour == 8 && minute < 30;
-const conclusion = !!(hour == 20 || hour == 21);
 
 //CK运行
 
@@ -79,6 +76,7 @@ await sleepstatus()
 await control()
 //await sleepstart()
 //await sleepstop()
+//await collectcoins(coins)
 await showmsg()
 })()
   .catch((e) => {
@@ -172,6 +170,7 @@ async function control(){
    if(collect == 1){
   //$.log('1111111'+collect)
       await sleepstop();
+      await collectcoins(coins);
    }
    if(collect == 2){
       $.log('no opreation')
@@ -195,7 +194,7 @@ return new Promise((resolve, reject) => {
           other +='🎉'+result.data.name+'\n'
   
 }     else if(result.message == 'error'){
-          other += '⚠️异常:'+result.data.description+'\n'
+          other += '⚠️异常:result,data.description\n'
            }else{
           other += '⚠️异常'
 }
@@ -322,7 +321,7 @@ return new Promise((resolve, reject) => {
         //$.log(1111)
         other +='📣农场宝箱\n'
         other += "第"+(5-result.data.box_num)+"开启成功"
-        other += "还可以开启"+result.data.box_num+"个\n"
+        other += "还可以开启"+result.data.box_num+"个"
         
         }
       if(result.status_code == 5003){
@@ -384,7 +383,7 @@ return new Promise((resolve, reject) => {
        if(result.data.sleeping == false){
           other +='当前状态:清醒着呢\n'
 //$.log('jjjjjjjjjj'+hour)
-         if(hour >= 20 || hour<=2){
+         if(hour >= 20){
           collect=0 //await sleepstart()
            }else{
             collect=2 //no opreation
@@ -392,7 +391,9 @@ return new Promise((resolve, reject) => {
             }else{
           other +='当前状态:酣睡中,已睡'+parseInt(result.data.sleep_last_time/3600)+'小时'+parseInt((result.data.sleep_last_time%3600)/60)+'分钟'+parseInt((result.data.sleep_last_time%3600)%60)+'秒\n'
           other +='预计可得金币'+result.data.sleep_unexchanged_score+'\n'
-         if(result.data.sleep_unexchanged_score == 3600){ 
+          coins=result.data.sleep_unexchanged_score
+         if(result.data.sleep_unexchanged_score == 3600 || parseInt(result.data.sleep_last_time/3600) == 12){ 
+//即使没有满足3600也在睡觉12小时后停止，以防封号
          collect =1 //collect coins&sleepstop
           }else{
          collect =2
@@ -453,6 +454,33 @@ return new Promise((resolve, reject) => {
           other += '📣停止睡觉\n'+'还没开始睡觉\n'
            }else{
           other +='📣停止睡觉:'+'\n⚠️异常'
+}
+        //$.log(1111)
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
+function collectcoins(coins) {
+//$.log(signkey)
+return new Promise((resolve, reject) => {
+//$.log(signkey)
+  let collectcoinsurl ={
+    url: `https://api3-normal-c-lq.snssdk.com/luckycat/lite/v1/sleep/done_task/?_request_from=web&device_platform=undefined&${signurl}`,
+    headers :JSON.parse(farmkey),
+      timeout: 60000,
+    body :JSON.stringify({score_amount: coins}),
+
+}
+
+   $.post(collectcoinsurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+       $.log(data)
+      if(result.err_no == 0) {
+          other +='📣收取金币\n'+result.err_tips+'     获得金币:'+coins
+          
+}     else{
+          other +='📣收取金币:'+'\n⚠️异常:'+result.err_tips+''
 }
         //$.log(1111)
         //$.msg(111)
