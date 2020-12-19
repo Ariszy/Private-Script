@@ -2,9 +2,11 @@
 目前包含：
 签到
 开首页宝箱
-读文章（具体效果自测）
+读文章30篇（具体效果自测）
 开农场宝箱
-农场离线奖励(农场宝箱开完后，需要进农场再运行脚本才能开，有点问题)
+农场浇水
+done 农场离线奖励(农场宝箱开完后，需要进农场再运行脚本才能开，有点问题)
+##通过农场浇水激活上线，达到获取理想奖励目的，目前测试每天的离线奖励足够开启农场5个宝箱，不需要做其他任务，具体情况看后期是否需要，再添加除虫，开地，施肥，三餐奖励以及农场签到活动
 20点睡觉，获取完全后（3600）或睡觉12小时，自动醒来（防止封号）
 自动收取睡觉金币
 
@@ -23,18 +25,18 @@ hostname = api3-normal-c-\w+.snssdk.com
 ^https:\/\/api3-normal-c-\w+\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus) url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js
 ^https:\/\/api3-normal-c-\w+\.snssdk\.com\/ttgame\/game_farm\/home_info url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js
 [task]
-5,35 8-21 * * * https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版, enabled=true
+5,35 8-23 * * * https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版, enabled=true
 
 #loon
 http-request ^https:\/\/api3-normal-c-\w+\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus) script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版sign
 http-request ^https:\/\/api3-normal-c-\w+\.snssdk\.com\/ttgame\/game_farm\/home_info script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, requires-body=true, timeout=10, tag=今日头条极速版farm
-cron "5,35 8-21 * * *" script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版
+cron "5,35 8-23 * * *" script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版
 
 #surge
 
 jrttsign = type=http-request,pattern=^https:\/\/api3-normal-c-\w+\.snssdk\.com\/score_task\/v1\/task\/(sign_in|get_read_bonus),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
 jrttfarm = type=http-request,pattern=^https:\/\/api3-normal-c-\w+\.snssdk\.com\/ttgame\/game_farm\/home_info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
-jrtt = type=cron,cronexp="5,35 8-21 * * *",wake-system=1,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
+jrtt = type=cron,cronexp="5,35 8-23 * * *",wake-system=1,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
 
 */
 const jsname='今日头条极速版'
@@ -70,7 +72,9 @@ await profit()
 await sign_in()
 await openbox()
 await reading()
+//await enter_farm()
 await openfarmbox()
+await landwarer()
 await double_reward()
 await sleepstatus()
 await control()
@@ -334,8 +338,35 @@ return new Promise((resolve, reject) => {
     })
    })
   }  
+function landwarer() {
+return new Promise((resolve, reject) => {
+//$.log(farmkey)
+  let landwaterurl ={
+    url: `https://api3-normal-c-lq.snssdk.com/ttgame/game_farm/land_water?tentimes=0${farmurl}`,
+    headers :JSON.parse(farmkey),
+      timeout: 60000,
+}
+
+   $.get(landwaterurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+        //$.log(data)
+       other +='📣农场浇水\n'
+      if(result.status_code == '0') {
+        other += result.message+'\n'
+        other += '💧水滴剩余'+result.data.water+'\n'
+        }
+      else{
+        other +=result.message
+           }
+        //$.log(1111)
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
+//done 这个离线奖励当宝箱全部开完后，需要进入农场再运行脚本，才能获取离线奖励，应该有一个判定，目前没有找到
+//利用浇水激活进农场状态获取离线奖励，目前测试每天离线奖励足够开启农场5个宝箱，不需要做游戏加快生产，具体情况看后期是否需要，再考虑加做除虫，开地，三餐奖励
 function double_reward() {
-//这个离线奖励当宝箱全部开完后，需要进入农场再运行脚本，才能获取离线奖励，应该有一个判定，目前没有找到
 //$.log(farmkey)
 return new Promise((resolve, reject) => {
 //$.log(farmkey)
@@ -350,13 +381,12 @@ return new Promise((resolve, reject) => {
         $.log(data)
       if(result.status_code == 0) {
         other +='📣农场视频双倍离线奖励\n'
-        other += '获得成功'
+        other += '获得成功\n'
         }
       else{
         //$.log('8888888'+result.service_time)
         other +='📣农场视频双倍离线奖励\n'
         other +="无离线产量可领取\n"
-        other +='⚠️长时间离线请去APP打开农场，再运行一遍\n'
            }
         //$.log(1111)
         //$.msg(111)
