@@ -22,7 +22,7 @@ done 农场离线奖励(农场宝箱开完后，需要进农场再运行脚本�
 #读文章弹出金币获取读文章cookie
 
 [mitm]
-hostname = api3-normal-c-\w+.snssdk.com
+hostname = api3-normal-c-*.snssdk.com
 
 #圈x
 [rewrite local]
