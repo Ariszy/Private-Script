@@ -204,7 +204,7 @@ return new Promise((resolve, reject) => {
 }     else if(result.message == 'error'){
           other += '⚠️异常:result,data.description\n'
            }else{
-          other += '⚠️异常'
+          other += '⚠️异常\n'
 }
         //$.log(1111)
         //$.msg(111)
@@ -328,8 +328,8 @@ return new Promise((resolve, reject) => {
       if(result.status_code == 0) {
         //$.log(1111)
         other +='📣农场宝箱\n'
-        other += "第"+(5-result.data.box_num)+"开启成功"
-        other += "还可以开启"+result.data.box_num+"个"
+        other += "第"+(5-result.data.box_num)+"开启成功\n"
+        other += "还可以开启"+result.data.box_num+"个\n"
         
         }
       if(result.status_code == 5003){
@@ -460,7 +460,7 @@ return new Promise((resolve, reject) => {
 }     else if(result.err_no == 1052){
           other +='📣开始睡觉\n'+result.err_tips+'\n'
            }else{
-          other += '📣开始睡觉:'+'⚠️异常'
+          other += '📣开始睡觉:'+'⚠️异常\n'
 }
         //$.log(1111)
         //$.msg(111)
@@ -487,7 +487,7 @@ return new Promise((resolve, reject) => {
 }     else if(result.err_no == 1052){
           other += '📣停止睡觉\n'+'还没开始睡觉\n'
            }else{
-          other +='📣停止睡觉:'+'\n⚠️异常'
+          other +='📣停止睡觉:'+'\n⚠️异常\n'
 }
         //$.log(1111)
         //$.msg(111)
@@ -511,10 +511,10 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
        $.log(data)
       if(result.err_no == 0) {
-          other +='📣收取金币\n'+result.err_tips+'     获得金币:'+coins
+          other +='📣收取金币\n'+result.err_tips+'  获得金币:'+coins
           
 }     else{
-          other +='📣收取金币:'+'\n⚠️异常:'+result.err_tips+''
+          other +='📣收取金币:'+'\n⚠️异常:'+result.err_tips+'\n'
 }
         //$.log(1111)
         //$.msg(111)
