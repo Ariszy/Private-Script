@@ -386,12 +386,15 @@ return new Promise((resolve, reject) => {
       if(result.status_code == 0) {
         other +='📣农场视频双倍离线奖励\n'
         other += '获得成功\n'
-        }
-      else{
+        }else{
+          if(result.status_code==5033){
+            other += result.message+'\n'
+          }else{
         //$.log('8888888'+result.service_time)
         other +='📣农场视频双倍离线奖励\n'
         other +="无离线产量可领取\n"
            }
+  }
         //$.log(1111)
         //$.msg(111)
           resolve()
