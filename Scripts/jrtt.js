@@ -59,6 +59,7 @@ var coins=''
 let other = ''
 var article =''
 var collect = ''
+var invited =''
 const hour = (new Date()).getHours();
 const minute = (new Date()).getMinutes();
 
@@ -71,6 +72,7 @@ if (isGetCookie) {
 } 
 
 !(async () => {
+await invite()
 await userinfo()
 await profit()
 await sign_in()
@@ -184,7 +186,55 @@ async function control(){
       $.log('no opreation')
       other +='\n\n生前何必久睡，死后自会长眠'
    }
+   if(invited == 4){
+      await invitation();
+   }
 }
+function invite() {
+//$.log(signkey)
+return new Promise((resolve, reject) => {
+//$.log(signkey)
+  let inviteurl ={
+    url: `https://api3-normal-c-lq.snssdk.com/score_task/v1/user/new_tabs/?${signurl}`,
+    headers :JSON.parse(signkey),
+      timeout: 60000,
+}
+
+   $.get(inviteurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+      // $.log(data)
+      if(result.data.section[10].key=='mine_input_code') {
+          invited=4;
+           }else{
+          invited=5;
+
+}
+
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
+function invitation() {
+return new Promise((resolve, reject) => {
+//$.log(signkey)
+  let invitatonurl ={
+    url: `https://api3-normal-c-lq.snssdk.com/luckycat/lite/v1/invite/post_invite_code/?_request_from=web&device_platform=ios&ac=4G&${signurl}`,
+    headers :JSON.parse(farmkey),
+      timeout: 60000,
+    body: JSON.stringify({"invitecode" : "1188531898"})
+}
+
+   $.post(invitatonurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+       //$.log(data)
+       //$.log('i000000')
+        //$.msg(111)
+          resolve()
+    })
+   })
+  } 
+
 function userinfo() {
 //$.log(signkey)
 return new Promise((resolve, reject) => {
@@ -202,9 +252,9 @@ return new Promise((resolve, reject) => {
           other +='🎉'+result.data.name+'\n'
   
 }     else if(result.message == 'error'){
-          other += '⚠️异常:result,data.description\n'
+          other += '⚠️异常:'+result.data.description+'\n'
            }else{
-          other += '⚠️异常\n'
+          other += '⚠️异常'
 }
         //$.log(1111)
         //$.msg(111)
@@ -328,7 +378,7 @@ return new Promise((resolve, reject) => {
       if(result.status_code == 0) {
         //$.log(1111)
         other +='📣农场宝箱\n'
-        other += "第"+(5-result.data.box_num)+"开启成功\n"
+        other += "第"+(5-result.data.box_num)+"开启成功"
         other += "还可以开启"+result.data.box_num+"个\n"
         
         }
@@ -360,7 +410,7 @@ return new Promise((resolve, reject) => {
         other += '💧水滴剩余'+result.data.water+'\n'
         }
       else{
-        other +=result.message
+        other +=result.message+'\n'
            }
         //$.log(1111)
         //$.msg(111)
@@ -463,7 +513,7 @@ return new Promise((resolve, reject) => {
 }     else if(result.err_no == 1052){
           other +='📣开始睡觉\n'+result.err_tips+'\n'
            }else{
-          other += '📣开始睡觉:'+'⚠️异常\n'
+          other += '📣开始睡觉:'+'⚠️异常'
 }
         //$.log(1111)
         //$.msg(111)
@@ -490,7 +540,7 @@ return new Promise((resolve, reject) => {
 }     else if(result.err_no == 1052){
           other += '📣停止睡觉\n'+'还没开始睡觉\n'
            }else{
-          other +='📣停止睡觉:'+'\n⚠️异常\n'
+          other +='📣停止睡觉:'+'\n⚠️异常'
 }
         //$.log(1111)
         //$.msg(111)
@@ -514,10 +564,10 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
        $.log(data)
       if(result.err_no == 0) {
-          other +='📣收取金币\n'+result.err_tips+'  获得金币:'+coins
+          other +='📣收取金币\n'+result.err_tips+'     获得金币:'+coins
           
 }     else{
-          other +='📣收取金币:'+'\n⚠️异常:'+result.err_tips+'\n'
+          other +='📣收取金币:'+'\n⚠️异常:'+result.err_tips+''
 }
         //$.log(1111)
         //$.msg(111)
