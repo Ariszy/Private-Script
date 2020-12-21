@@ -1,0 +1,16 @@
+{
+  "id": "ZhiYi-N.app.sub",
+  "name": "ZhiYi-N 应用订阅",
+  "author": "@ZhiYi-N",
+  "icon": "",
+  "repo": "https://github.com/ZhiYi-N/script",
+  "apps": [{
+    "id": "jrtt",
+    "name": "今日头条极速版",
+    "keys": ["farmurl", "farmkey", "signurl", "signkey", "readurl", "readkey"],
+    "author": "@ZhiYi-N",
+    "repo": "https://github.com/ZhiYi-N/script/blob/master/jrtt.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/ZhiYi-N.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt.jpg"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/jrtt.js"
+  }]
+}
