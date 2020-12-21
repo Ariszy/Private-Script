@@ -466,7 +466,7 @@ return new Promise((resolve, reject) => {
        // $.log(data)
       if(result.err_no == 0) {
           other +='📣查询睡觉状态\n🎉查询'+result.err_tips+'\n'
-        
+          }
        if(result.data.sleeping == false){
           other +='当前状态:清醒着呢\n'
 //$.log('jjjjjjjjjj'+hour)
@@ -485,8 +485,6 @@ return new Promise((resolve, reject) => {
           }else{
          collect =2
 }
-  
-           }
      }
         //$.log(1111)
         //$.msg(111)
