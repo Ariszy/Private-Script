@@ -1,4 +1,8 @@
 /*
+github：https://github.com/ZhiYi-N/script
+转载给我留个名字，谢谢
+
+
 邀请码：1980436898
 我的--输入邀请码，立得一元，直接提现，谢谢
 
