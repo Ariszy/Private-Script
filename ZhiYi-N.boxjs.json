@@ -7,7 +7,7 @@
   "apps": [{
     "id": "jrtt",
     "name": "今日头条极速版",
-    "keys": ["signurl", "signkey", "farmurl", "farmkey", "readurl", "readkey", "signurl1", "signkey1", "farmurl1", "farmkey1", "readurl1", "readkey1"],
+    "keys": ["signurl", "signkey", "farmurl", "farmkey", "readurl", "readkey", "signurl2", "signkey2", "farmurl2", "farmkey2", "readurl2", "readkey2"],
     "author": "@ZhiYi-N",
     "settings": [{
         "id": "jrttsetting",
