@@ -31,6 +31,7 @@ kkdcookie = type=http-request,pattern=^https:\/\/api\.yuncheapp\.cn\/pearl-incen
 */
 const jsname='快看点'
 const $ = Env(jsname)
+const notify = $.isNode() ? require('./sendNotify') : '';
 const kkdheaderArr=[]
 const kkdcookieArr=[]
 const kkdbodyArr=[]
@@ -39,7 +40,7 @@ let kkdcookie = $.getdata('kkdcookie')
 let kkdbody = $.getdata('kkdbody')
 const logs = false //日志
 const invite = 1; //邀请码1为邀请
-const notify = 1;//通知
+const tz = 1;//通知
 const invited = '';
 let lTadlist = '15884282854261489762';
 let gRadlist = '15884282854261489762';
@@ -405,7 +406,7 @@ return new Promise((resolve, reject) => {
   } 
 var Time = new Date(new Date().getTime() + 8 * 60 * 60 * 1000);
 async function showmsg(){
-if(notify==1){
+if(tz==1){
     if ($.isNode()&& (Time.getHours() == 12 && Time.getMinutes() <= 20) || (Time.getHours() == 23 && Time.getMinutes() >= 40)) {
        await notify.sendNotify($.name,message)
      }else{
