@@ -17,21 +17,21 @@ github：https://github.com/ZhiYi-N/script
 hostname = *.snssdk.com
 #圈x
 [rewrite local]
-https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/done\/sign_in\? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
+https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/sign_in\/detail\? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
 
 https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/done\/read\? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
 
 https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/walk\/step_submit\? - script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
 
 #loon
-http-request ^https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/done\/sign_in\? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js, requires-body=true, timeout=10, tag=抖音极速版sign
+http-request ^https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/sign_in\/detail\? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js, requires-body=true, timeout=10, tag=抖音极速版sign
 
 http-request ^https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/done\/read\? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js, requires-body=true, timeout=10, tag=抖音极速版read
 
 http-request ^https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/walk\/step_submit\? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js, requires-body=true, timeout=10, tag=抖音极速版step
 
 #surge
-dyjsbsign = type=http-request,pattern=^https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/done\/sign_in\?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js,script-update-interval=0
+dyjsbsign = type=http-request,pattern=^https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/sign_in\/detail\?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js,script-update-interval=0
 
 dyjsbread = type=http-request,pattern=^https:\/\/aweme-\w+\.snssdk\.com\/luckycat\/aweme\/v1\/task\/done\/read\?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js,script-update-interval=0
 
