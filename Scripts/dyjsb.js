@@ -119,7 +119,7 @@ if (process.env.READHEADER && process.env.READHEADER.indexOf('#') > -1) {
    readheader = process.env.READHEADER.split('#');
    console.log(`您选择的是用"#"隔开\n`)
   }
-  else if (process.env.READHEADER && process.env.JRTTREADURL.indexOf('\n') > -1) {
+  else if (process.env.READHEADER && process.env. READHEADER.indexOf('\n') > -1) {
    readheader = process.env.READHEADER.split('\n');
    console.log(`您选择的是用换行隔开\n`)
   } else {
