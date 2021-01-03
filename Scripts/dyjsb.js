@@ -11,7 +11,7 @@ github：https://github.com/ZhiYi-N/script
 看视频（自测）
 脚本初成，非专业人士制作，欢迎指正
 #签到获取signheader and signcookie（已签到获取不到应该）
-#走路修改步数，提交之前需要重新获取ck，不然提交失败，进一次任务界面就可
+#走路修改步数，ck维持时间很短，每次需要重新获取，进一次任务界面就可获取成功
 #看一个视频转完一圈获取readheader and readkey
 [mitm]
 hostname = *.snssdk.com
