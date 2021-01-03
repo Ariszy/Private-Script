@@ -2,10 +2,8 @@
 羊毛很少、自己取舍，每天2-3毛
 
 github：https://github.com/ZhiYi-N/script
-boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
 转载留个名字，谢谢
-邀请码：1980436898
-我的--输入邀请码，立得一元，直接提现，谢谢
+邀请码：JFN4M3
 作者：执意ZhiYi-N
 目前包含：
 时段奖励
