@@ -1,9 +1,7 @@
 /*
 github：https://github.com/ZhiYi-N/script
-boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
 转载留个名字，谢谢
 邀请码：8025524531
-我的--输入邀请码，立得一元，直接提现，谢谢
 作者：执意ZhiYi-N
 目前包含：
 签到
