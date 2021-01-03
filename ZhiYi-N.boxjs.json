@@ -22,11 +22,56 @@
         "val": "1",
         "type": "number",
         "desc": "需要几个账号，数字为几"
-      }
-    ],
-
+      }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/jrtt.js",
     "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt.jpg", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt.jpg"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/jrtt.js"
-  }]
+  },
+  {
+    "id": "kkd",
+    "name": "快看点",
+    "keys": ["kkdheader", "kkdcookie", "kkdheader2", "kkdcookie2"],
+    "author": "@ZhiYi-N",
+    "settings": [{
+        "id": "kkdsetting",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "kkdcount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/ZhiYi-N/script/blob/master/kkd.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd.jpg", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd.jpg"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/kkd.js"
+  },
+  {
+    "id": "dyjsb",
+    "name": "抖音极速版",
+    "keys": ["signheader", "signcookie", "stepheader", "stepkey", "readheader", "readkey", "signheader", "signcookie2", "stepheader2", "stepkey2", "readheader2", "readkey2"],
+    "author": "@ZhiYi-N",
+    "settings": [{
+        "id": "dyjsbsetting",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "dyjsbcount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/ZhiYi-N/script/blob/master/dyjsb.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.jpg", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.jpg"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/dyjsb.js"
+  }
+ ]
 }
