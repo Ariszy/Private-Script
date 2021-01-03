@@ -1,4 +1,6 @@
 /*
+⚠️不要太快刷视频，有点bug，在尝试解决
+出现spam check not pass，请重新获取readkey，还没找到问题
 github：https://github.com/ZhiYi-N/script
 转载留个名字，谢谢
 邀请码：8025524531
