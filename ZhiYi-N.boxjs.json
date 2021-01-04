@@ -10,6 +10,13 @@
     "keys": ["signurl", "signkey", "farmurl", "farmkey", "readurl", "readkey", "signurl2", "signkey2", "farmurl2", "farmkey2", "readurl2", "readkey2"],
     "author": "@ZhiYi-N",
     "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+       {
         "id": "jrttsetting",
         "name": "当前账号",
         "val": "1",
