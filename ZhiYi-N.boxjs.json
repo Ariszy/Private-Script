@@ -40,6 +40,13 @@
     "keys": ["kkdheader", "kkdcookie", "kkdheader2", "kkdcookie2"],
     "author": "@ZhiYi-N",
     "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
         "id": "kkdsetting",
         "name": "当前账号",
         "val": "1",
@@ -63,6 +70,13 @@
     "keys": ["signheader", "signcookie", "stepheader", "stepkey", "readheader", "readkey", "signheader", "signcookie2", "stepheader2", "stepkey2", "readheader2", "readkey2"],
     "author": "@ZhiYi-N",
     "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
         "id": "dyjsbsetting",
         "name": "当前账号",
         "val": "1",
