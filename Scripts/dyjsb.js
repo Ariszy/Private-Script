@@ -342,7 +342,7 @@ return new Promise((resolve, reject) => {
       }
       else{
           message += '⚠️异常:'+result.err_tips+'\n'+'请重新获取readkey\n'
-          let other = '⚠️异常:'+result.err_tips+'\n'+'请重新获取readkey\n'
+          let other = '⚠️异常:'+result.err_tips+'请重新获取readkey'
           $.msg(other)
       }
           resolve()
