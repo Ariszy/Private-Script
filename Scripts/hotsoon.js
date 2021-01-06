@@ -326,7 +326,10 @@ for(let i =0;i<=result.data.profit_detail.score_income_list.length;i++){
 if(result.data.profit_detail.score_income_list[i].desc.match(/\d+/)) {
          no = result.data.profit_detail.score_income_list[i].desc.match(/\d+/)          
          break;
-}
+} else{
+        message += '视频任务完成任务'
+        return showmsg()
+ }
 }
 /*else if(!result.data.profit_detail.score_income_list[0].desc.match(/\d+/) && result.data.profit_detail.score_income_list[1].desc.match(/\d+/)) {
          no = result.data.profit_detail.score_income_list[1].desc.match(/\d+/)      
