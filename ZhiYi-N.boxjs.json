@@ -89,8 +89,12 @@
         "val": "1",
         "type": "number",
         "desc": "需要几个账号，数字为几"
-      },
-{
+      }],
+    "repo": "https://github.com/ZhiYi-N/script/blob/master/dyjsb.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.jpg", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.jpg"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/dyjsb.js"
+    }, 
+   {
     "id": "hotsoon",
     "name": "火山小视频极速版",
     "keys": ["hotsoonsignheader", "hotsoonsignkey", "hotsoonadheader", "hotsoonadkey", "hotsoonreadheader", "hotsoonreadkey", "hotsoonsignheader2", "hotsoonsignkey2", "hotsoonadheader2", "hotsoonadkey2", "hotsoonreadheader2", "hotsoonreadkey2"],
@@ -102,7 +106,7 @@
             "type": "number",
             "desc": "0为不通知，1为全部通知"
         },
-      {
+       {
         "id": "hotsoonsetting",
         "name": "当前账号",
         "val": "1",
@@ -118,7 +122,7 @@
       }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/hotsoon.js",
     "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon.jpg", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon.jpg"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/dyjsb.js"
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/hotsoon.js"
   }
  ]
 }
