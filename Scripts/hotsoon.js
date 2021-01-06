@@ -356,7 +356,12 @@ return new Promise((resolve, reject) => {
    }
  }else{
            return showmsg();
-     }
+     }if(no==2){
+           no=5
+      }else{
+            no= 2*no
+        }
+      return watch_video();
       }
       else if(result.err_no == 0) {
           message +='🎉'+result.err_tips+'获得:'+result.data.amount+"\n"
