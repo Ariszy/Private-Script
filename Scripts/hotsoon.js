@@ -200,7 +200,7 @@ if (!hotsoonsignheaderArr[0]) {
       //await userinfo()
       await sign_in()
       await treasure_task()
-      //await control()
+      await control()
       await profit()
       await watch_video()
       await showmsg()
@@ -356,19 +356,18 @@ return new Promise((resolve, reject) => {
        message += '📣看视频\n'
       if(result.err_no == 10012){
           message += '⚠️异常:'+no+'时段任务完成\n'
-          no +=1;
-          return watch_video();
+          //return watch_video();
       }
       else if(result.err_no == 0) {
           message +='🎉'+result.err_tips+'获得:'+result.data.amount+"\n"
           /*let other ='🎉'+result.err_tips+'获得:'+result.data.amount+"\n"
           $.msg(jsname,'',other)*/
-          return showmsg();
+          //return showmsg();
         }
       else{
           message += '⚠️异常:'+result.err_tips+'\n'+'请重新获取readkey\n'
           let other = '⚠️异常:'+result.err_tips+'请重新获取readkey\n'
-          $.msg(jsname,'',other)
+          //$.msg(jsname,'',other)
       }
           resolve()
     })
@@ -382,6 +381,7 @@ if(tz==1){
        await notify.sendNotify($.name,message)
      }
    }else{
+      $.log(message)
     if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
        $.msg(jsname,'',message)
 }
