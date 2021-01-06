@@ -1,4 +1,5 @@
 /*
+tgchannel：https://t.me/ZhiYi_Script
 github action有问题，看视频金币太少，建议使用代理软件
 github：https://github.com/ZhiYi-N/script
 boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
