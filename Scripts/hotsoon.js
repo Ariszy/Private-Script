@@ -316,7 +316,7 @@ return new Promise((resolve, reject) => {
 function profit() {
 return new Promise((resolve, reject) => {
   let profiturl ={
-    url: `https://i-hl.snssdk.com/luckycat/hotsoon/v1/wallet/profit_detail_page?income_type=2&${hotsoonsignheader}`,
+    url: `https://i-hl.snssdk.com/luckycat/hotsoon/v1/wallet/profit_detail_page?income_type=2&num=80&${hotsoonsignheader}`,
     headers :JSON.parse(hotsoonsignkey),
 }
    $.get(profiturl,(error, response, data) =>{
@@ -325,21 +325,10 @@ return new Promise((resolve, reject) => {
 for(let i =0;i<=result.data.profit_detail.score_income_list.length;i++){
 if(result.data.profit_detail.score_income_list[i].desc.match(/\d+/)) {
          no = result.data.profit_detail.score_income_list[i].desc.match(/\d+/)          
+$.log(no)
          break;
-} else{
-        message += '视频任务完成任务'
-        return showmsg()
- }
 }
-/*else if(!result.data.profit_detail.score_income_list[0].desc.match(/\d+/) && result.data.profit_detail.score_income_list[1].desc.match(/\d+/)) {
-         no = result.data.profit_detail.score_income_list[1].desc.match(/\d+/)      
 }
-else if(!result.data.profit_detail.score_income_list[0].desc.match(/\d+/)&& !result.data.profit_detail.score_income_list[1].desc.match(/\d+/) &&result.data.profit_detail.score_income_list[2].desc.match(/\d+/)) {
-         no = result.data.profit_detail.score_income_list[2].desc.match(/\d+/)      
-}
-else if(!result.data.profit_detail.score_income_list[0].desc.match(/\d+/)&& !result.data.profit_detail.score_income_list[1].desc.match(/\d+/) &&!result.data.profit_detail.score_income_list[2].desc.match(/\d+/)&&result.data.profit_detail.score_income_list[3].desc.match(/\d+/)) {
-         no = result.data.profit_detail.score_income_list[3].desc.match(/\d+/)      
-}*/
           resolve()
     })
    })
@@ -359,7 +348,15 @@ return new Promise((resolve, reject) => {
        message += '📣看视频\n'
       if(result.err_no == 10012){
           message += '⚠️异常:'+no+'时段任务完成\n'
-          //return watch_video();
+          if(no == 60){
+           message += '视频任务全部完成\n'
+           if(hour >= 0){
+           no = 1;
+           return watch_video();
+   }
+ }else{
+           return showmsg();
+     }
       }
       else if(result.err_no == 0) {
           message +='🎉'+result.err_tips+'获得:'+result.data.amount+"\n"
