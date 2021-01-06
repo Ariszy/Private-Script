@@ -348,26 +348,26 @@ return new Promise((resolve, reject) => {
        message += '📣看视频\n'
       if(result.err_no == 10012){
           message += '⚠️异常:'+no+'时段任务完成\n'
-          if(no == 60){
+        if(no==2){
+           no=5
+         return watch_video(no);
+       }
+       else if(no != 60){
+            no= 2*no
+          return watch_video(no);
+        }
+      else if(no == 60){
            message += '视频任务全部完成\n'
            if(hour >= 0){
            no = 1;
-           return watch_video();
+           return watch_video(no);
    }
- }else{
+ }
+        else{
            return showmsg();
-     }if(no==2){
-           no=5
-      }else{
-            no= 2*no
-        }
-      return watch_video();
-      }
+     }}
       else if(result.err_no == 0) {
           message +='🎉'+result.err_tips+'获得:'+result.data.amount+"\n"
-          /*let other ='🎉'+result.err_tips+'获得:'+result.data.amount+"\n"
-          $.msg(jsname,'',other)*/
-          //return showmsg();
         }
       else{
           message += '⚠️异常:'+result.err_tips+'\n'+'请重新获取readkey\n'
