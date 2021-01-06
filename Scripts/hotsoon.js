@@ -9,7 +9,7 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 看视频获取金币
 随机宝箱
 脚本初成，非专业人士制作，欢迎指正
-#签到详情获取signheader and signkey（已签到获取不到应该）
+#签到详情获取signheader and signkey，一定要签到详情界面获取到的
 #看广告获取adheader and adkey
 #看一个视频获取readheader and readkey
 [mitm]
@@ -25,16 +25,14 @@ https:\/\/\w+-/\w+\.snssdk\.com\/luckycat\/hotsoon\/v1\/task\/sign_in_detail\? s
 #loon
 http-request ^https://\w+-\w+.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_\d+m? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js, requires-body=true, timeout=10, tag=hotsoonread
 
-http-request ^https:\/\/\w+-/\w+\.snssdk\.com\/luckycat\/hotsoon\/v1\/task\/done\/draw_excitation_ad\? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js, requires-body=true, timeout=10, tag=hotsoonad
+http-request https://\w+-\w+.snssdk.com/luckycat/hotsoon/v1/task/done/draw_excitation_ad? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js, requires-body=true, timeout=10, tag=hotsoonad
 
-http-request ^https:\/\/\w+-/\w+\.snssdk\.com\/luckycat\/hotsoon\/v1\/task\/sign_in_detail\? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js, requires-body=true, timeout=10, tag=hotsoonsign
+http-request https://\w+-\w+.snssdk.com/luckycat/hotsoon/v1/task/sign_in_detail? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js, requires-body=true, timeout=10, tag=hotsoonsign
 
 #surge
-hotsoonsign = type=http-request,pattern=^https://\w+-\w+.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_\d+m?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js,script-update-interval=0
-
-hotsoonad = type=http-request,pattern=^https:\/\/\w+-/\w+\.snssdk\.com\/luckycat\/hotsoon\/v1\/task\/done\/draw_excitation_ad\?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js,script-update-interval=0
-
-hotsoonread = type=http-request,pattern=^https://\w+-\w+.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_\d+m?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js,script-update-interval=0
+hotsoonsign = type=http-request,pattern=^https://\w+-\w+.snssdk.com/luckycat/hotsoon/v1/task/sign_in_detail?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js,script-update-interval=0
+hotsoonad = type=http-request,pattern=^https://\w+-\w+.snssdk.com/luckycat/hotsoon/v1/task/done/draw_excitation_ad?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js,script-update-interval=0
+hotsoonread = type=http-request,pattern=https://\w+-\w+.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_\d+m?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js,script-update-interval=0
 
 */
 
