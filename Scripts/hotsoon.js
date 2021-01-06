@@ -5,7 +5,7 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 作者：执意ZhiYi-N
 目前包含：
 签到
-看广告获取金币
+看广告获取金币 广告是一个红包🧧，不是黄色金币(广告看账号，不是都有的，获取不到影响不大，只是没有广告收益）
 看视频获取金币
 随机宝箱
 脚本初成，非专业人士制作，欢迎指正
