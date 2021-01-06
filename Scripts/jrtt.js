@@ -1,4 +1,6 @@
 /*
+
+tgchannel：https://t.me/ZhiYi_Script
 github：https://github.com/ZhiYi-N/script
 转载给我留个名字，谢谢
 
