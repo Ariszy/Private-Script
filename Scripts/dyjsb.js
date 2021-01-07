@@ -34,6 +34,7 @@ dyjsbstep = type=http-request,pattern=^https://(aweme-\w+|aweme).snssdk.com/luck
 const jsname='抖音极速版'
 const $ = Env(jsname)
 const notify = $.isNode() ?require('./sendNotify') : '';
+$.idx = ($.idx = ($.getval("dyjsbcount") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const signheaderArr = [],signcookieArr=[]
 const stepheaderArr = [],stepkeyArr=[]
 const readheaderArr = [],readkeyArr=[]
@@ -208,33 +209,33 @@ if (!signheaderArr[0]) {
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
 function GetCookie() {
- if($request&&$request.url.indexOf("sign_in")>=0) {
+ if($request&&$request.url.indexOf("aweme" && "sign_in")>=0) {
   const signheader = $request.url.split(`?`)[1]
-    if (signheader) $.setdata(signheader,'signheader')
+    if (signheader) $.setdata(signheader,`signheader${$.idx}`)
     $.log(`[${jsname}] 获取sign请求: 成功,signheader: ${signheader}`)
     $.msg(`获取signheader: 成功🎉`, ``)
    const signcookie = $request.headers['Cookie']
-  if(signcookie)        $.setdata(signcookie,'signcookie')
+  if(signcookie)        $.setdata(signcookie,`signcookie${$.idx}`)
     $.log(`[${jsname}] 获取sign请求: 成功,signcookie: ${signcookie}`)
     $.msg(`获取signcookie: 成功🎉`, ``)
  }
- if($request&&$request.url.indexOf("step_submit")>=0) {
+ if($request&&$request.url.indexOf("aweme" && "step_submit")>=0) {
 	  const stepheader = $request.url.split(`?`)[1]
-	    if (stepheader) $.setdata(stepheader,'stepheader')
+	    if (stepheader) $.setdata(stepheader,`stepheader${$.idx}`)
 	    $.log(`[${jsname}] 获取step请求: 成功,stepheader: ${stepheader}`)
 	    $.msg(`获取stepheader: 成功🎉`, ``)
 	   const stepkey = JSON.stringify($request.headers)
-	  if(stepkey)        $.setdata(stepkey,'stepkey')
+	  if(stepkey)        $.setdata(stepkey,`stepkey${$.idx}`)
 	    $.log(`[${jsname}] 获取step请求: 成功,stepkey: ${stepkey}`)
 	    $.msg(`获取stepkey: 成功🎉`, ``)
 	 }
- if($request&&$request.url.indexOf("done/read")>=0) {
+ if($request&&$request.url.indexOf("aweme" && "done/read")>=0) {
 	  const readheader = $request.url.split(`?`)[1]
-	    if (readheader) $.setdata(readheader,'readheader')
+	    if (readheader) $.setdata(readheader,`readheader${$.idx}`)
 	    $.log(`[${jsname}] 获取read请求: 成功,readheader: ${readheader}`)
 	    $.msg(`获取readheader: 成功🎉`, ``)
 	   const readkey = JSON.stringify($request.headers)
-	  if(readkey)        $.setdata(readkey,'readkey')
+	  if(readkey)        $.setdata(readkey,`readkey${$.idx}`)
 	    $.log(`[${jsname}] 获取read请求: 成功,readkey: ${readkey}`)
 	    $.msg(`获取readkey: 成功🎉`, ``)
 	 }
@@ -343,7 +344,7 @@ return new Promise((resolve, reject) => {
       }
       else{
           message += '⚠️异常:'+result.err_tips+'\n'+'请重新获取readkey\n'
-          let other = '⚠️异常:'+result.err_tips+'请重新获取readkey'
+          let other = '⚠️异常:'+result.err_tips+'请重新获取readkey\n'
           $.msg(jsname,'',other)
       }
           resolve()
@@ -374,11 +375,9 @@ if(tz==1){
    }else{
     if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
        $.msg(jsname,'',message)
-}else{
-      $.log(message)
 }
 }
- } else{
+   }else{
        $.log(message)
     }
  }
