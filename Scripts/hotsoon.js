@@ -41,6 +41,7 @@ hotsoonread = type=http-request,pattern=https://(\w+-\w+||\w+).snssdk.com/luckyc
 const jsname='火山视频极速版'
 const $ = Env(jsname)
 const notify = $.isNode() ?require('./sendNotify') : '';
+$.idx = ($.idx = ($.getval("hotsooncount") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const hotsoonsignheaderArr = [],hotsoonsignkeyArr=[]
 const hotsoonadheaderArr = [],hotsoonadkeyArr=[]
 const hotsoonreadheaderArr = [],hotsoonreadkeyArr=[]
@@ -203,7 +204,7 @@ if (!hotsoonsignheaderArr[0]) {
       await treasure_task()
       await control()
       await profit()
-      await watch_video()
+      await watch_video(no)
       await showmsg()
   }
  }
@@ -213,31 +214,31 @@ if (!hotsoonsignheaderArr[0]) {
 function GetCookie() {
  if($request&&$request.url.indexOf("hotsoon"&&"sign_in_detail")>=0) {
   const hotsoonsignheader = $request.url.split(`?`)[1]
-    if (hotsoonsignheader) $.setdata(hotsoonsignheader,'hotsoonsignheader')
+    if (hotsoonsignheader) $.setdata(hotsoonsignheader,`hotsoonsignheader${$.idx}`)
     $.log(`[${jsname}] 获取sign请求: 成功,hotsoonsignheader: ${hotsoonsignheader}`)
     $.msg(`获取hotsoonsignheader: 成功🎉`, ``)
    const hotsoonsignkey = JSON.stringify($request.headers)
-  if(hotsoonsignkey)        $.setdata(hotsoonsignkey,'hotsoonsignkey')
+  if(hotsoonsignkey)        $.setdata(hotsoonsignkey,`hotsoonsignkey${$.idx}`)
     $.log(`[${jsname}] 获取sign请求: 成功,hotsoonsignkey: ${hotsoonsignkey}`)
     $.msg(`获取hotsoonsignkey: 成功🎉`, ``)
  }
  if($request&&$request.url.indexOf('hotsoon'&&"daily_read")>=0) {
 	  const hotsoonreadheader = $request.url.split(`?`)[1]
-	    if (hotsoonreadheader) $.setdata(hotsoonreadheader,'hotsoonreadheader')
+	    if (hotsoonreadheader) $.setdata(hotsoonreadheader,`hotsoonreadheader${$.idx}`)
 	    $.log(`[${jsname}] 获取read请求: 成功,hotsoonreadheader: ${hotsoonreadheader}`)
 	    $.msg(`获取hotsoonreadheader: 成功🎉`, ``)
 	   const hotsoonreadkey = JSON.stringify($request.headers)
-	  if(hotsoonreadkey)        $.setdata(hotsoonreadkey,'hotsoonreadkey')
+	  if(hotsoonreadkey)        $.setdata(hotsoonreadkey,`hotsoonreadkey${$.idx}`)
 	    $.log(`[${jsname}] 获取read请求: 成功,readkey: ${hotsoonreadkey}`)
 	    $.msg(`获取hotsoonreadkey: 成功🎉`, ``)
 	 }
  if($request&&$request.url.indexOf('hotsoon' && "draw_excitation_ad")>=0) {
 	  const hotsoonadheader = $request.url.split(`?`)[1]
-	    if (hotsoonadheader) $.setdata(hotsoonadheader,'hotsoonadheader')
+	    if (hotsoonadheader) $.setdata(hotsoonadheader,`hotsoonadheader${$.idx}`)
 	    $.log(`[${jsname}] 获取AD请求: 成功,hotsoonadheader: ${hotsoonadheader}`)
 	    $.msg(`获取hotsoonadheader: 成功🎉`, ``)
 	   const hotsoonadkey = JSON.stringify($request.headers)
-	  if(hotsoonadkey)        $.setdata(hotsoonadkey,'hotsoonadkey')
+	  if(hotsoonadkey)        $.setdata(hotsoonadkey,`hotsoonadkey${$.idx}`)
 	    $.log(`[${jsname}] 获取AD请求: 成功,hotsoonadkey: ${hotsoonadkey}`)
 	    $.msg(`获取hotsoonadkey: 成功🎉`, ``)
 	 }
@@ -336,7 +337,7 @@ $.log(no)
   } 
 
 //看视频
-function watch_video() {
+function watch_video(no) {
 return new Promise((resolve, reject) => {
   let watch_videourl ={
     url: `https://ib-hl.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_${no}m?${hotsoonreadheader}`,
