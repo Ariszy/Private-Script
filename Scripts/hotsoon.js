@@ -354,10 +354,14 @@ return new Promise((resolve, reject) => {
            no=5
          return watch_video(no);
        }
-       else if(no != 60){
-            no= 2*no
+       else if(no == 20){
+            no= 30
           return watch_video(no);
         }
+      else if(no == 1 || no == 5 || no == 10 || no == 30){
+           no=2*no
+         return watch_video(no);
+          }
       else if(no == 60){
            message += '视频任务全部完成\n'
            if(hour >= 0){
