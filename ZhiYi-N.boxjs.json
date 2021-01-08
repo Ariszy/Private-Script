@@ -31,7 +31,7 @@
         "desc": "需要几个账号，数字为几"
       }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/jrtt.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt.jpg", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt_g.png"],
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt.jpg"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/jrtt.js"
   },
   {
@@ -61,7 +61,7 @@
         "desc": "需要几个账号，数字为几"
       }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/kkd.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd.jpg", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd_g.png"],
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd.jpg"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/kkd.js"
   },
   {
@@ -91,7 +91,7 @@
         "desc": "需要几个账号，数字为几"
       }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/dyjsb.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.jpg", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb_g.png"],
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.jpg"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/dyjsb.js"
     }, 
    {
@@ -121,7 +121,7 @@
         "desc": "需要几个账号，数字为几"
       }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/hotsoon.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon.jpg", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon_g.png"],
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon.jpg"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/hotsoon.js"
   }
  ]
