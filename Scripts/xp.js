@@ -82,12 +82,12 @@ if (process.env. GOLDBODY && process.env.GOLDBODY.indexOf('#') > -1) {
 //video
   Object.keys(videoheader).forEach((item) => {
         if (videoheader[item]) {
-          signheaderArr.push(videoheader[item])
+          videoheaderArr.push(videoheader[item])
         }
     });
     Object.keys(videobody).forEach((item) => {
         if (videobody[item]) {
-          signcookieArr.push(videobody[item])
+          videobodyArr.push(videobody[item])
         }
     });
     Object.keys(goldbody).forEach((item) => {
