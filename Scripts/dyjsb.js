@@ -21,7 +21,7 @@ hostname = *.snssdk.com
 [rewrite local]
 https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/sign_in/detail? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
 https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/done/read? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
-https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/walk/step_submit? - script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
+https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/walk/step_submit? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
 #loon
 http-request ^https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/sign_in/detail? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js, requires-body=true, timeout=10, tag=抖音极速版sign
 http-request ^https://(aweme-\w+|aweme).snssdk.com/luckycat/aweme/v1/task/done/read? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js, requires-body=true, timeout=10, tag=抖音极速版read
