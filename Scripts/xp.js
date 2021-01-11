@@ -99,7 +99,7 @@ if (!videoheaderArr[0]) {
   for (let i = 0; i < videoheaderArr.length; i++) {
     if (videoheaderArr[i]) {
       message = ''
-      signheader = videoheaderArr[i];
+      videoheader = videoheaderArr[i];
       videobody = videobodyArr[i];
       $.index = i + 1;
       console.log(`\n开始【笑谱${$.index}】`)
