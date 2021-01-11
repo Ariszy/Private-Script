@@ -94,6 +94,36 @@
     "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.jpg"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/dyjsb.js"
     }, 
+    {
+    "id": "xp",
+    "name": "笑谱",
+    "keys": ["videoheader", "videobody", "videoheader2", "videobody2"],
+    "author": "@ZhiYi-N",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
+        "id": "xpsetting",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "xpcount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/ZhiYi-N/script/blob/master/xp.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/xp_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/xp.jpg"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/xp.js"
+   },
    {
     "id": "hotsoon",
     "name": "火山小视频极速版",
