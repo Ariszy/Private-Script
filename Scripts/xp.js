@@ -11,7 +11,8 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 作者：执意ZhiYi-N
 目前只有看视频，群友推荐，欢迎推荐
 脚本初成，非专业人士制作，欢迎指正
-#看一个视频弹出金币获取videoheader and videobody
+#看一个视频弹出金币获取videoheader and videobody(存在一定几率获取不到videobody）多试几次 and 金蛋获取 gold body
+
 [mitm]
 hostname = veishop.iboxpay.com
 #圈x
