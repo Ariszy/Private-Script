@@ -4,13 +4,10 @@ github：https://github.com/ZhiYi-N/script
 boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
 转载留个名字，谢谢
 邀请码：
-
 来笑谱，一起领20元现金！￥10.c3Zdady#*H^7
 1.长按【复制】整条信息
 2.下载并打开笑谱App：http://jzi7.cn/7szkKX 
-
 谢谢
-
 作者：执意ZhiYi-N
 目前只有看视频，群友推荐，欢迎推荐
 脚本初成，非专业人士制作，欢迎指正
@@ -20,14 +17,10 @@ hostname = veishop.iboxpay.com
 #圈x
 [rewrite local]
 https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf_customer_activity\/day_cash\/v1\/give_gold_coin_by_video\.json url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/xp.js
-
 #loon
 http-request https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf_customer_activity\/day_cash\/v1\/give_gold_coin_by_video\.json script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/xp.js, requires-body=true, timeout=10, tag=笑谱
-
 #surge
-
 笑谱 = type=http-request,pattern=^https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf_customer_activity\/day_cash\/v1\/give_gold_coin_by_video\.json,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/xp.js,script-update-interval=0
-
 */
 const jsname='笑谱'
 const $ = Env(jsname)
@@ -78,12 +71,12 @@ if ($.isNode()) {
 //video
   Object.keys(videoheader).forEach((item) => {
         if (videoheader[item]) {
-          signheaderArr.push(videoheader[item])
+          videoheaderArr.push(videoheader[item])
         }
     });
     Object.keys(videobody).forEach((item) => {
         if (videobody[item]) {
-          signcookieArr.push(videobody[item])
+          videobodyArr.push(videobody[item])
         }
     });
     console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
@@ -177,10 +170,12 @@ return new Promise((resolve, reject) => {
 async function showmsg(){
 if(tz==1){
     if ($.isNode()){
+     $.log(message)
     if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
        await notify.sendNotify($.name,message)
      }
    }else{
+      $.log(message)
     if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
        $.msg(jsname,'',message)
 }
