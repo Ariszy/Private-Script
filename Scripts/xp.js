@@ -12,7 +12,6 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 目前只有看视频，群友推荐，欢迎推荐
 脚本初成，非专业人士制作，欢迎指正
 #看一个视频弹出金币获取videoheader and videobody(存在一定几率获取不到videobody）多试几次 and 金蛋获取 gold body(第六个视频，最后一圈）
-
 [mitm]
 hostname = veishop.iboxpay.com
 #圈x
@@ -71,7 +70,7 @@ if ($.isNode()) {
   } else  {
    videobody = process.env.VIDEOBODY.split()
   };
-if (process.env.GOLDBODY && process.env.GOLDBODY.indexOf('#') > -1) {
+  if (process.env.GOLDBODY && process.env.GOLDBODY.indexOf('#') > -1) {
    goldbody = process.env.GOLDBODY.split('#');
   }
   else if (process.env.GOLDBODY && process.env.GOLDBODY.split('\n').length > 0) {
@@ -117,7 +116,7 @@ if (!videoheaderArr[0]) {
   for (let i = 0; i < videoheaderArr.length; i++) {
     if (videoheaderArr[i]) {
       message = ''
-      signheader = videoheaderArr[i];
+      videoheader = videoheaderArr[i];
       videobody = videobodyArr[i];
       goldbody = goldbodyArr[i];
       $.index = i + 1;
