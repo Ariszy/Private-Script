@@ -64,14 +64,14 @@ if ($.isNode()) {
    videoheader = process.env.VIDEOHEADER.split()
   };
   if (process.env. VIDEOBODY && process.env.VIDEOBODY.indexOf('#') > -1) {
-   goldbody = process.env.VIDEOBODY.split('#');
+   videobody = process.env.VIDEOBODY.split('#');
   }
   else if (process.env.VIDEOBODY && process.env.VIDEOBODY.split('\n').length > 0) {
-   goldbody = process.env.VIDEOBODY.split('\n');
+   videobody = process.env.VIDEOBODY.split('\n');
   } else  {
-   goldbody = process.env.VIDEOBODY.split()
+   videobody = process.env.VIDEOBODY.split()
   };
-if (process.env. GOLDBODY && process.env.GOLDBODY.indexOf('#') > -1) {
+if (process.env.GOLDBODY && process.env.GOLDBODY.indexOf('#') > -1) {
    goldbody = process.env.GOLDBODY.split('#');
   }
   else if (process.env.GOLDBODY && process.env.GOLDBODY.split('\n').length > 0) {
