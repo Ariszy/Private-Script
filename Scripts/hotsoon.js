@@ -55,7 +55,7 @@ let operate = 0;
 let hotsoonreadheader = $.getdata('hotsoonreadheader')
 let hotsoonreadkey = $.getdata('hotsoonreadkey')
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
-const logs =0;//0为关闭日志，1为开启
+const logs =1;//0为关闭日志，1为开启
 var hour=''
 var minute=''
 
@@ -326,10 +326,15 @@ return new Promise((resolve, reject) => {
    $.get(tasklisturl,(error, response, data) =>{
      const result = JSON.parse(data)
         if(logs)$.log(data)
-      for(let i = 1;i<=7;i++){
+if(result.data.daily_tasks.length == 8){
+         var I = 1;var J= 7;
+}
+else if(result.data.daily_tasks.length == 9){
+         var I = 2;var J= 8;
+}
+      for(let i = I;i<=J;i++){
         if(result.data.daily_tasks[i].completed == false) {
          no = result.data.daily_tasks[i].name.match(/\d+/)          
-         //$.log(no)
           break;
        }
          else if(result.data.daily_tasks[i].completed == true){
