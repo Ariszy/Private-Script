@@ -33,10 +33,14 @@ let goldbody = $.getdata('goldbody')
 
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 const invite=1;//新用户自动邀请，0关闭，1默认开启
-const logs =1;//0为关闭日志，1为开启
+const logs =0;//0为关闭日志，1为开启
 var hour=''
 var minute=''
+var currentdate = ''
 var gold = "0"
+var live = "0"
+let no;
+const liveid = '1348602411185672599'
 if ($.isNode()) {
    hour = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getHours();
    minute = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getMinutes();
@@ -122,9 +126,12 @@ if (!videoheaderArr[0]) {
       $.index = i + 1;
       console.log(`\n开始【笑谱${$.index}】`)
       //await invite()
+      await getNowFormatDate()
       await profit()
+      await status()
       await control()
       //await watch_video()
+      //await watch_livevideo()
       await showmsg()
   }
  }
@@ -157,7 +164,9 @@ async function control(){
    }else{
       await watch_video();
 }
-   
+   if(no < 50){
+       await watch_livevideo();
+}
 }
 //profit
 function profit() {
@@ -169,7 +178,7 @@ return new Promise((resolve, reject) => {
    $.get(profiturl,(error, response, data) =>{
      const result = JSON.parse(data)
         if(logs)$.log(data)
-     let num = data.match(/"type":1/ig).length
+     let num = data.match(/"type":1/i)? data.match(/"type":1/ig).length : 0
      $.log('xpvideo'+num)
      if(num >= 5){gold = 1}
      message += '🎉当前金币余额'+result.data[0].totalCoinAmt+'\n'
@@ -192,8 +201,12 @@ return new Promise((resolve, reject) => {
           message += `📣看视频\n`
       if(result.resultCode == 1) {
           message += '获得'+result.data.goldCoinNumber+'\n'
-      }else{
-          message +='⚠️异常'+result.errorDesc+'\n'
+      }
+      else if(result.errorCode == 'GATEWAY-TOKEN-003'){
+          message += '⏰提示：多账号请保持所有账号登录状态，不要退出登录；单账号，请更新header\n'
+      }
+      else{
+          message +='⚠️异常'+result.errorDesc+',建议加长间隔时间\n'
            }
           resolve()
     })
@@ -214,13 +227,80 @@ return new Promise((resolve, reject) => {
           message += '📣看金蛋视频\n'
       if(result.resultCode == 1) {
           message += '获得'+result.data.goldCoinNumber+'\n'
-      }else{
-          message +='⚠️异常'+result.errorDesc+'\n'
+      }
+       else if(result.errorCode == 'GATEWAY-TOKEN-003'){
+          message += '⏰提示：多账号请保持所有账号登录状态，不要退出登录；单账号，请更新header\n'
+      }
+      else{
+          message +='⚠️异常'+result.errorDesc+',建议加长间隔时间\n'
            }
           resolve()
     })
    })
   } 
+//status
+function status() {
+return new Promise((resolve, reject) => {
+  let statusurl ={
+    url: `https://veishop.iboxpay.com/nf_gateway/nf_customer_activity/day_cash/v1/list_gold_coin.json?date=${currentdate}&actTypeId=10&size=60`,
+    headers :JSON.parse(videoheader),
+}
+   $.get(statusurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+        if(logs)$.log(data)
+     //no = (data.match(/"type":1/ig).length || '1')
+     no = data.match(/"type":1/i) ? data.match(/"type":1/ig).length : 1
+     $.log('xplive'+no)
+          resolve()
+    })
+   })
+  } 
+//livevideo
+function watch_livevideo() {
+let liveids = liveid.replace(/\d{3}$/,Math.floor(Math.random()*1000));
+$.log(liveids)
+return new Promise((resolve, reject) => {
+  let watch_livevideourl ={
+    url: `https://veishop.iboxpay.com/nf_gateway/nf_customer_activity/day_cash/v1/give_redbag_by_live.json`,
+    headers: JSON.parse(videoheader),
+    //timeout: 60000,
+    body: `{"actId":"252","liveId":"${liveids}"}`
+}
+   $.post(watch_livevideourl,(error, response, data) =>{
+     const result = JSON.parse(data)
+       if(logs) $.log(data)
+          message += '📣看直播\n'
+      if(result.resultCode == 1) {
+          message += '获得'+result.data.goldCoinAmt+'\n'
+      }else{
+          message +='⚠️异常'+result.errorDesc+'\n'
+          live = 0;
+           }
+          resolve()
+    })
+   })
+  } 
+//date
+function getNowFormatDate() {
+if ($.isNode()) {
+    var date = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 );
+}else{
+    var date = new Date;
+}
+    var seperator1 = "-";
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    currentdate = year + seperator1 + month + seperator1 + strDate;
+//$.log(currentdate)
+}
+
 async function showmsg(){
 if(tz==1){
     $.log(message)
