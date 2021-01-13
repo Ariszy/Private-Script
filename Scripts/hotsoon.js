@@ -51,6 +51,7 @@ let hotsoonsigncookie = $.getdata('hotsoonsigncookie')
 let hotsoonadheader = $.getdata('hotsoonadheader')
 let hotsoonadkey = $.getdata('hotsoonadkey')
 let no = 1;
+let operate = 0;
 let hotsoonreadheader = $.getdata('hotsoonreadheader')
 let hotsoonreadkey = $.getdata('hotsoonreadkey')
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
@@ -203,7 +204,8 @@ if (!hotsoonsignheaderArr[0]) {
       await sign_in()
       await treasure_task()
       await control()
-      await profit()
+      await tasklist()
+      //await skill()
       await watch_video(no)
       await showmsg()
   }
@@ -314,28 +316,53 @@ return new Promise((resolve, reject) => {
    })
   })
  } 
-//profit
-function profit() {
+//tasklist
+function tasklist() {
 return new Promise((resolve, reject) => {
-  let profiturl ={
-    url: `https://i-hl.snssdk.com/luckycat/hotsoon/v1/wallet/profit_detail_page?income_type=2&num=80&${hotsoonsignheader}`,
+  let tasklisturl ={
+    url: `https://i.snssdk.com/luckycat/hotsoon/v1/task/page?&polaris_${hotsoonsignheader}`,
     headers :JSON.parse(hotsoonsignkey),
 }
-   $.get(profiturl,(error, response, data) =>{
+   $.get(tasklisturl,(error, response, data) =>{
      const result = JSON.parse(data)
         if(logs)$.log(data)
-for(let i =0;i<=result.data.profit_detail.score_income_list.length;i++){
-if(result.data.profit_detail.score_income_list[i].desc.match(/\d+/)) {
-         no = result.data.profit_detail.score_income_list[i].desc.match(/\d+/)          
-$.log(no)
-         break;
-}
+      for(let i = 1;i<=7;i++){
+        if(result.data.daily_tasks[i].completed == false) {
+         no = result.data.daily_tasks[i].name.match(/\d+/)          
+         //$.log(no)
+          break;
+       }
+         else if(result.data.daily_tasks[i].completed == true){
+          no = result.data.daily_tasks[i+1].name.match(/\d+/)
+           if(no == 'undefined') done;
+         }
 }
           resolve()
     })
    })
   } 
-
+//skill
+/*function skill() {
+return new Promise((resolve, reject) => {
+  let skillurl ={
+    url: `https://i-hl.snssdk.com/luckycat/hotsoon/v1/wallet/profit_detail_page?income_type=2&num=50&${hotsoonsignheader}`,
+    headers :JSON.parse(hotsoonsignkey),
+}
+   $.get(skillurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+        //if(logs)$.log(data)
+  if(data.match(/\-\d+/)){
+     message += '昨日金币'+data.match(/\-\d+/)+'\n'
+     operate = 1;
+   }else{
+     operate = 0;
+}
+  return watch_video(no);      
+          resolve()
+    })
+   })
+  } 
+*/
 //看视频
 function watch_video(no) {
 return new Promise((resolve, reject) => {
@@ -346,6 +373,7 @@ return new Promise((resolve, reject) => {
 }
    $.post(watch_videourl,(error, response, data) =>{
      const result = JSON.parse(data)
+       $.log(no+'hotsoon'+operate) 
        if(logs) $.log(data)
        message += '📣看视频\n'
       if(result.err_no == 10012){
@@ -373,12 +401,19 @@ return new Promise((resolve, reject) => {
            return showmsg();
      }}
       else if(result.err_no == 0) {
+          if(no==60&&operate==1){
+           no=1
+           return watch_video(no);
+      }else{
           message +='🎉'+result.err_tips+'获得:'+result.data.amount+"\n"
+           return showmsg()
+}
         }
       else{
           message += '⚠️异常:'+result.err_tips+'\n'+'请重新获取readkey\n'
           let other = '⚠️异常:'+result.err_tips+'请重新获取readkey\n'
-          //$.msg(jsname,'',other)
+          $.msg(jsname,'',other)
+          return showmsg()
       }
           resolve()
     })
