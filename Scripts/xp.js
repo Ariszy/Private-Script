@@ -149,14 +149,13 @@ if($request&&$request.url.indexOf("give_gold_coin_by_video")>=0) {
     $.log(`[${jsname}] 获取video请求: 成功,videoheader: ${videoheader}`)
     $.msg(`videoheader${$.idx}: 成功🎉`, ``)
 }
-
 if($request.body.indexOf('isFinishWatch')&& $request.body.indexOf('"type":2')<=0) {
+   const videobody = $request.body
     if(videobody)  $.setdata(videobody,`videobody${$.idx}`)
     $.log(`[${jsname}] 获取video请求: 成功,videobody: ${videobody}`)
     $.msg(`videobody${$.idx}: 成功🎉`, ``)
  }
-
-if($request.body.indexOf('isFinishWatch')&& $request.body.indexOf('"type":2')>=0) {
+if($request.body.indexOf('isFinishWatch')&&$request.body.indexOf('"type":2')>=0) {
    const goldbody = $request.body
     if(goldbody)  $.setdata(goldbody,`goldbody${$.idx}`)
     $.log(`[${jsname}] 获取goldvideo请求: 成功,goldbody: ${goldbody}`)
@@ -164,7 +163,7 @@ if($request.body.indexOf('isFinishWatch')&& $request.body.indexOf('"type":2')>=0
  }
  }
 async function control(){
-  /* if(coins >= 1 && hour == 0){
+   /*if(coins >= 1 && hour == 0){
       await withdraw();
 }*/
    if(goldbody && gold == 1){
@@ -172,7 +171,7 @@ async function control(){
    }else{
       await watch_video();
 }
-   if(no < 50 && hour >= 8 && hour < 23){
+   if(no < 50 && hour >= 8 && hour <= 23){
        await watch_livevideo();
 }
 }
