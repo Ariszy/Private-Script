@@ -97,7 +97,7 @@
     {
     "id": "xp",
     "name": "笑谱",
-    "keys": ["videoheader", "videobody", "videobody2", "videobody3", "videobody4", "videobody5", "videobody6"],
+    "keys": ["videoheader", "videobody1", "videobody2", "videobody3", "videobody4", "videobody5", "videobody6"],
     "author": "@ZhiYi-N",
     "settings": [{
             "id": "tz",
