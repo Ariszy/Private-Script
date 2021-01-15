@@ -165,9 +165,9 @@ if($request.body.indexOf('isFinishWatch')&&$request.body.indexOf('"type":2')>=0)
  }
  }
 async function control(){
-   if(coins >= 1 && hour == 21){
+   /*if(coins >= 1 && hour == 0){
       await withdraw();
-}
+}*/
    if(goldbody && gold == 1){
       await watch_goldvideo();
    }else{
