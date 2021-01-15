@@ -50,7 +50,6 @@ let hotsoonsigncookie = $.getdata('hotsoonsigncookie')
 let hotsoonadheader = $.getdata('hotsoonadheader')
 let hotsoonadkey = $.getdata('hotsoonadkey')
 let no = 1;
-let operate = 0;
 let hotsoonreadheader = $.getdata('hotsoonreadheader')
 let hotsoonreadkey = $.getdata('hotsoonreadkey')
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
@@ -405,41 +404,15 @@ return new Promise((resolve, reject) => {
 }
    $.post(watch_videourl,(error, response, data) =>{
      const result = JSON.parse(data)
-       $.log(no+'hotsoon'+operate) 
+       $.log('hotsoon'+no) 
        if(logs) $.log(data)
        message += '📣看视频\n'
       if(result.err_no == 10012){
           message += '⚠️异常:'+no+'时段任务完成\n'
-        if(no==2){
-           no=5
-         return watch_video(no);
-       }
-       else if(no == 20){
-            no= 30
-          return watch_video(no);
-        }
-      else if(no == 1 || no == 5 || no == 10 || no == 30){
-           no=2*no
-         return watch_video(no);
-          }
-      else if(no == 60){
-           message += '视频任务全部完成\n'
-           if(hour >= 0){
-           no = 1;
-           return watch_video(no);
-   }
- }
-        else{
-           return showmsg();
-     }}
+      }
       else if(result.err_no == 0) {
-          if(no==60&&operate==1){
-           no=1
-           return watch_video(no);
-      }else{
           message +='🎉'+result.err_tips+'获得:'+result.data.amount+"\n"
            return showmsg()
-}
         }
       else{
           message += '⚠️异常:'+result.err_tips+'\n'+'请重新获取readkey\n'
