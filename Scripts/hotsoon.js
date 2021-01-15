@@ -1,12 +1,11 @@
 /*
-tgchannel：https://t.me/ZhiYi_Script
 github：https://github.com/ZhiYi-N/script
 boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
 转载留个名字，谢谢
 作者：执意ZhiYi-N
 目前包含：
 签到
-看广告获取金币 广告是一个红包🧧，不是黄色金币(广告看账号，不是都有的，获取不到影响不大，只是没有广告收益）
+看广告获取金币
 看视频获取金币
 随机宝箱
 脚本初成，非专业人士制作，欢迎指正
@@ -21,7 +20,7 @@ https://(\w+-\w+||\w+).snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_\d+m?
 
 https://(\w+-\w+||\w+).snssdk.com/luckycat/hotsoon/v1/task/done/draw_excitation_ad? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js
 
-https://(\w+-\w+||\w+).snssdk.com/luckycat/hotsoon/v1/task/sign_in_detail? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js
+https://(\w+-\w+||\w+).snssdk.com/luckycat/hotsoon/v1/task/sign_in_detail? script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js
 
 #loon
 http-request ^https://(\w+-\w+||\w+).snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_\d+m? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon.js, requires-body=true, timeout=10, tag=hotsoonread
@@ -55,7 +54,7 @@ let operate = 0;
 let hotsoonreadheader = $.getdata('hotsoonreadheader')
 let hotsoonreadkey = $.getdata('hotsoonreadkey')
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
-const logs =1;//0为关闭日志，1为开启
+const logs =0;//0为关闭日志，1为开启
 var hour=''
 var minute=''
 
@@ -317,7 +316,7 @@ return new Promise((resolve, reject) => {
   })
  } 
 //tasklist
-function tasklist() {
+/*function tasklist() {
 return new Promise((resolve, reject) => {
   let tasklisturl ={
     url: `https://i.snssdk.com/luckycat/hotsoon/v1/task/page?&polaris_${hotsoonsignheader}`,
@@ -326,13 +325,7 @@ return new Promise((resolve, reject) => {
    $.get(tasklisturl,(error, response, data) =>{
      const result = JSON.parse(data)
         if(logs)$.log(data)
-if(result.data.daily_tasks.length == 8){
-         var I = 1;var J= 7;
-}
-else if(result.data.daily_tasks.length == 9){
-         var I = 2;var J= 8;
-}
-      for(let i = I;i<=J;i++){
+      for(let i = 2;i<=7;i++){
         if(result.data.daily_tasks[i].completed == false) {
          no = result.data.daily_tasks[i].name.match(/\d+/)          
           break;
@@ -346,6 +339,40 @@ else if(result.data.daily_tasks.length == 9){
     })
    })
   } 
+*/
+//tasklist
+function tasklist() {
+return new Promise((resolve, reject) => {
+  let tasklisturl ={
+    url: `https://i.snssdk.com/luckycat/hotsoon/v1/task/page?&polaris_${hotsoonsignheader}`,
+    headers :JSON.parse(hotsoonsignkey),
+}
+   $.get(tasklisturl,(error, response, data) =>{
+     const result = JSON.parse(data)
+        if(logs)$.log(data)
+      var a = result.data.daily_tasks.find(item => item.task_id === 1001).completed
+      var b = result.data.daily_tasks.find(item => item.task_id === 1017).completed
+      var c = result.data.daily_tasks.find(item => item.task_id === 1006).completed
+      var d = result.data.daily_tasks.find(item => item.task_id === 1003).completed
+      var e = result.data.daily_tasks.find(item => item.task_id === 1005).completed
+      var f = result.data.daily_tasks.find(item => item.task_id === 1009).completed
+      var g = result.data.daily_tasks.find(item => item.task_id === 1010).completed
+      if(a) no=2
+      if(b) no=5
+      if(c) no=10
+      if(d) no=20
+      if(e) no=30
+      if(f) no=60
+      if(g) {      
+      $.log('视频任务完成')
+      message += '视频任务完成\n'
+      if(!a)
+      no=1
+     }
+      resolve()
+    })
+   })
+  }
 //skill
 /*function skill() {
 return new Promise((resolve, reject) => {
