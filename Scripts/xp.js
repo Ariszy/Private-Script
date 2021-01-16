@@ -210,8 +210,8 @@ return new Promise((resolve, reject) => {
        $.done()
       }
 var random = ''
-for(let i = 1;i<=6;i++){
-  const No = Math.round(Math.random()*10)
+for(let i = 1;i<=7;i++){
+  const No = Math.round(Math.random()*9)
      random += No;
 }
 video = '134869212528'+random
