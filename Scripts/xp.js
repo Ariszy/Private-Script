@@ -173,7 +173,7 @@ async function control(){
    }else{
       await watch_video();
 }
-   if(no < 50 && hour >= 8 && hour <= 23){
+   if(no < 50 && hour >= 8 && hour <= 23 && $.getval("live") == 1){
        await watch_livevideo();
 }
 }
