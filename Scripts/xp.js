@@ -165,9 +165,9 @@ if($request.body.indexOf('isFinishWatch')&&$request.body.indexOf('"type":2')>=0)
  }
  }
 async function control(){
-   if(coins >= 1 && hour == 21){
+   /*if(coins >= 1 && hour == 21){
       await withdraw();
-}
+}*/
    if(goldbody && gold == 1){
       await watch_goldvideo();
    }else{
@@ -209,8 +209,13 @@ return new Promise((resolve, reject) => {
        $.msg('⏰提示：多账号请保持所有账号登录状态，不要退出登录；单账号，请更新header\n')
        $.done()
       }
-      video = '134869212528'+Math.round((Math.random()>0.1 ? Math.random() : (Math.random()+0.1)) * 10000000)
-$.log('videoid:'+video)
+var random = ''
+for(let i = 1;i<=6;i++){
+  const No = Math.round(Math.random()*10)
+     random += No;
+}
+video = '134869212528'+random
+$.log(video)
      //if(num == 0) $.msg('token过期，请重新获取header')
      if(num >= 5){gold = 1}
      //message += '🎉当前金币余额'+result.data[0].totalCoinAmt+'\n'
