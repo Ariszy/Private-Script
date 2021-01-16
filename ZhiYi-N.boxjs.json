@@ -31,7 +31,7 @@
         "desc": "需要几个账号，数字为几"
       }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/jrtt.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt.jpg"],
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt.png"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/jrtt.js"
   },
   {
@@ -61,7 +61,7 @@
         "desc": "需要几个账号，数字为几"
       }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/kkd.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd.jpg"],
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd.png"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/kkd.js"
   },
   {
@@ -91,7 +91,7 @@
         "desc": "需要几个账号，数字为几"
       }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/dyjsb.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.jpg"],
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.png"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/dyjsb.js"
     }, 
     {
@@ -128,7 +128,7 @@
         "desc": "需要几个账号，数字为几"
       }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/xp.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/xp_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/xp.jpg"],
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/xp-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/xp.png"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/xp.js"
    },
    {
@@ -158,7 +158,7 @@
         "desc": "需要几个账号，数字为几"
       }],
     "repo": "https://github.com/ZhiYi-N/script/blob/master/hotsoon.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon_1.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon.jpg"],
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon.png"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/hotsoon.js"
   }
  ]
