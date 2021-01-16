@@ -213,7 +213,7 @@ return new Promise((resolve, reject) => {
   } 
 //video
 function watch_video() {
-video = '134869212528'+Math.floor(Math.random()*12345678)
+video = '13'+Math.floor(Math.random()*123456789101112131)
 $.log(video)
 return new Promise((resolve, reject) => {
   let watch_videourl ={
@@ -241,7 +241,7 @@ return new Promise((resolve, reject) => {
   } 
 //goldvideo
 function watch_goldvideo() {
-video = '134869212528'+Math.floor(Math.random()*12345678)
+video = '13'+Math.floor(Math.random()*123456789101112131)
 $.log(video)
 return new Promise((resolve, reject) => {
   let watch_goldvideourl ={
