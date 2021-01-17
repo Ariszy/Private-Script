@@ -32,7 +32,7 @@ let videobody = $.getdata('videobody')
 let goldbody = $.getdata('goldbody')
 
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
-const invite=1;//新用户自动邀请，0关闭，1默认开启
+//const invite=1;//新用户自动邀请，0关闭，1默认开启
 const logs =0;//0为关闭日志，1为开启
 var hour=''
 var minute=''
@@ -41,9 +41,10 @@ var newtime = ''
 let headers;
 var gold = "0"
 var live = "0"
-let no;
+let no,cash;
+var draw = '1';
 var video= '0'
-var coins= '0'
+var coins='0'
 let stop;
 const liveid = '1348602411185672599'
 if ($.isNode()) {
@@ -58,6 +59,9 @@ let isGetCookie = typeof $request !== 'undefined'
 if (isGetCookie) {
    GetCookie();
    $.done()
+} 
+if ($.isNode()) {
+ cash = process.env.XPCASH || 0;
 } 
 if ($.isNode()) {
 //video
@@ -110,6 +114,7 @@ if ($.isNode()) {
     videobodyArr.push($.getdata('videobody'))
     goldbodyArr.push($.getdata('goldbody'))
     let xpcount = ($.getval('xpcount') || '1');
+    cash = ($.getval('xpcash') || '0');
   for (let i = 2; i <= xpcount; i++) {
     videoheaderArr.push($.getdata(`videoheader${i}`))
     videobodyArr.push($.getdata(`videobody${i}`))
@@ -135,6 +140,7 @@ if (!videoheaderArr[0]) {
       await profit()
       await balance()
       await status()
+      await day_cash()
       await control()
       //await withdraw()
       //await watch_livevideo()
@@ -165,9 +171,9 @@ if($request.body.indexOf('isFinishWatch')&&$request.body.indexOf('"type":2')>=0)
  }
  }
 async function control(){
-   /*if(coins >= 1 && hour == 21){
+   if(cash>0 && coins >= cash && hour == 0 && draw == 1){
       await withdraw();
-}*/
+}
    if(goldbody && gold == 1){
       await watch_goldvideo();
    }else{
@@ -188,7 +194,7 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
         if(logs)$.log(data)
      message += '金币余额：'+result.data.coinSum+'\n现金余额：'+result.data.balanceSum/100+'\n'
-    coins = result.data.balanceSum/100;
+     coins = result.data.balanceSum/100;
           resolve()
     })
    })
@@ -323,18 +329,37 @@ return new Promise((resolve, reject) => {
   let withdrawurl ={
     url: `https://veishop.iboxpay.com/nf_gateway/nf_customer_activity/activity/v1/withdraw.json`,
     headers: JSON.parse(headers),
-    body: `{"source":"WX_APP_KA_HTZP","bizType":2,"amount":100}`
+    body: `{"source":"WX_APP_KA_HTZP","bizType":2,"amount":${cash*100}}`
 }
    $.post(withdrawurl,(error, response, data) =>{
      const result = JSON.parse(data)
        if(logs) $.log(data)
-          message += '📣一元提现\n'
+          message += '📣提现\n'
       if(result.resultCode == 1) {
           message += result.data.remark+'\n'
       }else{
           message +=message += result.data.remark+'\n'
            }
           resolve()
+    })
+   })
+  } 
+//day_cash
+function day_cash() {
+return new Promise((resolve, reject) => {
+  let day_cashurl ={
+    url: `https://veishop.iboxpay.com/nf_gateway/nf_customer_activity/day_cash/v1/in_out.json?date=${currentdate}&actTypeId=0&current=1&size=2`,
+    headers: JSON.parse(headers),
+}
+   $.get(day_cashurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+       if(logs) $.log(data)
+       if(result.resultCode == 1) {
+       if(result.data.records.find(item => item.tradeTypeName === '提现')){
+       draw = 0
+       }
+          resolve()
+     }
     })
    })
   } 
