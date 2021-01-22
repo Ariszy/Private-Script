@@ -94,7 +94,7 @@ if (!zcyheaderArr[0]) {
       await getNowFormatDate()
       await get_step()
       await modify_step()
-      //await submit_step()
+      await submit_step()
       await step_rewards()
       await modify_locate()
       //await video_rewards()
