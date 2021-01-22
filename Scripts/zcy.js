@@ -19,6 +19,27 @@ http-request https:\/\/step-money\.quanxiangweilai\.cn\/api\/step_count\/sync sc
 #surge
 走财运 = type=http-request,pattern=https:\/\/step-money\.quanxiangweilai\.cn\/api\/step_count\/sync,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/zcy.js,script-update-interval=0
 */
+/*
+tgchannel：https://t.me/ZhiYi8028
+github：https://github.com/ZhiYi-N/script
+boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
+转载留个名字，谢谢
+邀请码：6EYH02
+谢谢
+作者：执意ZhiYi-N
+目前只有走路，看视频
+脚本初成，非专业人士制作，欢迎指正
+#在首页刷新步数记录获取ck zcyheader和zcybody
+[mitm]
+hostname = step-money.quanxiangweilai.cn
+#圈x
+[rewrite local]
+https:\/\/step-money\.quanxiangweilai\.cn\/api\/step_count\/sync url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/zcy.js
+#loon
+http-request https:\/\/step-money\.quanxiangweilai\.cn\/api\/step_count\/sync script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/zcy.js, requires-body=true, timeout=10, tag=走财运
+#surge
+走财运 = type=http-request,pattern=https:\/\/step-money\.quanxiangweilai\.cn\/api\/step_count\/sync,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/zcy.js,script-update-interval=0
+*/
 const jsname = '走财运'
 const $ = Env(jsname)
 const notify = $.isNode() ?require('./sendNotify') : '';
@@ -97,7 +118,7 @@ if (!zcyheaderArr[0]) {
       await submit_step()
       await step_rewards()
       await modify_locate()
-      //await video_rewards()
+      await video_rewards()
       await showmsg()
   }
  }
@@ -182,12 +203,12 @@ async function modify_step(){
    if(now_step < 1000){
       step = 1000
    }
-   else if(now_step < 40000 && now_step > 1000){
+   else if(now_step < 40000 && now_step >= 1000){
       step = Number(now_step) + 1000
    }
-   else if(now_step < 40000 && now_step % 1000 == 0){
+   /*else if(now_step < 40000 && now_step % 1000 == 0){
       step == Number(now_step)
-   }
+   }*/
    else if(now_step >= 40000){
       //step = Number(now_step)+1000
       //$.log(step)
@@ -197,7 +218,8 @@ async function modify_step(){
 }
 //submit step
 async function submit_step(){
-let stepbody = zcybody.replace(/count=\d+/,`count=${step}`)
+let stepbody = zcybody.replace(/count=\d+.*/,`count=${step}`)
+//$.log(step)
  return new Promise((resolve) => {
     let submit_step_url = {
    		url: 'https://step-money.quanxiangweilai.cn/api/step_count/sync',
@@ -251,7 +273,7 @@ $.log(step_rewards_body)
 async function modify_locate(){
    if(now_step <= 15000){
       locate = now_step / 1000
-      await video_rewards()
+      //await video_rewards()
    }else{
       console.log("视频奖励任务已完成")
       //$.msg("视频奖励任务已完成")
