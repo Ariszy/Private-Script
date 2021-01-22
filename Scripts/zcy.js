@@ -3,8 +3,8 @@ tgchannel：https://t.me/ZhiYi8028
 github：https://github.com/ZhiYi-N/script
 boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
 转载留个名字，谢谢
-邀请码：6EYH02
-谢谢
+邀请码：https://step-money-api.yousails-project.com/api/invited_share?code=6EYH02
+复制浏览器，下载，谢谢
 作者：执意ZhiYi-N
 目前只有走路，看视频
 脚本初成，非专业人士制作，欢迎指正
