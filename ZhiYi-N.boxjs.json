@@ -139,6 +139,36 @@
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/xp.js"
    },
    {
+    "id": "zcy",
+    "name": "走财运",
+    "keys": ["zcyheader", "zcybody", "zcyheader2", "zcybody2"],
+    "author": "@ZhiYi-N",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
+        "id": "zcysetting",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "zcycount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/zcy.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/zcy-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/zcy.png"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/zcy.js"
+  },
+   {
     "id": "hotsoon",
     "name": "火山小视频极速版",
     "keys": ["hotsoonsignheader", "hotsoonsignkey", "hotsoonadheader", "hotsoonadkey", "hotsoonreadheader", "hotsoonreadkey", "hotsoonsignheader2", "hotsoonsignkey2", "hotsoonadheader2", "hotsoonadkey2", "hotsoonreadheader2", "hotsoonreadkey2", "hotsoonsignheader3", "hotsoonsignkey3", "hotsoonadheader3", "hotsoonadkey3", "hotsoonreadheader3", "hotsoonreadkey3", "hotsoonsignheader4", "hotsoonsignkey4", "hotsoonadheader4", "hotsoonadkey4", "hotsoonreadheader4", "hotsoonreadkey4", "hotsoonsignheader5", "hotsoonsignkey5", "hotsoonadheader5", "hotsoonadkey5", "hotsoonreadheader5", "hotsoonreadkey5", "hotsoonsignheader6", "hotsoonsignkey6", "hotsoonadheader6", "hotsoonadkey6", "hotsoonreadheader6", "hotsoonreadkey6", "hotsoonsignheader7", "hotsoonsignkey7", "hotsoonadheader7", "hotsoonadkey7", "hotsoonreadheader7", "hotsoonreadkey7", "hotsoonsignheader8", "hotsoonsignkey8", "hotsoonadheader8", "hotsoonadkey8", "hotsoonreadheader8", "hotsoonreadkey8", "hotsoonsignheader9", "hotsoonsignkey9", "hotsoonadheader9", "hotsoonadkey9", "hotsoonreadheader9", "hotsoonreadkey9", "hotsoonsignheader10", "hotsoonsignkey10", "hotsoonadheader10", "hotsoonadkey10", "hotsoonreadheader10", "hotsoonreadkey10"],
