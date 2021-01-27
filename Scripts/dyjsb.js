@@ -16,7 +16,7 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 #走路修改步数，提前之前需要重新获取ck，不然提交失败，进一次任务界面就可
 #看一个视频弹出金币获取readheader and readkey
 [mitm]
-hostname = *.snssdk.com
+hostname = api5-normal-c-*.amemv.com
 
 #圈x
 [rewrite local]
