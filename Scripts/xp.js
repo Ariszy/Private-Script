@@ -45,7 +45,7 @@ var draw = '1';
 var video= '0'
 var coins='0'
 let stop;
-let goldbody = videobody.replace('type":1','type":2')
+let goldbody;
 const liveid = '1348602411185672599'
 if ($.isNode()) {
    hour = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getHours();
@@ -234,6 +234,7 @@ return new Promise((resolve, reject) => {
   } 
 //goldvideo
 function watch_goldvideo() {
+goldbody = videobody.replace('type":1','type":2')
 return new Promise((resolve, reject) => {
   let watch_goldvideourl ={
     url: `https://veishop.iboxpay.com/nf_gateway/nf_customer_activity/day_cash/v1/give_gold_coin_by_video.json`,
