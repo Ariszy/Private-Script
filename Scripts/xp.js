@@ -381,7 +381,7 @@ if ($.isNode()) {
         strDate = "0" + strDate;
     }
     newtime = new Date().getTime()
-    headers = videoheader.replace(/\d{21,33}/,`31348493177781673984${newtime}`)
+    headers = videoheader.replace(/\d{21,33}/,`31348279060592648192${newtime}`)
     currentdate = year + seperator1 + month + seperator1 + strDate;
 //$.log(currentdate)
 }
