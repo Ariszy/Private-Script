@@ -380,8 +380,10 @@ if ($.isNode()) {
     if (strDate >= 0 && strDate <= 9) {
         strDate = "0" + strDate;
     }
+    let traceid = videoheader.match(/\d{20,20}/)
     newtime = new Date().getTime()
-    headers = videoheader.replace(/\d{21,33}/,`31348279060592648192${newtime}`)
+    let newtraceid = traceid+newtime
+    headers = videoheader.replace(/\d{21,33}/,`${newtraceid}`)
     currentdate = year + seperator1 + month + seperator1 + strDate;
 //$.log(currentdate)
 }
