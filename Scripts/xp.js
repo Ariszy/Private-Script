@@ -174,11 +174,11 @@ async function control(){
    if(cash>0 && coins >= cash && hour == 0 && draw == 1){
       await withdraw();
 }
-   /*if(goldbody && gold == 1){
+   if(goldbody && gold == 1){
       await watch_goldvideo();
    }else{
       await watch_video();
-}*/
+}
    if(no < 60 && hour >= 8 && hour < 23 && $.getval("live") == 1){
        await watch_livevideo();
 }
