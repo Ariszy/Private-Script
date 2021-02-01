@@ -5,6 +5,9 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 转载留个名字，谢谢
 邀请码：AU6GW
 谢谢
+
+
+
 作者：执意ZhiYi-N
 目前只有看视频，残缺版本，能力有限处处碰壁
 #看一个视频弹出金币获取ck
@@ -50,7 +53,7 @@ let isGetCookie = typeof $request !== 'undefined'
 if (isGetCookie) {
    GetCookie();
    $.done()
-} 
+}
 if ($.isNode()) {
    if (process.env.HSURL && process.env.HSURL.indexOf('#') > -1) {
    hsurl = process.env.HSURL.split('#');
@@ -162,8 +165,8 @@ if (!hsheaderArr[0] && !hsbodyArr[0] && !hsurlArr[0]) {
 })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
-    
-    
+
+
 function GetCookie() {
 if($request&&$request.url.indexOf("task_done")>=0) {
    const hsurl = $request.url.split('?')[1]
@@ -243,10 +246,10 @@ async function gettoken(){
           $.logErr(e, response);
       } finally {
         resolve();
-      } 
+      }
     })
    })
-  }  
+  }
 //sign_in
 async function sign_in(){
  return new Promise((resolve) => {
@@ -271,10 +274,10 @@ async function sign_in(){
           $.logErr(e, response);
       } finally {
         resolve();
-      } 
+      }
     })
    })
-  }  
+  }
 //ad
 async function ad(){
  return new Promise((resolve) => {
@@ -299,10 +302,10 @@ async function ad(){
           $.logErr(e, response);
       } finally {
         resolve();
-      } 
+      }
     })
    })
-  } 
+  }
 async function ck(){
   $.log('hsurl:'+hsurl)
   $.log('hsbody:'+hsbody)
@@ -330,17 +333,17 @@ async function hotsoonfeed(){
           $.logErr(e, response);
       } finally {
         resolve();
-      } 
+      }
     })
    })
-  } 
+  }
 //play_video
 async function play_video(){
 let newplaybody = playbody.replace(/\d{19}/,`${item_id_inv}`)
  return new Promise((resolve) => {
     let play_video_url = {
      url: playurl,
-    	headers: playheader, 	
+    	headers: playheader,
      body: newplaybody
 }
    $.post(play_video_url,async(error, response, data) =>{
@@ -360,10 +363,10 @@ let newplaybody = playbody.replace(/\d{19}/,`${item_id_inv}`)
           $.logErr(e, response);
       } finally {
         resolve();
-      } 
+      }
     })
    })
-  } 
+  }
 
 //video_rewards
 async function video_rewards(){
@@ -400,7 +403,7 @@ async function video_rewards(){
           $.logErr(e, response);
       } finally {
         resolve();
-      } 
+      }
     })
    })
 }
