@@ -91,34 +91,34 @@ if ($.isNode()) {
    hsbody = process.env.HSBODY.split()
   };
 if (process.env.PLAYURL && process.env.PLAYURL.indexOf('#') > -1) {
-   hsurl = process.env.PLAYURL.split('#');
+   playurl = process.env.PLAYURL.split('#');
    console.log(`您选择的是用"#"隔开\n`)
   }
   else if (process.env.PLAYURL && process.env.PLAYURL.indexOf('\n') > -1) {
-   hsurl = process.env.PLAYURL.split('\n');
+   playurl = process.env.PLAYURL.split('\n');
    console.log(`您选择的是用换行隔开\n`)
   } else {
-   hsurl = process.env.PLAYURL.split()
+   playurl = process.env.PLAYURL.split()
   };
   if (process.env.PLAYHEADER && process.env.PLAYHEADER.indexOf('#') > -1) {
-   hsheader = process.env.PLAYHEADER.split('#');
+   playheader = process.env.PLAYHEADER.split('#');
    console.log(`您选择的是用"#"隔开\n`)
   }
   else if (process.env.PLAYHEADER && process.env.PLAYHEADER.indexOf('\n') > -1) {
-   hsheader = process.env.PLAYHEADER.split('\n');
+   playheader = process.env.PLAYHEADER.split('\n');
    console.log(`您选择的是用换行隔开\n`)
   } else {
-   hsheader = process.env.PLAYHEADER.split()
+   playheader = process.env.PLAYHEADER.split()
   };
   if (process.env.PLAYBODY && process.env.PLAYBODY.indexOf('#') > -1) {
-   hsbody = process.env.PLAYBODY.split('#');
+   playbody = process.env.PLAYBODY.split('#');
    console.log(`您选择的是用"#"隔开\n`)
   }
   else if (process.env.PLAYBODY && process.env.PLAYBODY.indexOf('\n') > -1) {
-   hsbody = process.env.PLAYBODY.split('\n');
+   playbody = process.env.PLAYBODY.split('\n');
    console.log(`您选择的是用换行隔开\n`)
   } else {
-   hsbody = process.env.PLAYBODY.split()
+   playbody = process.env.PLAYBODY.split()
   };
     console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
     console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
@@ -135,7 +135,7 @@ if (process.env.PLAYURL && process.env.PLAYURL.indexOf('#') > -1) {
     hsheaderArr.push($.getdata(`hsheader${i}`))
     hsbodyArr.push($.getdata(`hsbody${i}`))
     playurlArr.push($.getdata(`playurl${i}`))
-    playhsbodyArr.push($.getdata(`playbody${i}`))
+playheaderArr.push($.getdata(`playheader${i}`))
     playbodyArr.push($.getdata(`playbody${i}`))
   }
 }
@@ -223,7 +223,7 @@ for(let i = 0;i <= 4;i++){
    let x = Math.random()
    let delay = x > 0.5? x*60000 : (x+0.5)*60000
    console.log('⏰本次延迟'+Math.round(delay/1000)+'秒')
-   await sleep(delay)
+   await sleep(100)
    await play_video()
    //await video_rewards()
 }
@@ -572,7 +572,7 @@ let new_time = Math.round(new Date().getTime()/1000).toString();
         if(result.data.button.title.indexOf('翻倍')){
         console.log('正在领取翻倍奖励...\n')
         double_token = result.data.token
-        await sleep(15000);
+        await sleep(150);
         await task_ack()
        }
         }
@@ -581,7 +581,7 @@ let new_time = Math.round(new Date().getTime()/1000).toString();
         if(result.data.alert.indexOf('次数已用完') && add_lottery_count == 1){
         console.log('抽奖次数已用完，正在看广告增加次数')
         //message += '抽奖次数已用完，正在看广告增加次数'
-        await sleep(15000)
+        await sleep(150)
         if(add = 1){
         await add_lottery()
    }
