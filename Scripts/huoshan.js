@@ -221,9 +221,9 @@ for(let i = 0;i <= 4;i++){
    item_id_inv = item_id[i]
    $.log(item_id_inv)
    let x = Math.random()
-   let delay = x > 0.5? x*60000 : (x+0.5)*60000
+   let delay = x > 0.5? x*60000 : (x+0.5)*30000
    console.log('⏰本次延迟'+Math.round(delay/1000)+'秒')
-   await sleep(100)
+   await sleep(delay)
    await play_video()
    //await video_rewards()
 }
@@ -572,7 +572,7 @@ let new_time = Math.round(new Date().getTime()/1000).toString();
         if(result.data.button.title.indexOf('翻倍')){
         console.log('正在领取翻倍奖励...\n')
         double_token = result.data.token
-        await sleep(150);
+        await sleep(15000);
         await task_ack()
        }
         }
@@ -581,7 +581,7 @@ let new_time = Math.round(new Date().getTime()/1000).toString();
         if(result.data.alert.indexOf('次数已用完') && add_lottery_count == 1){
         console.log('抽奖次数已用完，正在看广告增加次数')
         //message += '抽奖次数已用完，正在看广告增加次数'
-        await sleep(150)
+        await sleep(15000)
         if(add = 1){
         await add_lottery()
    }
