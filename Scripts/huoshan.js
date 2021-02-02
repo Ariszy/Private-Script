@@ -182,7 +182,7 @@ if($request&&$request.url.indexOf("task_done")>=0) {
    if(hsurl)     $.setdata(hsurl,`hsurl${status}`)
    $.log(`[${zhiyi}] 获取hsurl请求: 成功,hsurl: ${hsurl}`)
    $.msg(`hsurl${status}: 成功🎉`, ``)
-   const hsheader = $request.headers
+   const hsheader = JSON.stringify($request.headers)+''
     if(hsheader)    $.setdata(hsheader,`hsheader${status}`)
     $.log(`[${zhiyi}] 获取hsheader请求: 成功,hsheader: ${hsheader}`)
     $.msg(`hsheader${status}: 成功🎉`, ``)
@@ -198,7 +198,7 @@ if($request&&$request.url.indexOf("reaction/_play")>=0) {
    if(playurl)     $.setdata(playurl,`playurl${status}`)
    $.log(`[${zhiyi}] 获取playurl请求: 成功,playurl: ${playurl}`)
    $.msg(`playurl${status}: 成功🎉`, ``)
-   const playheader =JSON.stringify($request.headers)
+   const playheader =JSON.stringify($request.headers)+''
     if(playheader)    
 $.setdata(playheader,`playheader${status}`)
     $.log(`[${zhiyi}] 获取playheader请求: 成功,playheader: ${playheader}`)
