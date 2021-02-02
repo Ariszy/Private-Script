@@ -201,7 +201,7 @@
    {
     "id": "huoshan",
     "name": "抖音火山版",
-    "keys": ["hsurl", "hsheader", "hsbody", "playurl", "playheader", "playbody", "hsurl2", "hsheader2", "hsbody2", "playurl2", "playheader2", "playbody2",],
+    "keys": ["hsurl", "hsheader", "hsbody", "playurl", "playheader", "playbody", "hsurl2", "hsheader2", "hsbody2", "playurl2", "playheader2", "playbody2"],
     "author": "@ZhiYi-N",
     "settings": [{
             "id": "tz",
