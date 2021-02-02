@@ -493,8 +493,8 @@ async function video_rewards(){
         const result = JSON.parse(data)
         if(logs)$.log(data)
         if(result.status_code == 0){
-	    let token = result.data.next_token.replace("%3D","=")
-	    let newhsbody = hsbody.replace(/WJ.*?(?==)./,`${token}`)
+	    let token = result.data.next_token.match(/WJ.*?(?==)/)+''.replace("%3D","=")
+	    let newhsbody = hsbody.replace(/WJ.*?(?==)/,`${token}`)
          let _hsbody = newhsbody.replace("%3D","=")
          hsbody = _hsbody
          $.setdata(_hsbody,`hsbody${status}`)
