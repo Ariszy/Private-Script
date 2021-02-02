@@ -201,7 +201,7 @@
    {
     "id": "huoshan",
     "name": "抖音火山版",
-    "keys": ["hsurl", "hsheader", "hsbody", "playurl", "playheader", "playbody", "hsurl2", "hsheader2", "hsbody2", "playurl2", "playheader2", "playbody2"],
+    "keys": ["hsurl", "hsheader", "hsbody", "playurl", "playheader", "playbody", "hsurl2", "hsheader2", "hsbody2", "playurl2", "playheader2", "playbody2", "hsurl3", "hsheader3", "hsbody3", "playurl3", "playheader3", "playbody3", "hsurl4", "hsheader4", "hsbody4", "playurl4", "playheader4", "playbody4", "hsurl5", "hsheader5", "hsbody5", "playurl5", "playheader5", "playbody5", "hsurl6", "hsheader6", "hsbody6", "playurl6", "playheader6", "playbody6", "hsurl7", "hsheader7", "hsbody7", "playurl7", "playheader7", "playbody7", "hsurl8", "hsheader8", "hsbody8", "playurl8", "playheader8", "playbody8", "hsurl9", "hsheader9", "hsbody9", "playurl9", "playheader9", "playbody9", "hsurl10", "hsheader10", "hsbody10", "playurl10", "playheader10", "playbody10"],
     "author": "@ZhiYi-N",
     "settings": [{
             "id": "tz",
