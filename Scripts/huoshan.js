@@ -563,8 +563,8 @@ let new_time = Math.round(new Date().getTime()/1000).toString();
         if(logs) $.log(data)
         if(result.data.gift){
         message += '🔔抽奖ing'
-        console.log('🎈'+'抽奖成功'+result.data.gift.name)
-        message += '🎈'+'抽奖成功'+result.data.gift.name
+        console.log('🎈'+'抽奖成功'+result.data.gift.name+'\n')
+        message += '🎈'+'抽奖成功'+result.data.gift.name+'\n'
         if(result.data.token){
         if(result.data.button.title.indexOf('看视频领取奖励')){
         console.log('正在领取奖励...\n')
