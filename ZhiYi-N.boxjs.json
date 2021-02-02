@@ -197,6 +197,36 @@
     "repo": "https://github.com/ZhiYi-N/script/blob/master/hotsoon.js",
     "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon.png"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/hotsoon.js"
-  }
+  },
+   {
+    "id": "huoshan",
+    "name": "抖音火山版",
+    "keys": ["hsurl", "hsheader", "hsbody", "playurl", "playheader", "playbody", "hsurl2", "hsheader2", "hsbody2", "playurl2", "playheader2", "playbody2",],
+    "author": "@ZhiYi-N",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
+        "id": "hsstatus",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "hscount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/ZhiYi-N/script/blob/master/huoshan.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hs-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hs.png"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js"
+    }
  ]
 }
