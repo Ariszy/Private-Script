@@ -437,7 +437,7 @@ let new_time = Math.round(new Date().getTime()/1000).toString();
         if(result.status_code == 0){
         console.log('🎈视频列表获取成功！即将开始播放前5个'+'\n')
         //message += '🎈视频列表获取成功！即将开始播放前2个'+'\n'
-        let item = data.match(/\d{19}/g)
+        let item = data.match(/692\d{16}/g)
         item_id = item.distinct();
 }
         }catch(e) {
