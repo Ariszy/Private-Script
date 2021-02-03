@@ -163,7 +163,7 @@ if (!hsheaderArr[0] && !hsbodyArr[0] && !hsurlArr[0]) {
       await userinfo()
       await gettoken()
       await sign_in()
-      await ad()
+      //await ad()
       await hotsoonfeed()
       await control()
       await lottery_main()
@@ -333,13 +333,16 @@ let new_time = Math.round(new Date().getTime()/1000).toString();
         if(logs)$.log(data)
         message += '🔔获取token '
         if(result.status_code == 0){
-        var ad = result.data.task_info.data.task_list.find(item => item.task_name === 'ad');
-        adtoken = ad.ad_task.token
-        console.log('🎈'+'获取成功，广告token='+adtoken)
+        var ads = result.data.task_info.data.task_list.find(item => item.task_name === 'ad');
         var sign = result.data.task_info.data.task_list.find(item => item.task_name === 'check_in')
+        message += '🎈获取token成功\n'
+        if(ads){
+        adtoken = ads.ad_task.token
+        console.log('🎈'+'获取成功，广告token='+adtoken)
+        await ad();
+        }
         signtoken = sign.check_in_task.token
         console.log('🎈'+'获取成功，签到token='+signtoken)
-        message += '🎈获取token成功\n'
         }else{
         console.log('👀我也不知道\n')
         message += '👀我也不知道\n'
