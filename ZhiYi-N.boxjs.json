@@ -194,6 +194,13 @@
         "type": "number",
         "desc": "当前账号对应"
       },
+       {
+        "id": "hotsoonaccount",
+        "name": "支付宝账号",
+        "val": "0",
+        "type": "number",
+        "desc": "中间4位为*，例如139****0000，成功与否待测试"
+      },
       {
         "id": "hotsooncount",
         "name": "账号个数",
