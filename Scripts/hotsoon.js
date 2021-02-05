@@ -57,6 +57,8 @@ let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 const logs =0;//0为关闭日志，1为开启
 var hour=''
 var minute=''
+let cash = 1;
+let coins;
 
 if ($.isNode()) {
    hour = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getHours();
@@ -293,6 +295,9 @@ async function control(){
     if(hotsoonaccount){
      await profit()
      }
+    if(cash == 1 && coins >= 20){
+     await withdraw()
+     }
 }
 //广告
 function ad() {
@@ -439,8 +444,9 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
      if(logs) $.log(data)
      let time = Math.round(new Date(new Date().toLocaleDateString()).getTime()/1000)
-if(!result.data.profit_detail.cash_income_list.find(item => item.time >= time) && !result.data.profit_detail.cash_income_list.find(item => item.task_id == "215") && result.data.income_data.cash_balance >= 20){
-     await withdraw();
+coins = result.data.income_data.cash_balance
+if(result.data.profit_detail.cash_income_list.find(item => item.time >= time) && result.data.profit_detail.cash_income_list.find(item => item.task_id == "215")){
+     cash = 0;
      }
           resolve()
     })
