@@ -198,7 +198,7 @@
         "id": "hotsoonaccount",
         "name": "支付宝账号",
         "val": "0",
-        "type": "number",
+        "type": "string",
         "desc": "中间4位为*，例如139****0000，成功与否待测试"
       },
       {
