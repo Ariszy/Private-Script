@@ -53,10 +53,12 @@ let stepkey = $.getdata('stepkey')
 
 let readheader = $.getdata('readheader')
 let readkey = $.getdata('readkey')
-let dyjsbaccount = ($.getval('dyjsbaccount') || 0)
+let dyjsbaccount = ($.getval('dyjsbaccount') || '0')
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 const invite=1;//新用户自动邀请，0关闭，1默认开启
 const logs =0;//0为关闭日志，1为开启
+let cash = 1
+let coins;
 var hour=''
 var minute=''
 const readbody = `{
@@ -260,6 +262,9 @@ async function control(){
      if(dyjsbaccount){
       await profit()
      }
+     if(cash == 1 && coins >= 30){
+      await withdraw()
+     }
 }
 //签到
 function sign_in() {
@@ -388,8 +393,9 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
      if(logs) $.log(data)
      let time = Math.round(new Date(new Date().toLocaleDateString()).getTime()/1000)
-if(!result.data.profit_detail.cash_income_list.find(item => item.time >= time) && !result.data.profit_detail.cash_income_list.find(item => item.task_id == "213") && result.data.income_data.cash_balance >= 30){
-     await withdraw()
+coins = result.data.income_data.cash_balance
+if(result.data.profit_detail.cash_income_list.find(item => item.time >= time) && result.data.profit_detail.cash_income_list.find(item => item.task_id == "213")){
+     cash = 0; 
      }
           resolve()
     })
