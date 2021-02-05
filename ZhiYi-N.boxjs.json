@@ -83,6 +83,13 @@
         "type": "number",
         "desc": "当前账号对应"
       },
+       {
+        "id": "dyjsbaccount",
+        "name": "支付宝账号",
+        "val": "0",
+        "type": "number",
+        "desc": "测试的为手机号，邮箱不知道"
+      },
       {
         "id": "dyjsbcount",
         "name": "账号个数",
