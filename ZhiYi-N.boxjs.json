@@ -136,7 +136,7 @@
       },
       {
         "id": "xprefreshtoken",
-        "name": "当前账号",
+        "name": "refreshtoken",
         "val": "",
         "type": "string",
         "desc": "当前账号对应"
