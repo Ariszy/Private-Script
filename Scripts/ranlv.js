@@ -580,7 +580,7 @@ let new_access_token = access_token.replace(/access_token=/,'')
 }
 //mySupport
 async function mySupport(){
-let url = rlurl.replace(/\d{5}$/,`${videoid}`)
+let url = rlurl.replace(/&video_id=\d{5}/,``)
  return new Promise((resolve) => {
     let mySupport_url = {
    		url: `https://ranlv.lvfacn.com/api.php/Rcharts/mySupport?&list_rows=12&member_id=${myid}&page=1&${url}`,
