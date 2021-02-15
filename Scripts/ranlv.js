@@ -7,9 +7,12 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 谢谢
 作者：执意ZhiYi-N
 #看一个视频获取ck
+目前包含：
+看视频奖励、分享奖励
+点赞视频奖励、评论视频奖励（评论内容：真好哈）
 [mitm]
 hostname = ranlv.lvfacn.com
-#圈x
+#圈x 
 [rewrite local]
 https://ranlv.lvfacn.com/api.php/Common/pvlog url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/ranlv.js
 
@@ -102,7 +105,7 @@ if (!rlheaderArr[0] && !rlbodyArr[0] && !rlurlArr[0]) {
   for (let i = 0; i < rlheaderArr.length; i++) {
     if (rlheaderArr[i]) {
       message = ''
-      note = ''
+      note =''
       rlurl = rlurlArr[i];
       rlheader = rlheaderArr[i];
       rlbody = rlbodyArr[i];
@@ -112,22 +115,13 @@ if (!rlheaderArr[0] && !rlbodyArr[0] && !rlurlArr[0]) {
       await index()
       await userinfo()
       await task_center()
-      await video_reward()
-      //await ad()
-      await share()
-      await video_info()
-      await wxfx() 
-      await share_rewards()
       await wiTask()
-      await checkPraise()
-      await comment()
       await showmsg()
   }
  }
 })()
     .catch((e) => $.logErr(e))
-    .finally(() => $.done())
-    
+    .finally(() => $.done())  
     
 function GetCookie() {
 if($request&&$request.url.indexOf("Common/pvlog")>=0) {
@@ -141,25 +135,6 @@ if($request&&$request.url.indexOf("Common/pvlog")>=0) {
     $.msg(`rlheader${status}: 成功🎉`, ``)
 }
 }
-//control
-async function control(){
-   /*for(i = 1;i<3;i++){
-    let delay = Math.random()*60000
-    $.log('⏰本次延时'+Math.round(delay/1000)+'秒')
-    await sleep(delay)
-    await video_rewards()
-}*/
-for(let i = 0;i <= 4;i++){
-   item_id_inv = item_id[i]
-   $.log(item_id_inv)
-   let x = Math.random()
-   let delay = x > 0.5? x*1000 : (x+0.5)*1000
-   console.log('⏰本次延迟'+Math.round(delay/1000)+'秒')
-   await sleep(delay)
-   await play_video()
-   //await video_rewards()
-}
-}
 //checkVersion
 async function checkVersion(){
 let url = rlurl.replace(/&video_id=\d+/,'')
@@ -169,12 +144,11 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
    	   url: `https://ranlv.lvfacn.com/api.php/Common/checkVersion?${url}`,
         headers: JSON.parse(headers)
     	}
-   $.get(checkVersion_url,async(error, response, data) =>{
+   $.post(checkVersion_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
         if(logs)$.log(data)
         message += '🔔检测更新 '
-        console.log(result.message)
         if(result.code == 0){
         console.log('🎈'+result.msg+' 当前版本:'+result.data.version_code+'\n')
         message += '🎈'+result.msg+' 当前版本:'+result.data.version_code+'\n'
@@ -205,7 +179,6 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
         let videoid_list = data.match(/"id":\d{5}/g)
         let idex = Math.random()
         let no = Math.round( idex > 0.2 ? ((idex+0.1)*10) : ((idex+0.2)*10))
-$.log(no)
         let newvideoid_list = videoid_list[no]
         videoid = newvideoid_list.replace(/"id":/,'')
         console.log('🎈'+result.msg+'\n')
@@ -272,9 +245,22 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
         console.log('幸运红包：'+luckyArr.to_num+'/'+luckyArr.num)
         let shareArr = result.data.task.find(item => item.id === 6)
         console.log('分享红包：'+shareArr.to_num+'/'+shareArr.num)
+        if(shareArr.to_num < shareArr.num){
+        await share()
+        await video_info()
+        await wxfx()
+        await share_rewards() 
+        }
         let videoArr = result.data.task.find(item => item.id === 7)
         console.log('视频任务：'+videoArr.to_num+'/'+videoArr.num)
+        if(videoArr.to_num < videoArr.num){
+        await video_reward()
+        }
         message += '邀请人数：'+inviteArr.to_num+'\n'+'幸运红包：'+luckyArr.to_num+'/'+luckyArr.num+'\n'+'分享红包：'+shareArr.to_num+'/'+shareArr.num+'\n'+'视频任务：'+videoArr.to_num+'/'+videoArr.num+'\n'
+        if(luckyArr.to_num >= luckyArr.num && shareArr.to_num >= shareArr.num && videoArr.to_num >= videoArr.num){
+        $.msg('奖励任务已完成')
+        return wiTask()
+        }
         }else{
         console.log('👀我也不知道\n')
         message += '👀我也不知道\n'
@@ -457,10 +443,20 @@ async function wiTask(){
         let praiseArr = result.data.find(item => item.id === 3)
         console.log('点赞任务：'+praiseArr.to_num+'/'+praiseArr.num+' ')
         let commentArr = result.data.find(item => item.id === 4)
+        if(praiseArr.to_num < praiseArr.num){
+        await checkPraise()
+        }
         console.log('评论任务：'+commentArr.to_num+'/'+commentArr.num+` `)
         let videoArr = result.data.find(item => item.id === 1)
+        if(commentArr.to_num < commentArr.num){
+        await comment()
+        }
         console.log('视频任务：'+videoArr.to_num+'/'+videoArr.num+' ')
         message += '点赞任务：'+praiseArr.to_num+'/'+praiseArr.num+'\n'+'评论任务：'+commentArr.to_num+'/'+commentArr.num+`\n`+'视频任务：'+videoArr.to_num+'/'+videoArr.num+'\n'
+        if(praiseArr.to_num >= praiseArr.num && commentArr.to_num >= commentArr.num && commentArr.to_num >= commentArr.num){
+        $.msg('提现任务已完成')
+        $.done()
+        }
         }
         }catch(e) {
           $.logErr(e, response);
