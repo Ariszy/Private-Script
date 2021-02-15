@@ -259,7 +259,6 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
         message += '邀请人数：'+inviteArr.to_num+'\n'+'幸运红包：'+luckyArr.to_num+'/'+luckyArr.num+'\n'+'分享红包：'+shareArr.to_num+'/'+shareArr.num+'\n'+'视频任务：'+videoArr.to_num+'/'+videoArr.num+'\n'
         if(luckyArr.to_num >= luckyArr.num && shareArr.to_num >= shareArr.num && videoArr.to_num >= videoArr.num){
         $.msg('奖励任务已完成')
-        return wiTask()
         }
         }else{
         console.log('👀我也不知道\n')
