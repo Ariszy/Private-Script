@@ -10,6 +10,7 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 目前包含：
 看视频奖励、分享奖励
 点赞视频奖励、评论视频奖励（评论内容：真好哈）
+榜单投票、榜单抽奖
 [mitm]
 hostname = ranlv.lvfacn.com
 #圈x 
@@ -28,7 +29,7 @@ http-request https://ranlv.lvfacn.com/api.php/Common/pvlog script-path=https://r
 const zhiyi = '燃旅视频'
 const $ = Env(zhiyi)
 const notify = $.isNode() ?require('./sendNotify') : '';
-let status, videoid,myid;
+let status, videoid,myid,supportvideoid;
 status = (status = ($.getval("rlstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 const rlurlArr = [], rlheaderArr = [],rlbodyArr = []
 let rlurl = $.getdata('rlurl')
@@ -114,8 +115,13 @@ if (!rlheaderArr[0] && !rlbodyArr[0] && !rlurlArr[0]) {
       await checkVersion()
       await index()
       await userinfo()
+      await myVotes()
+      await mySupport()
+      await goVote()
+      await vote_rewards()
       await task_center()
       await wiTask()
+      
       await showmsg()
   }
  }
@@ -167,7 +173,7 @@ let url = rlurl.replace(/&video_id=\d+/,'')
 let headers = rlheader.replace(/acw_tc=\w+/,'')
  return new Promise((resolve) => {
     let index_url = {
-   		url: `https://ranlv.lvfacn.com/api.php/Ranlv/index?&list_rows=12&member_id=193800&page=1&random=1&${url}`,
+   		url: `https://ranlv.lvfacn.com/api.php/Ranlv/index?&list_rows=12&member_id=${myid}&page=1&random=1&${url}`,
         headers: JSON.parse(headers)
     	}
    $.post(index_url,async(error, response, data) =>{
@@ -258,7 +264,7 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
         }
         message += '邀请人数：'+inviteArr.to_num+'\n'+'幸运红包：'+luckyArr.to_num+'/'+luckyArr.num+'\n'+'分享红包：'+shareArr.to_num+'/'+shareArr.num+'\n'+'视频任务：'+videoArr.to_num+'/'+videoArr.num+'\n'
         if(luckyArr.to_num >= luckyArr.num && shareArr.to_num >= shareArr.num && videoArr.to_num >= videoArr.num){
-        $.msg('奖励任务已完成')
+        note += '奖励任务已完成\n'
         }
         }else{
         console.log('👀我也不知道\n')
@@ -284,6 +290,7 @@ let url = rlurl.replace(/\d{5}$/,`${videoid}`)
     try{
         const result = JSON.parse(data)
         if(logs)$.log(data)
+        await sleep(Math.random()*30000)
         message += '🔔视频奖励 '
         if(result.code == 0){
         console.log('🎈'+result.msg+'\n')
@@ -410,6 +417,7 @@ let accesstoken = rlurl.match(/access_token=\w{32}/)
     try{
         const result = JSON.parse(data)
         if(logs)$.log(data)
+        await sleep(Math.random()*30000)
         if(result.code == 0){
         console.log('🎈'+result.msg+'\n')
         }else{
@@ -453,7 +461,8 @@ async function wiTask(){
         console.log('视频任务：'+videoArr.to_num+'/'+videoArr.num+' ')
         message += '点赞任务：'+praiseArr.to_num+'/'+praiseArr.num+'\n'+'评论任务：'+commentArr.to_num+'/'+commentArr.num+`\n`+'视频任务：'+videoArr.to_num+'/'+videoArr.num+'\n'
         if(praiseArr.to_num >= praiseArr.num && commentArr.to_num >= commentArr.num && commentArr.to_num >= commentArr.num){
-        $.msg('提现任务已完成')
+        note += '提现任务已完成'
+        $.msg(zhiyi,'',note)
         $.done()
         }
         }
@@ -505,9 +514,189 @@ let url = rlurl.replace(/\d{5}$/,`${videoid}`)
     try{
         const result = JSON.parse(data)
         if(logs) $.log(data)
+        await sleep(Math.random()*30000)
         if(result.code == 0){
 	   console.log('🎈'+result.msg+'\n')
         message += '🎈'+result.msg+'\n'
+        }else{
+        console.log('👀'+result.msg+'\n')
+        //message += '👀'+"我也不知道\n"
+        }
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+}
+//myVotes
+async function myVotes(){
+let user_token = rlurl.match(/user_token=\w+.\w+.\w+/)+''
+let access_token = rlurl.match(/access_token=\w+/)+''
+let new_user_token = user_token.replace(/user_token=/,'')
+let new_access_token = access_token.replace(/access_token=/,'')
+ return new Promise((resolve) => {
+    let myVotes_url = {
+   		url: `https://ranlv.lvfacn.com/api.php/Rcharts/myVotes`,
+    	headers: {
+     "Accept": "*/*",
+     "Accept-Encoding": "gzip, deflate, br",
+     "Accept-Language": "zh-cn",
+     "Connection": "keep-alive",
+     "Content-Length": "480",
+     "Content-Type": "application/json",
+     "Host": "ranlv.lvfacn.com",
+     "Origin": "https://ran.lvfacn.com",
+     "Referer": "https://ran.lvfacn.com/pages/rank/prizeapp?${user_token}&${access_token}",
+     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+     },
+     body: `{"access_token":"${new_access_token}","user_token":"${new_user_token}"}`
+    	}
+   $.post(myVotes_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs) $.log(data)
+        if(result.code == 0){
+        console.log('🎈'+result.msg+' 可投票数：'+result.data.votes+'\n')
+        message += '🎈'+result.msg+' 可投票数：'+result.data.votes+'\n'
+        let lottery_num = result.data.rate
+        if(lottery_num > 0){
+        //for(let i = 0; i < lottery_num; i++){
+        await lottery()
+        //}
+        }
+        }else{
+        console.log('👀'+result.msg+'\n')
+        //message += '👀'+"我也不知道\n"
+        }
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+}
+//mySupport
+async function mySupport(){
+let url = rlurl.replace(/\d{5}$/,`${videoid}`)
+ return new Promise((resolve) => {
+    let mySupport_url = {
+   		url: `https://ranlv.lvfacn.com/api.php/Rcharts/mySupport?&list_rows=12&member_id=${myid}&page=1&${url}`,
+    	headers: JSON.parse(rlheader),
+    	}
+   $.post(mySupport_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs) $.log(data)
+        if(result.code == 0){
+        let videoid_list = data.match(/"id":\d{5}/g)
+        let idex = Math.random()
+        let no = Math.round( idex > 0.2 ? ((idex+0.1)*10) : ((idex+0.2)*10))
+        let newvideoid_list = videoid_list[no]
+        supportvideoid = newvideoid_list.replace(/"id":/,'')
+	    console.log('🎈'+result.msg+'\n')
+        message += '🎈'+result.msg+'\n'
+        }else{
+        console.log('👀'+result.msg+'\n')
+        //message += '👀'+"我也不知道\n"
+        }
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+}
+//goVote
+async function goVote(){
+let url = rlurl.replace(/\d{5}$/,`${supportvideoid}`)
+ return new Promise((resolve) => {
+    let goVote_url = {
+   		url: `https://ranlv.lvfacn.com/api.php/Rcharts/goVote?&charts_id=62&is_act=1&member_id=${myid}&num=1&${url}`,
+    	headers: JSON.parse(rlheader),
+    	}
+   $.post(goVote_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs) $.log(data)
+        if(result.code == 0){
+        //await sleep(Math.random()*30000)
+	   console.log('🎈'+result.msg+'\n')
+        message += '🎈'+result.msg+'\n'
+        }else{
+        console.log('👀'+result.msg+'\n')
+        //message += '👀'+"我也不知道\n"
+        }
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+}
+//vote_rewards
+async function vote_rewards(){
+let url = rlurl.replace(/\d{5}$/,`${supportvideoid}`)
+ return new Promise((resolve) => {
+    let vote_rewards_url = {
+   		url: `https://ranlv.lvfacn.com/api.php/Common/pvlog?${url}`,
+    	headers: JSON.parse(rlheader),
+    	}
+   $.post(vote_rewards_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs) $.log(data)
+        await sleep(Math.random()*30000)
+        if(result.code == 0){
+	   console.log('🎈'+result.msg+'\n')
+        message += '🎈'+result.msg+'\n'
+        }else{
+        console.log('👀'+result.msg+'\n')
+        //message += '👀'+"我也不知道\n"
+        }
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+}
+//lottery
+async function lottery(){
+let user_token = rlurl.match(/user_token=\w+.\w+.\w+/)+''
+let access_token = rlurl.match(/access_token=\w+/)+''
+let new_user_token = user_token.replace(/user_token=/,'')
+let new_access_token = access_token.replace(/access_token=/,'')
+ return new Promise((resolve) => {
+    let lottery_url = {
+   	url: `https://ranlv.lvfacn.com/api.php/Rcharts/getLottery`,
+    	headers: {
+     "Accept": "*/*",
+     "Accept-Encoding": "gzip, deflate, br",
+     "Accept-Language": "zh-cn",
+     "Connection": "keep-alive",
+     "Content-Length": "480",
+     "Content-Type": "application/json",
+     "Host": "ranlv.lvfacn.com",
+     "Origin": "https://ran.lvfacn.com",
+     "Referer": "https://ran.lvfacn.com/pages/rank/prizeapp?${user_token}&${access_token}",
+     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+     },
+     body: `{"access_token":"${new_access_token}","user_token":"${new_user_token}"}`
+    	}
+   $.post(lottery_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs) $.log(data)
+        await sleep(Math.random()*30000)
+        if(result.code == 0){
+	   console.log('🎈'+result.msg+' '+result.data.name+'\n')
+        message += '🎈'+result.msg+' '+result.data.name+'\n'
         }else{
         console.log('👀'+result.msg+'\n')
         //message += '👀'+"我也不知道\n"
