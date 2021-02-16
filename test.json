@@ -1,0 +1,38 @@
+{
+  "id": "ZhiYi-N.app.sub",
+  "name": "ZhiYi-N 签到应用订阅",
+  "author": "@ZhiYi-N",
+  "icon": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/ZhiYi-N.png",
+  "repo": "https://github.com/ZhiYi-N/script",
+  "apps": [{
+    "id": "bsxq",
+    "name": "宝石星球",
+    "keys": ["bsxqurl", "bsxqhd","bsxqurl2", "bsxqhd2"],
+    "author": "@feizaoa",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+       {
+        "id": "bsxqstatus",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "bsxqcount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/bsxq.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt.png"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/script/master/bsxq.js"
+  }
+ ]
+}
