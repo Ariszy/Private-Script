@@ -502,9 +502,15 @@ let url = rlurl.replace(/\d{5}$/,`${videoid}`)
     })
    })
   } 
-//comment 真好哈
+
+//comment 10个随机
 async function comment(){
 let url = rlurl.replace(/\d{5}$/,`${videoid}`)
+let newcomment;
+let commentarr = ['%E7%9C%9F%E4%B8%8D%E9%94%99%E5%93%A6','%E7%9C%9F%E5%A5%BD%E5%93%88&','%E6%94%AF%E6%8C%81%E4%B8%80%E4%B8%8B','%E8%BF%98%E4%B8%8D%E9%94%99%E5%93%A6','%E6%84%9F%E8%A7%89%E8%BF%98%E5%8F%AF%E4%BB%A5','%E5%93%88%E5%93%88%E5%93%88%E5%93%88','%E6%84%9F%E8%B0%A2%E5%88%86%E4%BA%AB','%E4%B8%8D%E9%94%99%E5%93%9F','%E6%88%91%E5%96%9C%E6%AC%A2','%E7%9C%9F%E4%BC%98%E7%A7%80','%E6%9C%89%E4%BA%9B%E4%BC%98%E7%A7%80']
+let x = Math.random()
+let no = Math.round( x < 0.1? ((x+0.1)*9) : (x*9))
+newcomment = commentarr[no]
  return new Promise((resolve) => {
     let comment_url = {
    		url: `https://ranlv.lvfacn.com/api.php/Ranlv/addComments?content=%E7%9C%9F%E5%A5%BD%E5%93%88&${url}`,
@@ -516,8 +522,8 @@ let url = rlurl.replace(/\d{5}$/,`${videoid}`)
         if(logs) $.log(data)
         await sleep(Math.random()*30000)
         if(result.code == 0){
-	   console.log('🎈'+result.msg+'\n')
-        message += '🎈'+result.msg+'\n'
+	   console.log('🎈评论'+result.msg+'\n')
+        message += '🎈评论'+result.msg+'\n'
         }else{
         console.log('👀'+result.msg+'\n')
         //message += '👀'+"我也不知道\n"
@@ -532,7 +538,7 @@ let url = rlurl.replace(/\d{5}$/,`${videoid}`)
 }
 //myVotes
 async function myVotes(){
-let user_token = rlurl.match(/user_token=\w+.\w+.\w+/)+''
+let user_token = rlurl.match(/user.*?(?=&)/)+''
 let access_token = rlurl.match(/access_token=\w+/)+''
 let new_user_token = user_token.replace(/user_token=/,'')
 let new_access_token = access_token.replace(/access_token=/,'')
@@ -558,8 +564,8 @@ let new_access_token = access_token.replace(/access_token=/,'')
         const result = JSON.parse(data)
         if(logs) $.log(data)
         if(result.code == 0){
-        console.log('🎈'+result.msg+' 可投票数：'+result.data.votes+'\n')
-        message += '🎈'+result.msg+' 可投票数：'+result.data.votes+'\n'
+        console.log('🎈投票查询'+result.msg+' 可投票数：'+result.data.votes+'\n')
+        message += '🎈投票查询'+result.msg+' 可投票数：'+result.data.votes+'\n'
         let lottery_num = result.data.rate
         if(lottery_num > 0){
         //for(let i = 0; i < lottery_num; i++){
