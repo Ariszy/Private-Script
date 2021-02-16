@@ -594,7 +594,8 @@ let url = rlurl.replace(/&video_id=\d{5}/,``)
         let videoid_list = data.match(/"id":\d{5}/g)
         let idex = Math.random()
         let no = Math.round( idex > 0.2 ? ((idex+0.1)*10) : ((idex+0.2)*10))
-        let newvideoid_list = videoid_list[no]
+        let num = videoid_list > 0 ? no : 0
+        let newvideoid_list = videoid_list[num]
         supportvideoid = newvideoid_list.replace(/"id":/,'')
 	    console.log('🎈'+result.msg+'\n')
         message += '🎈'+result.msg+'\n'
