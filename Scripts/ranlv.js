@@ -513,7 +513,7 @@ let no = Math.round( x < 0.1? ((x+0.1)*9) : (x*9))
 newcomment = commentarr[no]
  return new Promise((resolve) => {
     let comment_url = {
-   		url: `https://ranlv.lvfacn.com/api.php/Ranlv/addComments?content=%E7%9C%9F%E5%A5%BD%E5%93%88&${url}`,
+   		url: `https://ranlv.lvfacn.com/api.php/Ranlv/addComments?content=${newcomment}&${url}`,
     	headers: JSON.parse(rlheader),
     	}
    $.post(comment_url,async(error, response, data) =>{
