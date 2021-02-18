@@ -9,7 +9,7 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 #看一个视频获取ck
 目前包含：
 看视频奖励、分享奖励
-点赞视频奖励、评论视频奖励（评论内容：真好哈）
+点赞视频奖励、评论视频奖励
 榜单投票、榜单抽奖
 [mitm]
 hostname = ranlv.lvfacn.com
@@ -116,9 +116,6 @@ if (!rlheaderArr[0] && !rlbodyArr[0] && !rlurlArr[0]) {
       await index()
       await userinfo()
       await myVotes()
-      await mySupport()
-      await goVote()
-      await vote_rewards()
       await task_center()
       await wiTask()
       
@@ -154,7 +151,7 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
     try{
         const result = JSON.parse(data)
         if(logs)$.log(data)
-        message += '🔔检测更新 '
+        message += '🔔【检测更新】 '
         if(result.code == 0){
         console.log('🎈'+result.msg+' 当前版本:'+result.data.version_code+'\n')
         message += '🎈'+result.msg+' 当前版本:'+result.data.version_code+'\n'
@@ -180,15 +177,15 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
     try{
         const result = JSON.parse(data)
         if(logs) $.log(data)
-        message += '🔔首页刷新 '
+        //message += '🔔【首页刷新】 '
         if(result.code == 0){
         let videoid_list = data.match(/"id":\d{5}/g)
         let idex = Math.random()
         let no = Math.round( idex > 0.2 ? ((idex+0.1)*10) : ((idex+0.2)*10))
         let newvideoid_list = videoid_list[no]
         videoid = newvideoid_list.replace(/"id":/,'')
-        console.log('🎈'+result.msg+'\n')
-        message += '🎈'+result.msg+'\n'
+        //console.log('🎈刷新'+result.msg+'\n')
+        //message += '🎈刷新'+result.msg+'\n'
         }
         }catch(e) {
           $.logErr(e, response);
@@ -212,7 +209,7 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
     try{
         const result = JSON.parse(data)
         if(logs) $.log(data)
-        message += '🔔用户信息 '
+        message += '🔔【用户信息】 '
         if(result.code == 0){
         myid = result.user.id
         console.log('🎈'+result.msg+' 邀请码：'+result.user.id+' 昵称：'+result.user.nickname+' 燃旅号：'+result.user.ranlvid +'\n')
@@ -243,7 +240,8 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
     try{
         const result = JSON.parse(data)
         if(logs)$.log(data)
-        message += '🔔奖励任务状态 '
+        message += '🔔【奖励任务状态】 '
+        console.log('🎈【奖励任务状态】 ')
         if(result.code == 0){
         let inviteArr = result.data.task.find(item => item.id === 5)
         console.log('邀请人数：'+inviteArr.to_num)
@@ -259,7 +257,7 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
         }
         let videoArr = result.data.task.find(item => item.id === 7)
         console.log('视频任务：'+videoArr.to_num+'/'+videoArr.num)
-        if(videoArr.to_num < videoArr.num){
+        if(luckyArr.to_num < luckyArr.num || videoArr.to_num < videoArr.num){
         await video_reward()
         }
         message += '邀请人数：'+inviteArr.to_num+'\n'+'幸运红包：'+luckyArr.to_num+'/'+luckyArr.num+'\n'+'分享红包：'+shareArr.to_num+'/'+shareArr.num+'\n'+'视频任务：'+videoArr.to_num+'/'+videoArr.num+'\n'
@@ -291,9 +289,9 @@ let url = rlurl.replace(/\d{5}$/,`${videoid}`)
         const result = JSON.parse(data)
         if(logs)$.log(data)
         await sleep(Math.random()*30000)
-        message += '🔔视频奖励 '
+        message += '🔔【视频奖励】 '
         if(result.code == 0){
-        console.log('🎈'+result.msg+'\n')
+        console.log('🎈视频'+result.msg+'\n')
         message += '🎈'+result.msg+'\n'
         }else{
         console.log('👀'+result.msg+"\n")
@@ -320,8 +318,8 @@ let url = rlurl.replace(/\d{5}$/,`${videoid}`)
         const result = JSON.parse(data)
         if(logs)$.log(data)
         if(result.code == 0){
-        console.log('🎈'+result.msg+'\n')
-        message += '🎈'+result.msg+'\n'
+        //console.log('🎈'+result.msg+'\n')
+        //message += '🎈'+result.msg+'\n'
 }
         }catch(e) {
           $.logErr(e, response);
@@ -356,9 +354,9 @@ let accesstoken = rlurl.match(/access_token=\w{32}/)
         const result = JSON.parse(data)
         if(logs)$.log(data)
         if(result.code == 0){
-        console.log('🎈'+result.msg)
+        //console.log('🎈视频id'+result.msg)
         }else{
-        console.log('视频播放失败'+'\n')
+        //console.log('视频播放失败'+'\n')
 }
         }catch(e) {
           $.logErr(e, response);
@@ -394,7 +392,7 @@ let accesstoken = rlurl.match(/access_token=\w{32}/)
         const result = JSON.parse(data)
         if(logs)$.log(data)
         if(result.code == 0){
-	   console.log('🎈'+result.msg+'\n')
+	   //console.log('🎈微信访问'+result.msg+'\n')
         }
         }catch(e) {
           $.logErr(e, response);
@@ -419,7 +417,7 @@ let accesstoken = rlurl.match(/access_token=\w{32}/)
         if(logs)$.log(data)
         await sleep(Math.random()*30000)
         if(result.code == 0){
-        console.log('🎈'+result.msg+'\n')
+        //console.log('🎈分享'+result.msg+'\n')
         }else{
         console.log('👀'+"我也不知道\n")
         }
@@ -443,27 +441,26 @@ async function wiTask(){
         const result = JSON.parse(data)
         if(logs) $.log(data)
         if(result.code == 0){
-        message += '🔔提现任务状态 '
+        message += '🔔【提现任务状态】 '
         console.log('🎈'+result.msg+'\n')
 
         message += '🎈'+result.msg+'\n'
         let praiseArr = result.data.find(item => item.id === 3)
         console.log('点赞任务：'+praiseArr.to_num+'/'+praiseArr.num+' ')
         let commentArr = result.data.find(item => item.id === 4)
-        if(praiseArr.to_num < praiseArr.num){
-        await checkPraise()
-        }
         console.log('评论任务：'+commentArr.to_num+'/'+commentArr.num+` `)
         let videoArr = result.data.find(item => item.id === 1)
-        if(commentArr.to_num < commentArr.num){
-        await comment()
-        }
         console.log('视频任务：'+videoArr.to_num+'/'+videoArr.num+' ')
         message += '点赞任务：'+praiseArr.to_num+'/'+praiseArr.num+'\n'+'评论任务：'+commentArr.to_num+'/'+commentArr.num+`\n`+'视频任务：'+videoArr.to_num+'/'+videoArr.num+'\n'
+       if(praiseArr.to_num < praiseArr.num){
+        await checkPraise()
+        }
+       if(commentArr.to_num < commentArr.num){
+        await comment()
+        }
         if(praiseArr.to_num >= praiseArr.num && commentArr.to_num >= commentArr.num && commentArr.to_num >= commentArr.num){
         note += '提现任务已完成'
-        $.msg(zhiyi,'',note)
-        $.done()
+        $.log(zhiyi,'',note)
         }
         }
         }catch(e) {
@@ -486,7 +483,7 @@ let url = rlurl.replace(/\d{5}$/,`${videoid}`)
     try{
         const result = JSON.parse(data)
         if(logs) $.log(data)
-        message += '🔔点赞视频 '
+        message += '🔔【点赞视频】 '
         if(result.code == 0){
         console.log('🎈'+result.msg+'\n')
         message += '🎈'+result.msg+'\n'
@@ -502,15 +499,16 @@ let url = rlurl.replace(/\d{5}$/,`${videoid}`)
     })
    })
   } 
-
 //comment 10个随机
 async function comment(){
 let url = rlurl.replace(/\d{5}$/,`${videoid}`)
 let newcomment;
-let commentarr = ['%E7%9C%9F%E4%B8%8D%E9%94%99%E5%93%A6','%E7%9C%9F%E5%A5%BD%E5%93%88&','%E6%94%AF%E6%8C%81%E4%B8%80%E4%B8%8B','%E8%BF%98%E4%B8%8D%E9%94%99%E5%93%A6','%E6%84%9F%E8%A7%89%E8%BF%98%E5%8F%AF%E4%BB%A5','%E5%93%88%E5%93%88%E5%93%88%E5%93%88','%E6%84%9F%E8%B0%A2%E5%88%86%E4%BA%AB','%E4%B8%8D%E9%94%99%E5%93%9F','%E6%88%91%E5%96%9C%E6%AC%A2','%E7%9C%9F%E4%BC%98%E7%A7%80','%E6%9C%89%E4%BA%9B%E4%BC%98%E7%A7%80']
+let commentarr = ['%E7%9C%9F%E4%B8%8D%E9%94%99%E5%93%A6','%E7%9C%9F%E5%A5%BD%E5%93%88','%E6%94%AF%E6%8C%81%E4%B8%80%E4%B8%8B','%E8%BF%98%E4%B8%8D%E9%94%99%E5%93%A6','%E6%84%9F%E8%A7%89%E8%BF%98%E5%8F%AF%E4%BB%A5','%E5%8F%AF%E4%BB%A5%E7%9A%84','%E6%84%9F%E8%B0%A2%E5%88%86%E4%BA%AB','%E4%B8%8D%E9%94%99%E5%93%9F','%E6%88%91%E5%96%9C%E6%AC%A2','%E7%9C%9F%E4%BC%98%E7%A7%80','%E6%9C%89%E4%BA%9B%E4%BC%98%E7%A7%80']
 let x = Math.random()
 let no = Math.round( x < 0.1? ((x+0.1)*9) : (x*9))
 newcomment = commentarr[no]
+$.log(no)
+$.log(newcomment)
  return new Promise((resolve) => {
     let comment_url = {
    		url: `https://ranlv.lvfacn.com/api.php/Ranlv/addComments?content=${newcomment}&${url}`,
@@ -520,10 +518,11 @@ newcomment = commentarr[no]
     try{
         const result = JSON.parse(data)
         if(logs) $.log(data)
+        message += '🔔【评论视频】'
         await sleep(Math.random()*30000)
         if(result.code == 0){
-	   console.log('🎈评论'+result.msg+'\n')
-        message += '🎈评论'+result.msg+'\n'
+	     console.log('🎈'+result.msg+'\n')
+        message += '🎈'+result.msg+'\n'
         }else{
         console.log('👀'+result.msg+'\n')
         //message += '👀'+"我也不知道\n"
@@ -567,6 +566,11 @@ let new_access_token = access_token.replace(/access_token=/,'')
         console.log('🎈投票查询'+result.msg+' 可投票数：'+result.data.votes+'\n')
         message += '🎈投票查询'+result.msg+' 可投票数：'+result.data.votes+'\n'
         let lottery_num = result.data.rate
+        if(result.data.votes > 0){
+        await mySupport()
+        await goVote()
+        await vote_rewards()
+        }
         if(lottery_num > 0){
         //for(let i = 0; i < lottery_num; i++){
         await lottery()
@@ -584,7 +588,7 @@ let new_access_token = access_token.replace(/access_token=/,'')
     })
    })
 }
-//mySupport 投票 蜜月圣地榜
+//mySupport
 async function mySupport(){
 let url = rlurl.replace(/&video_id=\d{5}/,``)
  return new Promise((resolve) => {
@@ -600,11 +604,10 @@ let url = rlurl.replace(/&video_id=\d{5}/,``)
         let videoid_list = data.match(/"id":\d{5}/g)
         let idex = Math.random()
         let no = Math.round( idex > 0.2 ? ((idex+0.1)*10) : ((idex+0.2)*10))
-        let num = videoid_list > 0 ? no : 0
-        let newvideoid_list = videoid_list[num]
+        let newvideoid_list = videoid_list[no]
         supportvideoid = newvideoid_list.replace(/"id":/,'')
-	    console.log('🎈'+result.msg+'\n')
-        message += '🎈'+result.msg+'\n'
+	    //console.log('🎈榜单'+result.msg+'\n')
+        //message += '🎈榜单'+result.msg+'\n'
         }else{
         console.log('👀'+result.msg+'\n')
         //message += '👀'+"我也不知道\n"
@@ -628,10 +631,10 @@ let url = rlurl.replace(/\d{5}$/,`${supportvideoid}`)
    $.post(goVote_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        if(logs) $.log(data)
+        if(logs)$.log(data)
         if(result.code == 0){
         //await sleep(Math.random()*30000)
-	   console.log('🎈'+result.msg+'\n')
+	    console.log('🎈'+result.msg+'\n')
         message += '🎈'+result.msg+'\n'
         }else{
         console.log('👀'+result.msg+'\n')
@@ -659,8 +662,8 @@ let url = rlurl.replace(/\d{5}$/,`${supportvideoid}`)
         if(logs) $.log(data)
         await sleep(Math.random()*30000)
         if(result.code == 0){
-	   console.log('🎈'+result.msg+'\n')
-        message += '🎈'+result.msg+'\n'
+	   //console.log('🎈投票奖励'+result.msg+'\n')
+        //message += '🎈投票奖励'+result.msg+'\n'
         }else{
         console.log('👀'+result.msg+'\n')
         //message += '👀'+"我也不知道\n"
