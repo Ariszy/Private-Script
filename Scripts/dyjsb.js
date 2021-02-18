@@ -22,7 +22,7 @@ luckycat/aweme/v1/task/sign_in/detail? url script-request-header https://raw.git
 
 luckycat/aweme/v1/task/done/read? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
 
-luckycat/aweme/v1/task/walk/step_submit? - script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
+luckycat/aweme/v1/task/walk/step_submit? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js
 
 #loon
 http-request /luckycat/aweme/v1/task/sign_in/detail? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js, requires-body=true, timeout=10, tag=抖音极速版sign
