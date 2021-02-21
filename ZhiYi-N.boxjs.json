@@ -238,6 +238,13 @@
         "type": "number",
         "desc": "当前账号对应"
       },
+       {
+        "id": "rlcash",
+        "name": "提现金额",
+        "val": "0",
+        "type": "number",
+        "desc": "默认不提现，提现填需要的金额：1、3、10、20、45，建议填3"
+      },          
       {
         "id": "rlcount",
         "name": "账号个数",
