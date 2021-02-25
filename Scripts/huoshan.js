@@ -160,7 +160,7 @@ if (!hsheaderArr[0] && !hsbodyArr[0] && !hsurlArr[0]) {
       $.index = i + 1;
       console.log(`\n开始【抖音火山版${$.index}】`)
       //await ck()
-      await app_alert_check()
+      //await app_alert_check()
       await device_register()
       await userinfo()
       await gettoken()
@@ -487,9 +487,10 @@ let newplaybody = playbody.replace(/\d{19}/,`${item_id_inv}`)
 async function video_rewards(){
 	let new_time = Math.round(new Date().getTime()/1000).toString();
 	hsheader = hsheader.replace(/X-Khronos":"\d{10}/,`X-Khronos":"${new_time}`)
+        let url = hsurl.replace(/device_platform=\w+/,'device_platform=android')
  return new Promise((resolve) => {
     let video_rewards_url = {
-   		url: `https://api3-normal-c-lq.huoshan.com/hotsoon/flame/task_done/?${hsurl}`,
+   		url: `https://api3-normal-c-lq.huoshan.com/hotsoon/flame/task_done/?${url}`,
     	headers: JSON.parse(hsheader),
     	body: hsbody
     	}
