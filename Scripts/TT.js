@@ -142,8 +142,8 @@ async function checkin(){
          for(let i = 0; i < 29; i++){
          let day = result.data.record.i == 0 ? (i -1) : i
          }
-	  console.log(`打卡成功：获得${result.data.curMoney}元\n`)
-          message += `打卡成功：获得${result.data.curMoney}元`
+	  console.log(`打卡成功：累计获得${result.data.curMoney}元\n`)
+          message += `打卡成功：累计获得${result.data.curMoney}元`
         }else if(result.code == 2){
         console.log(result.msg+`\n`)
         message += result.msg
