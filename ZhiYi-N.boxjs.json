@@ -269,7 +269,7 @@
             "desc": "0为不通知，1为全部通知"
         },
       {
-        "id": "rlstatus",
+        "id": "TTstatus",
         "name": "当前账号",
         "val": "1",
         "type": "number",
