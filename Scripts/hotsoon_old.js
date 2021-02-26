@@ -257,6 +257,7 @@ return new Promise((resolve, reject) => {
       url: `https://ib-hl.snssdk.com/luckycat/hotsoon/v1/task/done/draw_excitation_ad?${hotsoonadheader}`,
       headers: JSON.parse(hotsoonadkey),
       body:`{
+
 }`,
 	 timeout: 60000,
 }
