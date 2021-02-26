@@ -106,7 +106,7 @@ if (!TTreferArr[0] && !TTbodyArr[0] ) {
     
 function GetCookie() {
 if($request&&$request.url.indexOf("checkin")>=0) {
-   const TTrefer = $request.headers['Refer']
+   const TTrefer = $request.headers['Referer']
    if(TTrefer)     $.setdata(TTrefer,`TTrefer${status}`)
    $.log(`[${zhiyi}] 获取TTrefer请求: 成功,TTrefer: ${TTrefer}`)
    $.msg(`TTrefer${status}: 成功🎉`, ``)
