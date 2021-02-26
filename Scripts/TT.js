@@ -142,11 +142,11 @@ async function checkin(){
          for(let i = 0; i < 29; i++){
          let day = result.data.record.i == 0 ? (i -1) : i
          }
-	   console.log(`第${day}天打卡成功：获得${result.data.curMoney}元\n`)
-          message += `第${day}天打卡成功：获得${result.data.curMoney}元\n`
+	  console.log(`第${day}天打卡成功：获得${result.data.curMoney}元\n`)
+          message += `第${day}天打卡成功：获得${result.data.curMoney}元`
         }else if(result.code == 2){
         console.log(result.msg+`\n`)
-        message += result.msg+`\n`
+        message += result.msg
         }
         }catch(e) {
           $.logErr(e, response);
