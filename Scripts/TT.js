@@ -28,7 +28,7 @@ const zhiyi = 'TT语音'
 const $ = Env(zhiyi)
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status;
-status = (status = ($.getval("hsstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
+status = (status = ($.getval("TTstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 const TTreferArr = [],TTbodyArr = []
 let TTrefer = $.getdata('TTrefer')
 let TTbody= $.getdata('TTbody')
