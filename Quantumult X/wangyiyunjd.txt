@@ -1,0 +1,7 @@
+http=106.52.127.71:19931, over-tls=false, fast-open=false, udp-relay=false, tag=网易云音乐1
+http=106.52.127.72:19951, over-tls=false, fast-open=false, udp-relay=false, tag=网易云音乐2
+http=aimer.one:3333,fast-open=false, udp-relay=false, tag=网易云音乐3
+http=block4music.poetyin.me:39000, over-tls=false, fast-open=false, udp-relay=false, tag=网易云音乐4
+http=3music.poetyin.me:100, over-tls=false, fast-open=false, udp-relay=false, tag=网易云音乐5
+http=music.lolico.me:39000, over-tls=false, fast-open=false, udp-relay=false, tag=网易云音乐6
+http=taron.top:100, over-tls=false, fast-open=false, udp-relay=false, tag=网易云音乐7
