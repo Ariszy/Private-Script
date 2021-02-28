@@ -7,24 +7,26 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 谢谢
 作者：执意ZhiYi-N
 #看一个视频弹出金币获取ck
+
 [mitm]
-hostname = api3-normal-c-*.huoshan.com
+hostname = *.huoshan.com
 #圈x
 [rewrite local]
-https://api3-normal-c-\w+.huoshan.com/hotsoon/flame/task_done/? url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js
+/hotsoon/flame/task_done/? url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js
 
-https://api3-normal-c-\w+.huoshan.com/hotsoon/item/reaction/_play/? url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js
+/hotsoon/item/reaction/_play/? url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js
 
 #loon
-http-request https://api3-normal-c-\w+.huoshan.com/hotsoon/flame/task_done/? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js, requires-body=true, timeout=10, tag=抖音火山版video
+http-request /hotsoon/flame/task_done/? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js, requires-body=true, timeout=10, tag=抖音火山版video
 
-http-request https://api3-normal-c-\w+.huoshan.com/hotsoon/item/reaction/_play/? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js, requires-body=true, timeout=10, tag=抖音火山版play
+http-request /hotsoon/item/reaction/_play/? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js, requires-body=true, timeout=10, tag=抖音火山版play
 
 #surge
-抖音火山版video = type=http-request,pattern=^https://api3-normal-c-\w+.huoshan.com/hotsoon/flame/task_done/?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js,script-update-interval=0
+抖音火山版video = type=http-request,pattern=/hotsoon/flame/task_done/?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js,script-update-interval=0
 
-抖音火山版play = type=http-request,pattern=^https://api3-normal-c-\w+.huoshan.com/hotsoon/item/reaction/_play/?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js,script-update-interval=0
+抖音火山版play = type=http-request,pattern=/hotsoon/item/reaction/_play/?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js,script-update-interval=0
 */
+
 const zhiyi = '抖音火山版'
 const $ = Env(zhiyi)
 const notify = $.isNode() ?require('./sendNotify') : '';
@@ -158,7 +160,7 @@ if (!hsheaderArr[0] && !hsbodyArr[0] && !hsurlArr[0]) {
       $.index = i + 1;
       console.log(`\n开始【抖音火山版${$.index}】`)
       //await ck()
-      await app_alert_check()
+      //await app_alert_check()
       await device_register()
       await userinfo()
       await gettoken()
@@ -221,7 +223,7 @@ for(let i = 0;i <= 4;i++){
    item_id_inv = item_id[i]
    $.log(item_id_inv)
    let x = Math.random()
-   let delay = x > 0.5? x*60000 : (x+0.5)*30000
+   let delay = x > 0.5? x*30000 : (x+0.5)*15000
    console.log('⏰本次延迟'+Math.round(delay/1000)+'秒')
    await sleep(delay)
    await play_video()
@@ -471,6 +473,9 @@ let newplaybody = playbody.replace(/\d{19}/,`${item_id_inv}`)
         //message = `🎈视频播放成功${no}次，获取奖励${no}次\n`
         }else{
         console.log('视频播放失败'+result.extra.details+'\n')
+        no = no + 1;
+        await video_rewards()
+        
 }
         }catch(e) {
           $.logErr(e, response);
@@ -485,9 +490,10 @@ let newplaybody = playbody.replace(/\d{19}/,`${item_id_inv}`)
 async function video_rewards(){
 	let new_time = Math.round(new Date().getTime()/1000).toString();
 	hsheader = hsheader.replace(/X-Khronos":"\d{10}/,`X-Khronos":"${new_time}`)
+        let url = hsurl.replace(/device_platform=\w+/,'device_platform=android')
  return new Promise((resolve) => {
     let video_rewards_url = {
-   		url: `https://api3-normal-c-lq.huoshan.com/hotsoon/flame/task_done/?${hsurl}`,
+   		url: `https://api3-normal-c-lq.huoshan.com/hotsoon/flame/task_done/?${url}`,
     	headers: JSON.parse(hsheader),
     	body: hsbody
     	}
