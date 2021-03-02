@@ -129,7 +129,7 @@ async function checkin(){
        'Content-Type': 'application/json',
        'Host': 'node.52tt.com',
        'Origin': 'http://appcdn.52tt.com',
-       'Refer': `${TTrefer}`,
+       'Referer': `${TTrefer}`,
        'User-Agent': `Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 TT/5.5.6 NetType/Wifi`
        },
     	body: TTbody
