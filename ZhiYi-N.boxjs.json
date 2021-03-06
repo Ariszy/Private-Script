@@ -128,11 +128,18 @@
         "desc": "需要看直播填1，不看填0，默认不看"
       },
        {
-        "id": "live",
-        "name": "是否看直播",
-        "val": "0",
+        "id": "telphone",
+        "name": "手机号码",
+        "val": "",
         "type": "number",
-        "desc": "需要看直播填1，不看填0，默认不看"
+        "desc": "注册手机号"
+      },
+      {
+        "id": "sms",
+        "name": "手机登录验证码",
+        "val": "",
+        "type": "number",
+        "desc": "6位验证码"
       },
       {
         "id": "xpcount",
