@@ -111,7 +111,7 @@ if (!pyqUAArr[0] && !pyqadArr[0]) {
 function GetCookie() {
 if($request&&$request.url.indexOf("adv")>=0) {
    const pyqUA = $request.headers['User-Agent']
-    if(pyqUA) $.setdata(pyqUA,`puqUA${status}`)
+    if(pyqUA) $.setdata(pyqUA,`pyqUA${status}`)
     $.log(`[${zhiyi}] 获取pyqUA请求: 成功,pyqUA: ${pyqUA}`)
     $.msg(`pyqUA${status}: 成功🎉`, ``)
 }
