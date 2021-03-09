@@ -255,10 +255,10 @@ let headers = rlheader.replace(/acw_tc=\w+/,'')
         console.log('分享红包：'+shareArr.to_num+'/'+shareArr.num)
         let rankArr = result.data.task.find(item => item.id === 11)
         console.log('榜单红包：'+rankArr.to_num+'/'+rankArr.num)
-        if(rankArr.to_num < rankArr.to_num){
+        if(rankArr.to_num != rankArr.num){
         show = 0;
         }
-        if(rankArr.to_num >= rankArr.to_num){
+        if(rankArr.to_num == rankArr.num){
         show = 1;
         }
         if(shareArr.to_num < shareArr.num){
