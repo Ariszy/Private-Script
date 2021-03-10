@@ -2,11 +2,8 @@
 tgchannel：https://t.me/ZhiYi_Script
 github：https://github.com/ZhiYi-N/script
 boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
-转载留个名字，谢谢
-邀请码：AU6GW
-谢谢
 作者：执意ZhiYi-N
-#看一个视频弹出金币获取ck
+#看一个视频弹出金币获取ck，本脚本只供学习使用，请勿滥用，下载24小时内请删除
 
 [mitm]
 hostname = *.huoshan.com
