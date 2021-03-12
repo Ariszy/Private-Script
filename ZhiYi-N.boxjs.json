@@ -257,6 +257,36 @@
     "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/ranlv.js"
   },
   {
+    "id": "fqxs",
+    "name": "番茄小说",
+    "keys": ["fqxsurl", "fqxs","fqxsurl2","fqxs2"],
+    "author": "@ZhiYi-N",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
+        "id": "fqxsstatus",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },    
+      {
+        "id": "fqxscount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/fqxs.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/fqxs-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/fqxs.png"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js"
+  },
+  {
     "id": "TT",
     "name": "TT语音",
     "keys": ["TTrefer", "TTbody","TTrefer2","TTbody2","TTrefer3","TTbody3","TTrefer4","TTbody4","TTrefer5", "TTbody5"],
