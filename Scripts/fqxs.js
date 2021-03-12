@@ -12,7 +12,7 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 hostname = *.snssdk.com
 #圈x
 [rewrite local]
-luckycat/novel/v1/task/sign_in/* url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js
+luckycat/novel/v1/task/sign_in/* url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js
 
 
 #loon
