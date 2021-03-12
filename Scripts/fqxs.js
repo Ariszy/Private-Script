@@ -12,15 +12,15 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 hostname = *.snssdk.com
 #圈x
 [rewrite local]
-luckycat/novel/v1/task/sign_in/detail? url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js
+luckycat/novel/v1/task/sign_in/* url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js
 
 
 #loon
-http-request luckycat/novel/v1/task/sign_in/detail? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js, requires-body=true, timeout=10, tag=🍅番茄小说
+http-request luckycat/novel/v1/task/sign_in/* script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js, requires-body=true, timeout=10, tag=🍅番茄小说
 
 
 #surge
-🍅番茄小说 = type=http-request,pattern=luckycat/novel/v1/task/sign_in/detail?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js,script-update-interval=0
+🍅番茄小说 = type=http-request,pattern=luckycat/novel/v1/task/sign_in/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js,script-update-interval=0
 
 */
 
