@@ -216,7 +216,6 @@ async function sign_in(){
 }
 //read
 async function read(){
-$.log(no)
  return new Promise((resolve) => {
     let read_url = {
    	url: `https://${host}/luckycat/novel/v1/task/done/daily_read_${no}m?${fqxsurl}`,
@@ -236,8 +235,8 @@ $.log(no)
         const result = JSON.parse(data)
         if(logs)$.log(data)
         if(result.err_no == 0){
-        console.log(result.err_tips+'获得'+result.data.amount+'🍅\n') 
-        message += result.err_tips+'获得'+result.data.amount+'🍅'
+        console.log(`第${no}时段阅读`+result.err_tips+'获得'+result.data.amount+'🍅\n') 
+        message += `第${no}时段阅读`+ result.err_tips+'获得'+result.data.amount+'🍅\n'
         }else{
         console.log('阅读任务：'+result.err_tips)
         message += '阅读任务：'+result.err_tips+'\n'
