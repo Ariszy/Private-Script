@@ -114,14 +114,14 @@
         },
          {
         "id": "dyjsbaccount",
-        "name": "支付宝账号",
+        "name": "支付宝账号1",
         "val": "0",
         "type": "number",
         "desc": "测试的为手机号，邮箱不知道"
       },
           {
         "id": "dyjsbaccount2",
-        "name": "支付宝账号",
+        "name": "支付宝账号2",
         "val": "0",
         "type": "number",
         "desc": "测试的为手机号，邮箱不知道"
