@@ -258,7 +258,7 @@ function GetCookie() {
 	 }
     }
 async function control(){
-     if(hour == 12 && minute <= 30){
+     if(stepheader && hour == 12 && minute <= 30){
       await step_submit();
       await step_reward();
      }
@@ -392,7 +392,7 @@ return new Promise((resolve, reject) => {
 function profit() {
 return new Promise((resolve, reject) => {
   let profiturl ={
-    url: `https://${dyhost}/luckycat/aweme/v1/wallet/profit_detail_page?income_type=1&offset=0&num=50&share_page=profits_detail_page&key=coin&${stepheader}`,
+    url: `https://${dyhost}/luckycat/aweme/v1/wallet/profit_detail_page?income_type=1&offset=0&num=50&share_page=profits_detail_page&key=coin&${readheader}`,
     headers: JSON.parse(readkey),
 }
    $.get(profiturl,async(error, response, data) =>{
