@@ -55,7 +55,7 @@ let readheader = $.getdata('readheader')
 let readkey = $.getdata('readkey')
 
 let dyhost = $.getdata('dyhost')
-let dyjsbaccount = ($.getval('dyjsbaccount') || '0')
+let dyjsbaccount;
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 const invite=1;//新用户自动邀请，0关闭，1默认开启
 const logs =0;//0为关闭日志，1为开启
@@ -206,6 +206,7 @@ if (!signheaderArr[0]) {
       stepkey = stepkeyArr[i];
       readheader = readheaderArr[i];
       readkey = readkeyArr[i];
+      dyjsbaccount = $.getval(`dyjsbaccount${i}`)
       $.index = i + 1;
       console.log(`\n开始【抖音极速版${$.index}】`)
       //await invite()
