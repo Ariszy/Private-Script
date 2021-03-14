@@ -105,7 +105,6 @@ if (!fqxsurlArr[0] && !fqxsArr[0] ) {
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
     
-    
 function fqxsck() {
 if($request&&$request.url.indexOf("sign_in")>=0) {
    const fqxsurl = $request.url.split('?')[1]
@@ -199,7 +198,7 @@ async function sign_in(){
         if(logs)$.log(data)
         if(result.err_no == 0){
         console.log(result.err_tips+'获得'+result.data.amount+'🍅') 
-        message += result.err_tips+'获得'+result.data.amount+'🍅'
+        message += result.err_tips+'获得'+result.data.amount+'🍅\n'
         }else{
         console.log('签到任务：'+result.err_tips)
         message += '签到任务：'+result.err_tips+'\n'
