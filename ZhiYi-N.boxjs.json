@@ -5,6 +5,35 @@
   "icon": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/ZhiYi-N.png",
   "repo": "https://github.com/ZhiYi-N/Private-Script",
   "apps": [{
+    "id": "elecv2p",
+    "name": "更新cookies",
+    "keys": ["name"],
+    "author": "@ZhiYi-N",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+       {
+        "id": "elehost",
+        "name": "elecv2p的地址",
+        "val": "127.0.0.1",
+        "type": "string",
+        "desc": "务必填写"
+      },
+      {
+        "id": "port",
+        "name": "elecv2p的端口号",
+        "val": "1",
+        "type": "number",
+        "desc": "务必填写"
+      }],
+    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/update_elecv2p_cookies.js",
+    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/elecv2p-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/elecv2p.png"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/update_elecv2p_cookies.js"
+  },{
     "id": "jrtt",
     "name": "今日头条极速版",
     "keys": ["signurl", "signkey", "farmurl", "farmkey", "readurl", "readkey", "signurl2", "signkey2", "farmurl2", "farmkey2", "readurl2", "readkey2"],
