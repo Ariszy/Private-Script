@@ -113,14 +113,15 @@
             "desc": ""
         },
          {
-        "id": "dyjsbaccount",
+        "id": "dyjsbaccount0",
+         //为适应for循环，被迫命名dyjsbaccount0
         "name": "支付宝账号1",
         "val": "0",
         "type": "number",
         "desc": "测试的为手机号，邮箱不知道"
       },
           {
-        "id": "dyjsbaccount2",
+        "id": "dyjsbaccount1",
         "name": "支付宝账号2",
         "val": "0",
         "type": "number",
