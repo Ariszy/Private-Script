@@ -29,6 +29,13 @@
         "val": "1",
         "type": "number",
         "desc": "务必填写"
+      },
+       {
+        "id": "names",
+        "name": "要更新的cookies名称,用&分割",
+        "val": "",
+        "type": "texearea",
+        "desc": "务必填写(JSON数组)"
       }],
     "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/update_elecv2p_cookies.js",
     "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/elecv2p-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/elecv2p.png"],
