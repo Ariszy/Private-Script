@@ -53,6 +53,8 @@ let stepkey = $.getdata('stepkey')
 
 let readheader = $.getdata('readheader')
 let readkey = $.getdata('readkey')
+
+let dyhost = $.getdata('dyhost')
 let dyjsbaccount = ($.getval('dyjsbaccount') || '0')
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 const invite=1;//新用户自动邀请，0关闭，1默认开启
@@ -209,7 +211,8 @@ if (!signheaderArr[0]) {
       //await invite()
       await sign_in()
       //await withdraw()
-      //await step_reward()
+      //await step_submit();
+      //await step_reward();
       await watch_video()
       await control()
       //await profit()
@@ -249,6 +252,9 @@ function GetCookie() {
 	  if(readkey)        $.setdata(readkey,`readkey${$.idx}`)
 	    $.log(`[${jsname}] 获取read请求: 成功,readkey: ${readkey}`)
 	    $.msg(`获取readkey: 成功🎉`, ``)
+    const dyhost = $request.headers['Host']
+    if(dyhost) $.setdata(dyhost,'dyhost')
+    $.log(`[${jsname}] 获取host请求: 成功,host: ${host}`)
 	 }
     }
 async function control(){
@@ -270,7 +276,7 @@ async function control(){
 function sign_in() {
 return new Promise((resolve, reject) => {
   let sign_inurl ={
-    url: `https://api3-normal-c-lq.amemv.com/luckycat/aweme/v1/task/done/sign_in?${signheader}`,
+    url: `https://${dyhost}/luckycat/aweme/v1/task/done/sign_in?${signheader}`,
     headers :{
     	Cookie: signcookie,
     	'User-Agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_1 like Mac OS X) AppleWebKit/605.1.12 (KHTNL, like Gecko) Mobile/15E148'
@@ -295,7 +301,7 @@ const steps = Math.round(Math.random()*(12000 - 10001) + 10001);
 const time = Math.round(new Date().getTime()/1000).toString();
 return new Promise((resolve, reject) => {
   let step_submiturl ={
-	url: `https://api3-normal-c-lq.amemv.com/luckycat/aweme/v1/task/walk/step_submit?${stepheader}`,
+	url: `https://${dyhost}/luckycat/aweme/v1/task/walk/step_submit?${stepheader}`,
     headers: JSON.parse(stepkey),
     body:`{
   "step" : ${steps},
@@ -321,7 +327,7 @@ return new Promise((resolve, reject) => {
 function step_reward() {
 return new Promise((resolve, reject) => {
   let step_rewardurl ={
-      url: `https://api3-normal-c-lq.amemv.com/luckycat/aweme/v1/task/walk/receive_step_reward?${stepheader}`,
+      url: `https://${dyhost}/luckycat/aweme/v1/task/walk/receive_step_reward?${stepheader}`,
       headers: JSON.parse(stepkey),
 	  body:`{"in_sp_time":0}`
 }
@@ -342,7 +348,7 @@ return new Promise((resolve, reject) => {
 function watch_video() {
 return new Promise((resolve, reject) => {
   let watch_videourl ={
-    url: `https://api3-normal-c-lq.amemv.com/luckycat/aweme/v1/task/done/read?${readheader}`,
+    url: `https://${dyhost}/luckycat/aweme/v1/task/done/read?${readheader}`,
     headers: JSON.parse(readkey),
     body: `{
   "in_sp_time" : 0,
@@ -371,7 +377,7 @@ return new Promise((resolve, reject) => {
 function invitation() {
 return new Promise((resolve, reject) => {
   let invitatonurl ={
-    url: `https://api3-normal-c-lq.amemv.com/luckycat/aweme/v1/task/done/post_invite_code?${signheader}`,
+    url: `https://${dyhost}/luckycat/aweme/v1/task/done/post_invite_code?${signheader}`,
     headers: JSON.parse(readkey),
     body: JSON.stringify({"in_sp_time":0,"invite_code":"8025524531"})
 }
@@ -386,7 +392,7 @@ return new Promise((resolve, reject) => {
 function profit() {
 return new Promise((resolve, reject) => {
   let profiturl ={
-    url: `https://api3-normal-c-lq.amemv.com/luckycat/aweme/v1/wallet/profit_detail_page?income_type=1&offset=0&num=50&share_page=profits_detail_page&key=coin&${stepheader}`,
+    url: `https://${dyhost}/luckycat/aweme/v1/wallet/profit_detail_page?income_type=1&offset=0&num=50&share_page=profits_detail_page&key=coin&${stepheader}`,
     headers: JSON.parse(readkey),
 }
    $.get(profiturl,async(error, response, data) =>{
@@ -405,7 +411,7 @@ if(result.data.profit_detail.cash_income_list.find(item => item.time >= time) &&
 function withdraw() {
 return new Promise((resolve, reject) => {
   let withdrawurl ={
-    url: `https://api3-normal-c-lq.amemv.com/luckycat/aweme/v1/wallet/take_cash?task_key=jiao_take_cash&${signheader}`,
+    url: `https://${dyhost}/luckycat/aweme/v1/wallet/take_cash?task_key=jiao_take_cash&${signheader}`,
     headers: JSON.parse(readkey),
     body: `{
   "account" : "${dyjsbaccount}",
