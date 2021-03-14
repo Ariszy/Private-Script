@@ -103,7 +103,7 @@
   {
     "id": "dyjsb",
     "name": "抖音极速版",
-    "keys": ["signheader", "signcookie", "stepheader", "stepkey", "readheader", "readkey", "dyjsbaccount","signheader2", "signcookie2", "stepheader2", "stepkey2", "readheader2", "readkey2","dyjsbaccount2"],
+    "keys": ["signheader", "signcookie", "stepheader", "stepkey", "readheader", "readkey","signheader2", "signcookie2", "stepheader2", "stepkey2", "readheader2", "readkey2"],
     "author": "@ZhiYi-N",
     "settings": [{
             "id": "dyhost",
@@ -111,7 +111,22 @@
             "val": "",
             "type": "string",
             "desc": ""
-        },{
+        },
+         {
+        "id": "dyjsbaccount",
+        "name": "支付宝账号",
+        "val": "0",
+        "type": "number",
+        "desc": "测试的为手机号，邮箱不知道"
+      },
+          {
+        "id": "dyjsbaccount2",
+        "name": "支付宝账号",
+        "val": "0",
+        "type": "number",
+        "desc": "测试的为手机号，邮箱不知道"
+      },
+         {
             "id": "tz",
             "name": "静默运行",
             "val": "1",
