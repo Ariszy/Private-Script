@@ -22,6 +22,21 @@ KKDHEADER-kkdheader
 KKDCOOKIE-kkdcookie
 KKDSIGN-kkgsign
 
+[mitm]
+hostname = api.yuncheapp.cn
+#圈x
+[rewrite local]
+^https:\/\/api\.yuncheapp\.cn\/pearl-incentive\/api\/v1\/task\/intervalAward\/receive url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js
+^https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/* url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js
+
+#loon
+http-request ^https:\/\/api\.yuncheapp\.cn\/pearl-incentive\/api\/v1\/task\/intervalAward\/receive script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js, requires-body=true, timeout=10, tag=快看点cookie
+http-request ^https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/* script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js, requires-body=true, timeout=10, tag=快看点kkdsign
+
+#surge
+kkdcookie = type=http-request,pattern=^https:\/\/api\.yuncheapp\.cn\/pearl-incentive\/api\/v1\/task\/intervalAward\/receive,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js,script-update-interval=0
+kkdcookie = type=http-request,pattern=^https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js,script-update-interval=0
+
 */
 const jsname='快看点'
 const $ = Env(jsname)
