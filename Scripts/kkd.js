@@ -1,16 +1,19 @@
 /*
-羊毛很少、自己取舍，每天2-3毛
+羊毛很少、自己取舍，每天2-3毛，但是比较稳，没听说过封号，可能玩的人少，公司比较大（快手）阅读全是签名，这个脚本基于小bug用的签名随时可能失效
 
 github：https://github.com/ZhiYi-N/script
 转载留个名字，谢谢
 邀请码：JFN4M3
 作者：执意ZhiYi-N
 目前包含：
+签到
 时段奖励
 大转盘
 红包雨
 金币悬赏任务
 
+#签到或者签到详情页面获取ck
+kkdsign
 #获取一次时段奖励获得cookie
 kkdheader和kkdcookie
 
@@ -33,10 +36,10 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 $.idx = ($.idx = ($.getval("kkdcount") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const kkdheaderArr=[]
 const kkdcookieArr=[]
-const kkdbodyArr=[]
+const kkdsignArr=[]
 let kkdheader = $.getdata('kkdheader')
 let kkdcookie = $.getdata('kkdcookie')
-let kkdbody = $.getdata('kkdbody')
+let kkdsign = $.getdata('kkdsign')
 const logs = false //日志
 const invite = 1; //邀请码1为邀请
 let tz = ($.getval('tz') || '1');//通知
@@ -79,6 +82,14 @@ if ($.isNode()) {
   } else  {
    kkdcookie = process.env.KKDCOOKIE.split()
   };
+  if (process.env. KKDSIGN&& process.env.KKDSIGN.indexOf('#') > -1) {
+   kkdsign = process.env.KKDSIGN.split('#');
+  }
+  else if (process.env.KKDSIGN && process.env.KKDSIGN.split('\n').length > 0) {
+   kkdsign = process.env.KKDSIGN.split('\n');
+  } else  {
+   kkdsign = process.env.KKDSIGN.split()
+  };
   Object.keys(kkdheader).forEach((item) => {
         if (kkdheader[item]) {
           kkdheaderArr.push(kkdheader[item])
@@ -89,16 +100,22 @@ if ($.isNode()) {
           kkdcookieArr.push(kkdcookie[item])
         }
     });
-
+   Object.keys(kkdsign).forEach((item) => {
+        if (kkdsign[item]) {
+          kkdsignArr.push(kkdsign[item])
+        }
+    });
     console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
     console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
  } else {
     kkdheaderArr.push($.getdata('kkdheader'))
     kkdcookieArr.push($.getdata('kkdcookie'))
+    kkdsignArr.push($.getdata('kkdsign'))
     let kkdcount = ($.getval('kkdcount') || '1');
   for (let i = 2; i <= kkdcount; i++) {
     kkdheaderArr.push($.getdata(`kkdheader${i}`))
     kkdcookieArr.push($.getdata(`kkdcookie${i}`))
+    kkdsignArr.push($.getdata(`kkdsign${i}`))
   }
 }
 !(async () => {
@@ -112,9 +129,11 @@ if (!kkdcookieArr[0]) {
       other = ''
       kkdheader = kkdheaderArr[i];
       kkdcookie = kkdcookieArr[i];
+      kkdsign = kkdsignArr[i];
       $.index = i + 1;
       console.log(`\n开始【快看点${$.index}】`)
       await userinfo()
+      await signin()
       await control()
       await intervalAward()
       await lotteryTable()
@@ -146,6 +165,12 @@ if($request&&$request.url.indexOf("finish")>=0) {
     if (kkdbody) $.setdata(kkdbody,`kkdbody${$.idx}`)
     $.log(`[${jsname}] 获取kkdbody请求: 成功,kkdbody: ${kkdbody}`)
     $.msg(`获取kkdbody: 成功🎉`, ``)
+    }
+if($request&&$request.url.indexOf("signIn")>=0) {
+  const kkdsign = $request.url.split(`?`)[1]
+    if (kkdsign) $.setdata(kkdsign,`kkdsign${$.idx}`)
+    $.log(`[${jsname}] 获取kkdsign请求: 成功,kkdsign: ${kkdsign}`)
+    $.msg(`获取kkdsign: 成功🎉`, ``)
     }
   }
 async function control(){
@@ -193,7 +218,35 @@ return new Promise((resolve, reject) => {
           message +='🎉'+result.data.userInfo.nickname+'-今日已得:'+result.data.userInfo.todayCoins+'-现有余额:'+result.data.userInfo.coins+'\n'
   
 }     else{
-          other += '⚠️异常'
+          message += '⚠️异常'+result.message+'\n'
+}
+          resolve()
+    })
+   })
+  } 
+//signin
+function signin() {
+return new Promise((resolve, reject) => {
+  let signinurl ={
+    url: `https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/add?${kkdsign}`,
+    headers: {
+              Cookie: kkdcookie,
+              'Connection': 'keep-alive',
+              'Content-Type': 'application/json',
+              'Host': 'api.yuncheapp.cn',
+              'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
+          },
+     body:'{}'
+}
+   $.get(signinurl,(error, response, data) =>{
+     const result = JSON.parse(data)
+      if(logs) $.log(data)
+      message += '📣签到\n'
+      if(result.message == 'success') {
+          message +='🎉'+result.data.title+','+result.data.subtitle+'\n'
+  
+}     else{
+          message += '⚠️异常'+result.message+'\n'
 }
           resolve()
     })
