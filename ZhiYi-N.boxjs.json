@@ -43,7 +43,7 @@
   },{
     "id": "jrtt",
     "name": "今日头条极速版",
-    "keys": ["signurl", "signkey", "farmurl", "farmkey", "readurl", "readkey", "signurl2", "signkey2", "farmurl2", "farmkey2", "readurl2", "readkey2"],
+    "keys": ["signurl", "signkey", "farmurl", "farmkey", "readurl", "readkey", "signurl2", "signkey2", "farmurl2", "farmkey2", "readurl2", "readkey2", "signurl3", "signkey3", "farmurl3", "farmkey3", "readurl3", "readkey3", "signurl4", "signkey4", "farmurl4", "farmkey4", "readurl4", "readkey4", "signurl5", "signkey5", "farmurl5", "farmkey5", "readurl5", "readkey5", "signurl6", "signkey6", "farmurl6", "farmkey6", "readurl6", "readkey6", "signurl7", "signkey7", "farmurl7", "farmkey7", "readurl7", "readkey7", "signurl8", "signkey8", "farmurl8", "farmkey8", "readurl8", "readkey8", "signurl9", "signkey9", "farmurl9", "farmkey9", "readurl9", "readkey9", "signurl10", "signkey10", "farmurl10", "farmkey10", "readurl10", "readkey10", "signurl11", "signkey11", "farmurl11", "farmkey11", "readurl11", "readkey11", "signurl12", "signkey12", "farmurl12", "farmkey12", "readurl12", "readkey12", "signurl13", "signkey13", "farmurl13", "farmkey13", "readurl13", "readkey13"],
     "author": "@ZhiYi-N",
     "settings": [{
             "id": "tz",
@@ -73,7 +73,7 @@
   {
     "id": "kkd",
     "name": "快看点",
-    "keys": ["kkdheader", "kkdcookie", "kkdheader2", "kkdcookie2"],
+    "keys": ["kkdheader", "kkdcookie","kkdsign", "kkdheader2", "kkdcookie2","kkdsign2", "kkdheader3", "kkdcookie3","kkdsign3", "kkdheader4", "kkdcookie4","kkdsign4", "kkdheader5", "kkdcookie5","kkdsign5", "kkdheader6", "kkdcookie6","kkdsign6", "kkdheader7", "kkdcookie7","kkdsign7", "kkdheader8", "kkdcookie8","kkdsign8", "kkdheader9", "kkdcookie9","kkdsign9", "kkdheader10", "kkdcookie10","kkdsign10", "kkdheader11", "kkdcookie11","kkdsign11", "kkdheader12", "kkdcookie12","kkdsign12", "kkdheader13", "kkdcookie13","kkdsign13", "kkdheader14", "kkdcookie14","kkdsign14", "kkdheader15", "kkdcookie15","kkdsign15", "kkdheader16", "kkdcookie16","kkdsign16"],
     "author": "@ZhiYi-N",
     "settings": [{
             "id": "tz",
