@@ -4,7 +4,7 @@ github：https://github.com/ZhiYi-N/script
 boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
 
 转载留个名字，谢谢
-
+#本脚本只为昨天自己京喜工厂不自动收取而出发，看群中好多朋友同样问题困扰，做成脚本，没有任何别的用意
 #ck共分为jxcollecturl和jxcollectheader
 请进入京东app找到京喜工厂进入收取一次电力提示获取成功
 ⚠️不是京喜app⚠️不是京喜app⚠️不是京喜app
