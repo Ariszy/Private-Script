@@ -396,7 +396,6 @@
     "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/pyq-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/pyq.png"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/pyq.js"
   },
-
    {
     "id": "huoshan",
     "name": "抖音火山版",
@@ -426,6 +425,36 @@
     "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/huoshan.js",
     "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hs-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hs.png"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js"
-    }
+    },
+  {
+    "id": "jxcollect",
+    "name": "京喜工厂电力收取",
+    "keys": ["jxcollecturl", "jxcollectheader","jxcollecturl2", "jxcollectheader2", "jxcollecturl3","jxcollectheader3", "jxcollecturl4", "jxcollectheader4","jxcollecturl5", "jxcollectheader5", "jxcollecturl6","jxcollectheader6", "jxcollecturl7", "jxcollectheader7","jxcollecturl8", "jxcollectheader8", "jxcollecturl9","jxcollectheader9", "jxcollecturl10", "jxcollectheader10"],
+    "author": "@ZhiYi-N",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
+        "id": "jxcollectstatus",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "jxcollectcount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/jxcollect.js",
+    "icons": ["https://raw.githubusercontent.com/58xinian/icon/master/jdgc_mini.png","https://github.com/58xinian/icon/raw/master/jdgc.png"],
+    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jxcollect.js"
+  }
  ]
 }
