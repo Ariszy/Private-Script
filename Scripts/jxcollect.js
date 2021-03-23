@@ -120,6 +120,8 @@ if($request&&$request.url.indexOf("CollectCurrentElectricity")>=0) {
 }
 }
 async function collect(){
+let name = jxcollectheader.match(/pwdt_id=\w+/)+''
+let realname = name.replace(/pwdt_id=/,'')
  return new Promise((resolve) => {
     let collect_url = {
    		url: `https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectricity?${jxcollecturl}`,
@@ -131,8 +133,8 @@ async function collect(){
         if(logs)$.log(data)
         let number = data.match(/CollectElectricity":\d+/)+''
         let num = number.replace(/CollectElectricity":/,'')
-        console.log("本次收取电力"+num+'\n')
-        message = "🎈本次收取电力"+num
+        console.log(`账号:`+realname+"\n🎈本次收取电力"+num+'\n')
+        message = `账号:`+realname+"\n🎈本次收取电力"+num
         }catch(e) {
           $.logErr(e, response);
       } finally {
@@ -140,7 +142,7 @@ async function collect(){
       } 
     })
    })
-  }  
+  }   
 
 //showmsg
 //boxjs设置tz=1，在12点<=20和23点>=40时间段通知，其余时间打印日志
