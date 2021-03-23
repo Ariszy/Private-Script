@@ -335,7 +335,7 @@
        {
         "id": "fqxshost",
         "name": "host",
-        "val": "",
+        "val": "ib.snssdk.com",
         "type": "string",
         "desc": "当前版本host"
       } ],
