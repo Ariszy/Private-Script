@@ -15,7 +15,7 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 hostname = m.jingxi.com
 #圈x
 [rewrite local]
-https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectricity? url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jxcollect.js
+https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectricity? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jxcollect.js
 
 
 #loon
