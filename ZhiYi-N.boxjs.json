@@ -139,7 +139,7 @@
         "val": "1",
         "type": "number",
         "desc": "当前账号对应"
-      },
+      }, 
       {
         "id": "dyjsbcount",
         "name": "账号个数",
@@ -331,7 +331,14 @@
         "val": "1",
         "type": "number",
         "desc": "需要几个账号，数字为几"
-      }],
+      },
+       {
+        "id": "fqxshost",
+        "name": "host",
+        "val": "",
+        "type": "string",
+        "desc": "当前版本host"
+      } ],
     "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/fqxs.js",
     "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/fqxs-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/fqxs.png"],
     "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js"
