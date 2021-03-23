@@ -133,8 +133,8 @@ let realname = name.replace(/pwdt_id=/,'')
         if(logs)$.log(data)
         let number = data.match(/CollectElectricity":\d+/)+''
         let num = number.replace(/CollectElectricity":/,'')
-        console.log(`账号:`+realname+"\n🎈本次收取电力"+num+'\n')
-        message = `账号:`+realname+"\n🎈本次收取电力"+num
+        console.log(`账号${$.index}:`+realname+"\n🎈本次收取电力"+num+'\n')
+        message = `账号${$.index}:`+realname+"\n🎈本次收取电力"+num
         }catch(e) {
           $.logErr(e, response);
       } finally {
