@@ -372,7 +372,7 @@ return new Promise((resolve, reject) => {
      }}
       else if(result.err_no == 0) {
           message +='🎉'+result.err_tips+'获得:'+result.data.amount+"\n"
-          return showmsg();
+          //return showmsg();
         }
       else{
           message += '⚠️异常:'+result.err_tips+'\n'+'请重新获取readkey\n'
