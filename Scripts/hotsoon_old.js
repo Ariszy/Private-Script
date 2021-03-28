@@ -341,8 +341,7 @@ let header = hotsoonreadkey.replace(/X-Khronos":"\d+/,`X-Khronos":"${now}`)
 return new Promise((resolve, reject) => {
   let watch_videourl ={
     url: `https://ib.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_${no}m?${hotsoonreadheader}`,
-    headers: JSON.parse(header),
-    timeout: 60000,
+    headers: JSON.parse(hotsoonreadkey),
 }
    $.post(watch_videourl,(error, response, data) =>{
      const result = JSON.parse(data)
