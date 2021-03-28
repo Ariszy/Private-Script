@@ -336,10 +336,12 @@ $.log(no)
 
 //看视频
 function watch_video(no) {
+let now = new Date().getTime()
+let header = hotsoonreadkey.replace(/X-Khronos":"\d+/,`X-Khronos":"${now}`)
 return new Promise((resolve, reject) => {
   let watch_videourl ={
     url: `https://ib.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_${no}m?${hotsoonreadheader}`,
-    headers: JSON.parse(hotsoonreadkey),
+    headers: JSON.parse(header),
     timeout: 60000,
 }
    $.post(watch_videourl,(error, response, data) =>{
