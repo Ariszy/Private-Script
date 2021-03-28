@@ -333,7 +333,7 @@
         "desc": "需要几个账号，数字为几"
       },
        {
-        "id": "fqxshost",
+        "id": "host",
         "name": "host",
         "val": "ib.snssdk.com",
         "type": "string",
