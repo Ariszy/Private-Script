@@ -284,9 +284,6 @@ async function control(){
     if(hotsoonaccount){
      await profits()
      }
-    if(cash == 1 && coins >= 20){
-     await withdraw()
-     }
 }
 //广告
 function ad() {
@@ -326,9 +323,17 @@ for(let i =0;i<=result.data.profit_detail.score_income_list.length;i++){
 if(result.data.profit_detail.score_income_list[i].desc.match(/视频\d+/)) {
          no = result.data.profit_detail.score_income_list[i].desc.match(/\d+/)          
 $.log(no)
-         if(hour==0){
-         no=1;
-         }
+     if(cash == 1 && coins >= 20){
+     no = 1;
+     await withdraw()
+     }
+         break;
+}
+}
+          resolve()
+    })
+   })
+  } 
          break;
 }
 }
