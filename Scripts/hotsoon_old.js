@@ -334,13 +334,6 @@ $.log(no)
     })
    })
   } 
-         break;
-}
-}
-          resolve()
-    })
-   })
-  } 
 
 //看视频
 function watch_video(no) {
