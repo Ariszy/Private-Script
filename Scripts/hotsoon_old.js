@@ -323,9 +323,12 @@ return new Promise((resolve, reject) => {
      const result = JSON.parse(data)
         if(logs)$.log(data)
 for(let i =0;i<=result.data.profit_detail.score_income_list.length;i++){
-if(result.data.profit_detail.score_income_list[i].desc.match(/\d+/)) {
+if(result.data.profit_detail.score_income_list[i].desc.match(/视频\d+/)) {
          no = result.data.profit_detail.score_income_list[i].desc.match(/\d+/)          
 $.log(no)
+         if(hour==0){
+         no=1;
+         }
          break;
 }
 }
