@@ -310,13 +310,13 @@ return new Promise((resolve, reject) => {
   })
  } 
 //profit
-function profit() {
+async function profit() {
 return new Promise((resolve, reject) => {
   let profiturl ={
     url: `https://ib-hl.snssdk.com/luckycat/hotsoon/v1/wallet/profit_detail_page?income_type=2&num=80&${hotsoonsignheader}`,
     headers :JSON.parse(hotsoonsignkey),
 }
-   $.get(profiturl,(error, response, data) =>{
+   $.get(profiturl,async(error, response, data) =>{
      const result = JSON.parse(data)
         if(logs)$.log(data)
 for(let i =0;i<=result.data.profit_detail.score_income_list.length;i++){
