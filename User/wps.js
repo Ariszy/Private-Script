@@ -1,4 +1,5 @@
 /*
+by eHpo1
 国区wps
 [Script]
 http-response ^https?:\/\/account\.wps\.cn\/api\/users requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/User/wps.js
