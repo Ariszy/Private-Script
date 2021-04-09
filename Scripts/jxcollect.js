@@ -1,7 +1,7 @@
 /*
-tgchannel：https://t.me/ZhiYi_Script
-github：https://github.com/ZhiYi-N/script
-boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
+tgchannel：https://t.me/Ariszy_Script
+github：https://github.com/Ariszy/script
+boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
 
 转载留个名字，谢谢
 #本脚本只为昨天自己京喜工厂不自动收取而出发，看群中好多朋友同样问题困扰，做成脚本，没有任何别的用意
@@ -9,25 +9,25 @@ boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.
 请进入京喜app找到京喜工厂进入收取一次电力提示获取成功
 ⚠️是京喜app⚠️是京喜app⚠️是京喜app
 
-作者：执意ZhiYi-N
+作者：执意Ariszy
 
 [mitm]
 hostname = m.jingxi.com
 #圈x
 [rewrite local]
-https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectricity? url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jxcollect.js
+https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectricity? url script-request-header https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jxcollect.js
 
 
 #loon
-http-request https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectricity? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jxcollect.js, requires-body=true, timeout=10, tag=京喜工厂电力收取
+http-request https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectricity? script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jxcollect.js, requires-body=true, timeout=10, tag=京喜工厂电力收取
 
 
 #surge
-京喜工厂电力收取 = type=http-request,pattern=https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectricity?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jxcollect.js,script-update-interval=0
+京喜工厂电力收取 = type=http-request,pattern=https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectricity?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jxcollect.js,script-update-interval=0
 */
 
-const zhiyi = '京喜工厂收取电力'
-const $ = Env(zhiyi)
+const Ariszy = '京喜工厂收取电力'
+const $ = Env(Ariszy)
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status;
 status = (status = ($.getval("jxcollectstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -110,12 +110,12 @@ function GetCookie() {
 if($request&&$request.url.indexOf("CollectCurrentElectricity")>=0) {
    const jxcollecturl = $request.url.split('?')[1]
     if(jxcollecturl) $.setdata(jxcollecturl,`jxcollecturl${status}`)
-    $.log(`[${zhiyi}] 获取jxcollecturl请求: 成功,jxcollecturl: ${jxcollecturl}`)
+    $.log(`[${Ariszy}] 获取jxcollecturl请求: 成功,jxcollecturl: ${jxcollecturl}`)
     $.msg(`jxcollecturl${status}: 成功🎉`, ``)
 
    const jxcollectheader = JSON.stringify($request.headers)
     if(jxcollectheader)    $.setdata(jxcollectheader,`jxcollectheader${status}`)
-    $.log(`[${zhiyi}] 获取jxcollectheader请求: 成功,jxcollectheader: ${jxcollectheader}`)
+    $.log(`[${Ariszy}] 获取jxcollectheader请求: 成功,jxcollectheader: ${jxcollectheader}`)
     $.msg(`jxcollectheader${status}: 成功🎉`, ``)
 }
 }
@@ -157,7 +157,7 @@ async function showmsg() {
         }
       } else {
         if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-          $.msg(zhiyi, '', message)
+          $.msg(Ariszy, '', message)
         } else {
           $.log(message)
         }

@@ -1,31 +1,31 @@
 /*
-tgchannel：https://t.me/ZhiYi_Script
-github：https://github.com/ZhiYi-N/script
-boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
+tgchannel：https://t.me/Ariszy_Script
+github：https://github.com/Ariszy/script
+boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
 转载留个名字，谢谢
 邀请码：7672016831
 谢谢
-作者：执意ZhiYi-N
+作者：执意Ariszy
 #签到界面或者签到详情
 #读书任务可以完成，时长上传没做好，广告偶尔可以
 [mitm]
 hostname = *.snssdk.com
 #圈x
 [rewrite local]
-luckycat/novel/v1/task/sign_in/* url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js
+luckycat/novel/v1/task/sign_in/* url script-request-header https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/fqxs.js
 
 
 #loon
-http-request luckycat/novel/v1/task/sign_in/* script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js, requires-body=true, timeout=10, tag=🍅番茄小说
+http-request luckycat/novel/v1/task/sign_in/* script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/fqxs.js, requires-body=true, timeout=10, tag=🍅番茄小说
 
 
 #surge
-🍅番茄小说 = type=http-request,pattern=luckycat/novel/v1/task/sign_in/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js,script-update-interval=0
+🍅番茄小说 = type=http-request,pattern=luckycat/novel/v1/task/sign_in/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/fqxs.js,script-update-interval=0
 
 */
 
-const zhiyi = '🍅番茄小说'
-const $ = Env(zhiyi)
+const Ariszy = '🍅番茄小说'
+const $ = Env(Ariszy)
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status,no;
 status = (status = ($.getval("fqxsstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -109,14 +109,14 @@ function fqxsck() {
 if($request&&$request.url.indexOf("sign_in")>=0) {
    const fqxsurl = $request.url.split('?')[1]
    if(fqxsurl)     $.setdata(fqxsurl,`fqxsurl${status}`)
-   $.log(`[${zhiyi}] 获取fqxsurl请求: 成功,fqxsurl: ${fqxsurl}`)
+   $.log(`[${Ariszy}] 获取fqxsurl请求: 成功,fqxsurl: ${fqxsurl}`)
    $.msg(`fqxsurl${status}: 成功🎉`, ``)
    const host = $request.headers['Host']
    if(host)   $.setdata(host,'host')
-   $.log(`[${zhiyi}] 获取host请求: 成功,host: ${host}`)
+   $.log(`[${Ariszy}] 获取host请求: 成功,host: ${host}`)
    const fqxs = JSON.stringify($request.headers)
     if(fqxs)    $.setdata(fqxs,`fqxs${status}`)
-    $.log(`[${zhiyi}] 获取fqxs请求: 成功,fqxs: ${fqxs}`)
+    $.log(`[${Ariszy}] 获取fqxs请求: 成功,fqxs: ${fqxs}`)
     $.msg(`fqxs${status}: 成功🎉`, ``)
 }
 }
@@ -294,7 +294,7 @@ async function showmsg(){
    if ($.isNode()){
        await notify.sendNotify($.name,message)
    }else{
-       $.msg(zhiyi,'',message+note)
+       $.msg(Ariszy,'',message+note)
    }
   }else{
        console.log(message+note)

@@ -1,8 +1,8 @@
 /* 
 #圈x
-^https:\/\/www\.xmind\.cn\/_res\/devices url script-response-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/xmind.js
+^https:\/\/www\.xmind\.cn\/_res\/devices url script-response-body https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/xmind.js
 #Loon
-http-response https:\/\/www\.xmind\.cn\/_res\/devices script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/xmind.js, requires-body=true, timeout=10, tag=xmind
+http-response https:\/\/www\.xmind\.cn\/_res\/devices script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/xmind.js, requires-body=true, timeout=10, tag=xmind
 #[mitm]
 www.xmind.cn
 */

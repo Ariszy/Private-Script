@@ -1,31 +1,31 @@
 /*
-tgchannel：https://t.me/ZhiYi_Script
-github：https://github.com/ZhiYi-N/script
-boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
-作者：执意ZhiYi-N
+tgchannel：https://t.me/Ariszy_Script
+github：https://github.com/Ariszy/script
+boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
+作者：执意Ariszy
 #看一个视频弹出金币获取ck，本脚本只供学习使用，请勿滥用，下载24小时内请删除
 
 [mitm]
 hostname = *.huoshan.com
 #圈x
 [rewrite local]
-/hotsoon/flame/task_done/? url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js
+/hotsoon/flame/task_done/? url script-request-body https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/huoshan.js
 
-/hotsoon/item/reaction/_play/? url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js
+/hotsoon/item/reaction/_play/? url script-request-body https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/huoshan.js
 
 #loon
-http-request /hotsoon/flame/task_done/? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js, requires-body=true, timeout=10, tag=抖音火山版video
+http-request /hotsoon/flame/task_done/? script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/huoshan.js, requires-body=true, timeout=10, tag=抖音火山版video
 
-http-request /hotsoon/item/reaction/_play/? script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js, requires-body=true, timeout=10, tag=抖音火山版play
+http-request /hotsoon/item/reaction/_play/? script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/huoshan.js, requires-body=true, timeout=10, tag=抖音火山版play
 
 #surge
-抖音火山版video = type=http-request,pattern=/hotsoon/flame/task_done/?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js,script-update-interval=0
+抖音火山版video = type=http-request,pattern=/hotsoon/flame/task_done/?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/huoshan.js,script-update-interval=0
 
-抖音火山版play = type=http-request,pattern=/hotsoon/item/reaction/_play/?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js,script-update-interval=0
+抖音火山版play = type=http-request,pattern=/hotsoon/item/reaction/_play/?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/huoshan.js,script-update-interval=0
 */
 
-const zhiyi = '抖音火山版'
-const $ = Env(zhiyi)
+const Ariszy = '抖音火山版'
+const $ = Env(Ariszy)
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status;
 status = (status = ($.getval("hsstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -179,15 +179,15 @@ function GetCookie() {
 if($request&&$request.url.indexOf("task_done")>=0) {
    const hsurl = $request.url.split('?')[1]
    if(hsurl)     $.setdata(hsurl,`hsurl${status}`)
-   $.log(`[${zhiyi}] 获取hsurl请求: 成功,hsurl: ${hsurl}`)
+   $.log(`[${Ariszy}] 获取hsurl请求: 成功,hsurl: ${hsurl}`)
    $.msg(`hsurl${status}: 成功🎉`, ``)
    const hsheader = JSON.stringify($request.headers)+''
     if(hsheader)    $.setdata(hsheader,`hsheader${status}`)
-    $.log(`[${zhiyi}] 获取hsheader请求: 成功,hsheader: ${hsheader}`)
+    $.log(`[${Ariszy}] 获取hsheader请求: 成功,hsheader: ${hsheader}`)
     $.msg(`hsheader${status}: 成功🎉`, ``)
    const hsbody = $request.body
     if(hsbody)    $.setdata(hsbody,`hsbody${status}`)
-    $.log(`[${zhiyi}] 获取hsbody请求: 成功,hsbody: ${hsbody}`)
+    $.log(`[${Ariszy}] 获取hsbody请求: 成功,hsbody: ${hsbody}`)
     $.msg(`hsbody${status}: 成功🎉`, ``)
 }
 
@@ -195,16 +195,16 @@ if($request&&$request.url.indexOf("task_done")>=0) {
 if($request&&$request.url.indexOf("reaction/_play")>=0) {
    const playurl = $request.url
    if(playurl)     $.setdata(playurl,`playurl${status}`)
-   $.log(`[${zhiyi}] 获取playurl请求: 成功,playurl: ${playurl}`)
+   $.log(`[${Ariszy}] 获取playurl请求: 成功,playurl: ${playurl}`)
    $.msg(`playurl${status}: 成功🎉`, ``)
    const playheader =JSON.stringify($request.headers)+''
     if(playheader)    
 $.setdata(playheader,`playheader${status}`)
-    $.log(`[${zhiyi}] 获取playheader请求: 成功,playheader: ${playheader}`)
+    $.log(`[${Ariszy}] 获取playheader请求: 成功,playheader: ${playheader}`)
     $.msg(`playheader${status}: 成功🎉`, ``)
    const playbody = $request.body
     if(playbody)    $.setdata(playbody,`playbody${status}`)
-    $.log(`[${zhiyi}] 获取playbody请求: 成功,playbody: ${playbody}`)
+    $.log(`[${Ariszy}] 获取playbody请求: 成功,playbody: ${playbody}`)
     $.msg(`playbody${status}: 成功🎉`, ``)
 }
 }
@@ -689,7 +689,7 @@ if(tz==1){
    }else{
      $.log(message+note)
     //if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-       $.msg(zhiyi,'',message+note)
+       $.msg(Ariszy,'',message+note)
 //}
 }
    }else{

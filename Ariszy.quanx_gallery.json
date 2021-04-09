@@ -1,0 +1,18 @@
+{
+  "name": "Ariszy task gallery",
+  "description": "后5个失效",
+  "task": [
+" 0 9 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/fqxs.js, tag=番茄小说, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/fqxs.png, enabled=true",
+" 1,30 10-20 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/ranlv.js, tag=燃旅视频, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/rl.png, enabled=true",
+" 5,35 8-23 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js, tag=今日头条极速版, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/jrtt.png, enabled=false",
+" */20 * * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/kkd.js, tag=快看点, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/kkd.png, enabled=true",
+" * */2 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jxcollect.js, tag=京喜收电力, img-url=https://github.com/58xinian/icon/raw/master/jdgc.png, enabled=true ",
+" */6 * * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/hotsoon_old.js, tag=火山视频极速版, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/hotsoon%20.png, enabled=true",
+" */8 * * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/dyjsb.js, tag=抖音极速版, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/dyjsb.png, enabled=true",
+" */6 * * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/xp.js, tag=笑谱, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/xp.png, enable=true",
+" * */1 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zcy.js, tag=走财运, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/zcy.png, enable=true",
+" */30 * * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/pyq.js, tag=评友圈, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/pyq.png, enabled=true",
+" */10 * * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/huoshan.js, tag=抖音火山版, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/hs.png, enabled=true",
+" 0 8 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/TT.js, tag=TT语音签到, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/TT.png, enabled=true",
+]
+}

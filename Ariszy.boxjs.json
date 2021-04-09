@@ -1,14 +1,14 @@
-{
-  "id": "ZhiYi-N.app.sub",
-  "name": "ZhiYi-N 应用订阅",
-  "author": "@ZhiYi-N",
-  "icon": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/ZhiYi-N.png",
-  "repo": "https://github.com/ZhiYi-N/Private-Script",
+﻿{
+  "id": "Ariszy.app.sub",
+  "name": "Ariszy 应用订阅",
+  "author": "@Ariszy",
+  "icon": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/Ariszy.png",
+  "repo": "https://github.com/Ariszy/Private-Script",
   "apps": [{
     "id": "elecv2p",
     "name": "更新cookies",
     "keys": ["name"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -37,14 +37,14 @@
         "type": "texearea",
         "desc": "务必填写(JSON数组)"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/update_elecv2p_cookies.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/elecv2p-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/elecv2p.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/update_elecv2p_cookies.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/update_elecv2p_cookies.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/elecv2p-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/elecv2p.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/update_elecv2p_cookies.js"
   },{
     "id": "jrtt",
     "name": "今日头条极速版",
     "keys": ["signurl", "signkey", "farmurl", "farmkey", "readurl", "readkey", "signurl2", "signkey2", "farmurl2", "farmkey2", "readurl2", "readkey2", "signurl3", "signkey3", "farmurl3", "farmkey3", "readurl3", "readkey3", "signurl4", "signkey4", "farmurl4", "farmkey4", "readurl4", "readkey4", "signurl5", "signkey5", "farmurl5", "farmkey5", "readurl5", "readkey5", "signurl6", "signkey6", "farmurl6", "farmkey6", "readurl6", "readkey6", "signurl7", "signkey7", "farmurl7", "farmkey7", "readurl7", "readkey7", "signurl8", "signkey8", "farmurl8", "farmkey8", "readurl8", "readkey8", "signurl9", "signkey9", "farmurl9", "farmkey9", "readurl9", "readkey9", "signurl10", "signkey10", "farmurl10", "farmkey10", "readurl10", "readkey10", "signurl11", "signkey11", "farmurl11", "farmkey11", "readurl11", "readkey11", "signurl12", "signkey12", "farmurl12", "farmkey12", "readurl12", "readkey12", "signurl13", "signkey13", "farmurl13", "farmkey13", "readurl13", "readkey13"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -66,15 +66,15 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/jrtt.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/jrtt.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jrtt.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/jrtt.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/jrtt-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/jrtt.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js"
   },
   {
     "id": "kkd",
     "name": "快看点",
     "keys": ["kkdheader", "kkdcookie","kkdsign", "kkdheader2", "kkdcookie2","kkdsign2", "kkdheader3", "kkdcookie3","kkdsign3", "kkdheader4", "kkdcookie4","kkdsign4", "kkdheader5", "kkdcookie5","kkdsign5", "kkdheader6", "kkdcookie6","kkdsign6", "kkdheader7", "kkdcookie7","kkdsign7", "kkdheader8", "kkdcookie8","kkdsign8", "kkdheader9", "kkdcookie9","kkdsign9", "kkdheader10", "kkdcookie10","kkdsign10", "kkdheader11", "kkdcookie11","kkdsign11", "kkdheader12", "kkdcookie12","kkdsign12", "kkdheader13", "kkdcookie13","kkdsign13", "kkdheader14", "kkdcookie14","kkdsign14", "kkdheader15", "kkdcookie15","kkdsign15", "kkdheader16", "kkdcookie16","kkdsign16"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -96,15 +96,15 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/kkd.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/kkd.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/kkd.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/kkd-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/kkd.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/kkd.js"
   },
   {
     "id": "dyjsb",
     "name": "抖音极速版",
     "keys": ["signheader", "signcookie", "stepheader", "stepkey", "readheader", "readkey","signheader2", "signcookie2", "stepheader2", "stepkey2", "readheader2", "readkey2"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "dyhost",
             "name": "抖音极速版域名",
@@ -147,15 +147,15 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/dyjsb.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/dyjsb.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/dyjsb.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/dyjsb.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/dyjsb-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/dyjsb.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/dyjsb.js"
     }, 
     {
     "id": "xp",
     "name": "笑谱",
     "keys": ["xpheader", "xpbody","xprefreshtoken","xpheader2", "xpbody2","xprefreshtoken2", "xpheader3", "xpbody3", "XX header4", "xpbody4", "xpheader5", "xpbody5", "videoheader6", "videobody6", "videoheader7", "videobody7", "videoheader8", "videobody8", "videoheader9", "videobody9", "videoheader10", "videobody10", "videoheader11", "videobody11", "videoheader12", "videobody12", "videoheader13", "videobody13", "videoheader14", "videobody14", "videoheader15", "videobody15", "videoheader16", "videobody16", "videoheader17", "videobody17", "videoheader18", "videobody18", "videoheader19", "videobody19", "videoheader20", "videobody20"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -198,15 +198,15 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/xp.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/xp-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/xp.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/xp.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/xp.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/xp-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/xp.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/xp.js"
    },
    {
     "id": "zcy",
     "name": "走财运",
     "keys": ["zcyheader", "zcybody", "zcyheader2", "zcybody2"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -228,15 +228,15 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/zcy.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/zcy-min.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/zcy.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/zcy.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/zcy.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/zcy-min.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/zcy.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zcy.js"
   },
    {
     "id": "hotsoon",
     "name": "火山小视频极速版",
     "keys": ["hotsoonsignheader", "hotsoonsignkey", "hotsoonadheader", "hotsoonadkey", "hotsoonreadheader", "hotsoonreadkey", "hotsoonsignheader2", "hotsoonsignkey2", "hotsoonadheader2", "hotsoonadkey2", "hotsoonreadheader2", "hotsoonreadkey2", "hotsoonsignheader3", "hotsoonsignkey3", "hotsoonadheader3", "hotsoonadkey3", "hotsoonreadheader3", "hotsoonreadkey3", "hotsoonsignheader4", "hotsoonsignkey4", "hotsoonadheader4", "hotsoonadkey4", "hotsoonreadheader4", "hotsoonreadkey4", "hotsoonsignheader5", "hotsoonsignkey5", "hotsoonadheader5", "hotsoonadkey5", "hotsoonreadheader5", "hotsoonreadkey5", "hotsoonsignheader6", "hotsoonsignkey6", "hotsoonadheader6", "hotsoonadkey6", "hotsoonreadheader6", "hotsoonreadkey6", "hotsoonsignheader7", "hotsoonsignkey7", "hotsoonadheader7", "hotsoonadkey7", "hotsoonreadheader7", "hotsoonreadkey7", "hotsoonsignheader8", "hotsoonsignkey8", "hotsoonadheader8", "hotsoonadkey8", "hotsoonreadheader8", "hotsoonreadkey8", "hotsoonsignheader9", "hotsoonsignkey9", "hotsoonadheader9", "hotsoonadkey9", "hotsoonreadheader9", "hotsoonreadkey9", "hotsoonsignheader10", "hotsoonsignkey10", "hotsoonadheader10", "hotsoonadkey10", "hotsoonreadheader10", "hotsoonreadkey10"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -265,15 +265,15 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/hotsoon_old.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hotsoon.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/hotsoon_old.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/hotsoon_old.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/hotsoon-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/hotsoon.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/hotsoon_old.js"
   },
      {
     "id": "ranlv",
     "name": "燃旅视频",
     "keys": ["rlurl", "rlheader","rlurl2","rlheader2","rlurl3","rlheader3","rlurl4","rlheader4","rlurl5", "rlheader5"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -302,15 +302,15 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/ranlv.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/rl-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/rl.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/ranlv.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/ranlv.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/rl-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/rl.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/ranlv.js"
   },
   {
     "id": "fqxs",
     "name": "番茄小说",
     "keys": ["fqxsurl", "fqxs","fqxsurl2","fqxs2","fqxsurl3","fqxs3","fqxsurl4","fqxs4","fqxsurl5","fqxs5","fqxsurl6","fqxs6","fqxsurl7","fqxs7","fqxsurl8","fqxs8","fqxsurl9","fqxs9","fqxsurl10","fqxs10","fqxsurl11","fqxs11","fqxsurl12","fqxs12","fqxsurl13","fqxs13","fqxsurl14","fqxs14","fqxsurl15","fqxs15","fqxsurl16","fqxs16","fqxsurl17","fqxs17","fqxsurl18","fqxs18","fqxsurl19","fqxs19","fqxsurl20","fqxs20"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -339,15 +339,15 @@
         "type": "string",
         "desc": "当前版本host"
       } ],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/fqxs.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/fqxs-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/fqxs.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/fqxs.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/fqxs.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/fqxs-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/fqxs.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/fqxs.js"
   },
   {
     "id": "TT",
     "name": "TT语音",
     "keys": ["TTrefer", "TTbody","TTrefer2","TTbody2","TTrefer3","TTbody3","TTrefer4","TTbody4","TTrefer5", "TTbody5"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -369,15 +369,15 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/TT.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/TT-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/TT.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/TT.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/TT.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/TT-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/TT.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/TT.js"
   },
  {
     "id": "pyq",
     "name": "评有圈",
     "keys": ["pyqUA", "pyqad","pyqUA2","pyqad2"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -399,15 +399,15 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/pyq.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/pyq-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/pyq.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/pyq.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/pyq.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/pyq-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/pyq.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/pyq.js"
   },
    {
     "id": "huoshan",
     "name": "抖音火山版",
     "keys": ["hsurl", "hsheader", "hsbody", "playurl", "playheader", "playbody", "hsurl2", "hsheader2", "hsbody2", "playurl2", "playheader2", "playbody2", "hsurl3", "hsheader3", "hsbody3", "playurl3", "playheader3", "playbody3", "hsurl4", "hsheader4", "hsbody4", "playurl4", "playheader4", "playbody4", "hsurl5", "hsheader5", "hsbody5", "playurl5", "playheader5", "playbody5", "hsurl6", "hsheader6", "hsbody6", "playurl6", "playheader6", "playbody6", "hsurl7", "hsheader7", "hsbody7", "playurl7", "playheader7", "playbody7", "hsurl8", "hsheader8", "hsbody8", "playurl8", "playheader8", "playbody8", "hsurl9", "hsheader9", "hsbody9", "playurl9", "playheader9", "playbody9", "hsurl10", "hsheader10", "hsbody10", "playurl10", "playheader10", "playbody10"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -429,15 +429,15 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/huoshan.js",
-    "icons": ["https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hs-mini.png", "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/img/hs.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/huoshan.js"
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/huoshan.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/hs-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/hs.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/huoshan.js"
     },
   {
     "id": "jxcollect",
     "name": "京喜工厂电力收取",
     "keys": ["jxcollecturl", "jxcollectheader","jxcollecturl2", "jxcollectheader2", "jxcollecturl3","jxcollectheader3", "jxcollecturl4", "jxcollectheader4","jxcollecturl5", "jxcollectheader5", "jxcollecturl6","jxcollectheader6", "jxcollecturl7", "jxcollectheader7","jxcollecturl8", "jxcollectheader8", "jxcollecturl9","jxcollectheader9", "jxcollecturl10", "jxcollectheader10"],
-    "author": "@ZhiYi-N",
+    "author": "@Ariszy",
     "settings": [{
             "id": "tz",
             "name": "静默运行",
@@ -459,9 +459,9 @@
         "type": "number",
         "desc": "需要几个账号，数字为几"
       }],
-    "repo": "https://github.com/ZhiYi-N/Private-Script/blob/master/Scripts/jxcollect.js",
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/jxcollect.js",
     "icons": ["https://raw.githubusercontent.com/58xinian/icon/master/jdgc_mini.png","https://github.com/58xinian/icon/raw/master/jdgc.png"],
-    "script": "https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/jxcollect.js"
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jxcollect.js"
   }
  ]
 }

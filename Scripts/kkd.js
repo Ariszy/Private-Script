@@ -1,10 +1,10 @@
 /*
 羊毛很少、自己取舍，每天2-3毛，但是比较稳，没听说过封号，可能玩的人少，公司比较大（快手）阅读全是签名，这个脚本基于小bug用的签名随时可能失效
 
-github：https://github.com/ZhiYi-N/script
+github：https://github.com/Ariszy/script
 转载留个名字，谢谢
 邀请码：JFN4M3
-作者：执意ZhiYi-N
+作者：执意Ariszy
 目前包含：
 签到
 时段奖励
@@ -26,16 +26,16 @@ KKDSIGN-kkgsign
 hostname = api.yuncheapp.cn
 #圈x
 [rewrite local]
-^https:\/\/api\.yuncheapp\.cn\/pearl-incentive\/api\/v1\/task\/intervalAward\/receive url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js
-^https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/* url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js
+^https:\/\/api\.yuncheapp\.cn\/pearl-incentive\/api\/v1\/task\/intervalAward\/receive url script-request-header https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/kkd.js
+^https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/* url script-request-header https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/kkd.js
 
 #loon
-http-request ^https:\/\/api\.yuncheapp\.cn\/pearl-incentive\/api\/v1\/task\/intervalAward\/receive script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js, requires-body=true, timeout=10, tag=快看点cookie
-http-request ^https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/* script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js, requires-body=true, timeout=10, tag=快看点kkdsign
+http-request ^https:\/\/api\.yuncheapp\.cn\/pearl-incentive\/api\/v1\/task\/intervalAward\/receive script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/kkd.js, requires-body=true, timeout=10, tag=快看点cookie
+http-request ^https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/* script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/kkd.js, requires-body=true, timeout=10, tag=快看点kkdsign
 
 #surge
-kkdcookie = type=http-request,pattern=^https:\/\/api\.yuncheapp\.cn\/pearl-incentive\/api\/v1\/task\/intervalAward\/receive,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js,script-update-interval=0
-kkdcookie = type=http-request,pattern=^https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/kkd.js,script-update-interval=0
+kkdcookie = type=http-request,pattern=^https:\/\/api\.yuncheapp\.cn\/pearl-incentive\/api\/v1\/task\/intervalAward\/receive,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/kkd.js,script-update-interval=0
+kkdcookie = type=http-request,pattern=^https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/kkd.js,script-update-interval=0
 
 */
 const jsname='快看点'

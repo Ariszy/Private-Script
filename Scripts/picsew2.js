@@ -3,9 +3,9 @@
 自用脚本，学习使用
 #作者：执意
 #Loon
-http-response https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/picsew2.js, requires-body=true, timeout=10, tag=picsew专业版
+http-response https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/picsew2.js, requires-body=true, timeout=10, tag=picsew专业版
 #圈x
-https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/picsew2.js
+https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/picsew2.js
 [mitm]
 hostname=buy.itunes.apple.com
 */
