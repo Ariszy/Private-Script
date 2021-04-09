@@ -1,0 +1,33 @@
+﻿[URL Rewrite]
+ctier=[A-Z] citer=A 302
+[Script]
+#执意
+http-response https:\/\/api2\.mubu\.com\/v3\/api\/user\/current_user script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/mubu.js, requires-body=true, timeout=10, tag=幕布
+http-response https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/picsew.js, requires-body=true, timeout=10, tag=picsew专业版
+http-response ^https\:\/\/api\.maimemo\.com\/api\/v1/users/info script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/memobdc.js, requires-body=true, timeout=10, tag=默默背单词
+#野比
+http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js, requires-body=true, timeout=10, tag=百度网盘倍速
+http-request https?:\/\/musicpay\.kuwo.cn\/music\.pay\?uid=\d+ script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/KuWoMusicDownload.js,requires-body=true, timeout=10, tag=酷我音乐下载
+http-response ^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/user\/vip|vip\/spi/mservice) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Kuwo.js,requires-body=true, timeout=10, tag=酷我音乐vip
+http-response ^https?:\/\/account\.wps\.cn\/api\/users requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/Arisy/Private-Script/master/User/wps.js,requires-body=true, timeout=10, tag=WPS
+#yichahucha
+http-response ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js, tag=微博去广告
+http-response ^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/photos/pic_recommend_status|video/tiny_stream_video_list|photo/info) requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js, tag=微博去广告
+# Choler 
+http-request ^https://mp\.weixin\.qq\.com/mp/getappmsgad script-path=https://raw.githubusercontent.com/Choler/Surge/master/Script/WeChat.js, tag=WeChat
+[Rule]
+#屏蔽证书
+DOMAIN,ocsp.apple.com,REJECT
+#屏蔽系统更新
+DOMAIN,gdmf.apple.com,REJECT
+DOMAIN,gdmf.apple.com.akadns.net,REJECT
+DOMAIN,mesu.apple.com,REJECT
+DOMAIN,mesu-cdn.apple.com.akadns.net,REJECT
+DOMAIN,mesu-cdn.origin-apple.com.akadns.net,REJECT
+DOMAIN,mesu.g.aaplimg.com,REJECT
+DOMAIN,appldnld.apple.com,REJECT
+DOMAIN,appldnld.apple.com.akadns.net,REJECT
+#Youtube去广告
+URL-REGEX,https:\/\/[\s\S]*\.googlevideo\.com/.*&(oad|ctier),REJECT
+[MITM]
+hostname = api2.mubu.com,buy.itunes.apple.com,api.maimemo.com,pan.baidu.com,vip1.kuwo.cn,*.googlevideo.com,account.wps.cn,api.weibo.cn,mapi.weibo.com,*.uve.weibo.com,mp.weixin.qq.com
