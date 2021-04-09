@@ -1,3 +1,5 @@
-1、APP Store下载燃旅视频
-2、圈x引用 https://raw.githubusercontent.com/Ariszy/Private-Script/master/TASK/ranlv_rewrite.conf 
-3、看视频集音符，看完视频红包转一圈后获得ck
+1銆丄PP Store涓嬭浇鐕冩梾瑙嗛
+
+2銆佸湀x寮曠敤 https://raw.githubusercontent.com/Ariszy/Private-Script/master/TASK/RANLV/ranlv_rewrite.conf
+
+3銆佺湅瑙嗛锛岀湅瀹岃棰戠孩鍖呰浆涓�鍦堝悗鑾峰緱ck
