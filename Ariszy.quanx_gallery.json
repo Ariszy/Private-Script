@@ -1,6 +1,6 @@
 {
   "name": "Ariszy task gallery",
-  "description": "后5个失效",
+  "description": "后5个失效!",
   "task": [
 " 0 9 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/fqxs.js, tag=番茄小说, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/fqxs.png, enabled=true",
 " 1,30 10-20 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/ranlv.js, tag=燃旅视频, img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/rl.png, enabled=true",
