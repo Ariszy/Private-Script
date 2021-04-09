@@ -1,6 +1,6 @@
-1¡¢APP StoreÏÂÔØ¶¶Òô¼«ËÙ°æ
-2¡¢È¦xÒıÓÃ https://raw.githubusercontent.com/Ariszy/Private-Script/master/TASK/dyjsb_rewrite.conf 
-3¡¢ÎÒ--Ç©µ½¼¯Òô·û Òô·û¶ÒºÃÀñ
-¢ÙÇ©µ½»òÇ©µ½ÏêÇé½çÃæ»ñÈ¡signheader ºÍ signcookie
-¢Ú¿´ÊÓÆµ¼¯Òô·û£¬¿´ÍêÊÓÆµºì°ü×ªÒ»È¦ºó»ñµÃreadheader ºÍ readkey
-¢Û**Èç¹ûÓĞ×ßÂ·×¬Òô·û£¬µã»÷¼¯Òô·û£¬»ñÈ¡stepheader ºÍ stepkey£¨Çë¿´[Í¼Æ¬](https://raw.githubusercontent.com/Ariszy/Private-Script/master/TASK/dyjsb.PNG))
+1ã€APP Storeä¸‹è½½æŠ–éŸ³æé€Ÿç‰ˆ
+2ã€åœˆxå¼•ç”¨ https://raw.githubusercontent.com/Ariszy/Private-Script/master/TASK/dyjsb_rewrite.conf 
+3ã€æˆ‘--ç­¾åˆ°é›†éŸ³ç¬¦ éŸ³ç¬¦å…‘å¥½ç¤¼
+â‘ ç­¾åˆ°æˆ–ç­¾åˆ°è¯¦æƒ…ç•Œé¢è·å–signheader å’Œ signcookie
+â‘¡çœ‹è§†é¢‘é›†éŸ³ç¬¦ï¼Œçœ‹å®Œè§†é¢‘çº¢åŒ…è½¬ä¸€åœˆåè·å¾—readheader å’Œ readkey
+â‘¢**å¦‚æœæœ‰èµ°è·¯èµšéŸ³ç¬¦ï¼Œç‚¹å‡»é›†éŸ³ç¬¦ï¼Œè·å–stepheader å’Œ stepkeyï¼ˆè¯·çœ‹[å›¾ç‰‡](https://raw.githubusercontent.com/Ariszy/Private-Script/master/TASK/DYJSB/dyjsb.PNG))
