@@ -23,4 +23,4 @@
 
 ## 赞赏码(开发不易，赏杯阔乐！)
 
-<div align=center><img width="250" height="250" src="./img/thanks.jpg"/></div>
+<div align=center><img width="250" height="250" src="./img/thanks.JPG"/></div>
