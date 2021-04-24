@@ -45,8 +45,8 @@ if (!kxhyheaderArr[0]) {
       console.log(`\n开始【开心花园${$.index}】`)
       await room() 
       await list()
-      await plant()
       await haves()
+      await plant()
   }
  }
 })()
