@@ -159,7 +159,7 @@ $.log("&&&&"+yy)
 }*/
   
   var ww = result.result.list.find(item => item.finished == 0)
-  let qq = ww.tag.match(/\d+/)
+  let qq = ww.tag.match(/\d+/) - 1
   //$.log(qq)
   var indexs = JSON.stringify(result.result.list[qq].condition.harvestNeed).match(/index":\d+/g)+""
 //$.log(indexs)
