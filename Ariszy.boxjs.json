@@ -5,6 +5,36 @@
   "icon": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/Ariszy.png",
   "repo": "https://github.com/Ariszy/Private-Script",
   "apps": [{
+    "id": "ryhy",
+    "name": "如意化缘",
+    "keys": ["ryhyheader", "ryhyheader2","ryhyheader3", "ryhyheader4", "ryhyheader5","ryhyheader6", "ryhyheader7", "ryhyheader8","ryhyheader9", "ryhyheader10"],
+    "author": "@Ariszy",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
+        "id": "ryhystatus",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "ryhycount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/ryhy.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/ryhy-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/ryhy.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/ryhy.js"
+  },
+     {
     "id": "kxhy",
     "name": "开熏化缘",
     "keys": ["kxhyheader", "kxhyheader2","kxhyheader3", "kxhyheader4", "kxhyheader5","kxhyheader6", "kxhyheader7", "kxhyheader8","kxhyheader9", "kxhyheader10"],
