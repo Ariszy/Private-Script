@@ -5,6 +5,36 @@
   "icon": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/Ariszy.png",
   "repo": "https://github.com/Ariszy/Private-Script",
   "apps": [{
+    "id": "cglm",
+    "name": "猜歌联萌",
+    "keys": ["cglmheader", "cglmheader2","cglmheader3", "cglmheader4", "cglmheader5","cglmheader6", "cglmheader7", "cglmheader8","cglmheader9", "cglmheader10"],
+    "author": "@Ariszy",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
+        "id": "cglmstatus",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "cglmcount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/cglm.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/cglm-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/cglm.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/cglm.js"
+  },
+    {
     "id": "ryhy",
     "name": "如意化缘",
     "keys": ["ryhyheader", "ryhyheader2","ryhyheader3", "ryhyheader4", "ryhyheader5","ryhyheader6", "ryhyheader7", "ryhyheader8","ryhyheader9", "ryhyheader10"],
