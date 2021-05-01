@@ -27,7 +27,7 @@ if (isGetCookie) {
 
 cglmheaderArr.push($.getdata('cglmheader'))
     let cglmcount = ($.getval('cglmcount') || '1');
-  for (let i = 2; i <= 10; i++) {
+  for (let i = 2; i <= cglmcount; i++) {
     cglmheaderArr.push($.getdata(`cglmheader${i}`))
   }
 !(async () => {
