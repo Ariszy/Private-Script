@@ -2,11 +2,13 @@ const zhiyi = '开心花园'
 const $ = Env(zhiyi)
 const notify = $.isNode() ?require('./sendNotify') : '';
 let no,No,no0,no1,no2,no3,no4,no5,no6,no7,no8;
-var roomcount
+var roomcount,id,finished;
 let status;
 status = (status = ($.getval("kxhystatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 kxhyheaderArr = []
 let kxhyheader = $.getdata('kxhyheader')
+let adheader = $.getdata('adheader')
+let adbody = $.getdata('adbody')
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 const invite=1;//新用户自动邀请，0关闭，1默认开启
 const logs =0;//0为关闭日志，1为开启
@@ -47,6 +49,8 @@ if (!kxhyheaderArr[0]) {
       await room() 
       await list()
       await plant()
+      await cashlist()
+      await tasklist()
   }
  }
 })()
@@ -61,6 +65,18 @@ if($request&&$request.url.indexOf("plant")>=0) {
     if(kxhyheader)    $.setdata(kxhyheader,`kxhyheader${status}`)
     $.log(`[${zhiyi}] 获取kxhyheader请求: 成功,kxhyheader: ${kxhyheader}`)
     $.msg(`kxhyheader${status}: 成功🎉`, ``)
+}
+if($request.url.indexOf("ad/lookVideo")>-1){
+   const adheader = JSON.stringify($request.headers)
+    if(adheader)
+$.setdata(adheader,`adheader${status}`)
+     $.log(`[${zhiyi}] 获取adheader请求: 成功,adheader: ${adheader}`)
+    $.msg(`adheader${status}: 成功🎉`, ``)
+   const adbody = $request.body
+   if(adbody)
+$.setdata(adbody,`adbody${status}`)
+      $.log(`[${zhiyi}] 获取adbody请求: 成功,adbody: ${adbody}`)
+    $.msg(`adbody${status}: 成功🎉`, ``)
 }
 }
 
@@ -410,6 +426,191 @@ async function havest(){
     })
    })
   }  
+
+async function lookvideo(){
+ return new Promise((resolve) => {
+    let lookvideo_url = {
+   		url: `https://bp-api.coohua.com/bubuduo-kxhy/ad/lookVideo`,
+        headers: JSON.parse(adheader),
+        body: adbody
+   	}
+   $.post(lookvideo_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.code == 0)
+          $.log("收获成功\n")
+        if(result.code == 50003)
+          $.log(result.message+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }  
+async function lookvideo(){
+ return new Promise((resolve) => {
+    let lookvideo_url = {
+   		url: `https://bp-api.coohua.com/bubuduo-kxhy/ad/lookVideo`,
+        headers: JSON.parse(adheader),
+        body: adbody
+   	}
+   $.post(lookvideo_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.code == 0)
+          $.log("观看成功\n")
+        else
+          $.log(result.message+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }  
+async function cloud(){
+ return new Promise((resolve) => {
+    let cloud_url = {
+   		url: `https://bp-api.coohua.com/bubuduo-kxhy/game/cloud/used`,
+        headers: JSON.parse(kxhyheader),
+        body: "null"
+   	}
+   $.post(cloud_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.code == 0)
+          $.log("加速成功\n")
+        else
+          $.log(result.message+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function cashlist(){
+ return new Promise((resolve) => {
+    let cashlist_url = {
+   		url: `https://bp-api.coohua.com/bubuduo-kxhy/mall/sign/cash/list`,
+        headers: JSON.parse(adheader),
+       
+   	}
+   $.get(cashlist_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.code == 0){
+          $.log("今日打卡进度："+result.result.cashLimit.todayVideoNum+"/"+result.result.signVideo+"\n")
+          if(result.result.cashLimit.todayVideoNum < result.result.signVideo){
+         await lookvideo()
+         await cloud()
+}else{
+       $.log("今日打卡完成，不再云加速，需要加速请手动\n")
+}
+        }else
+          $.log(result.message+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+
+async function tasklist(){
+ return new Promise((resolve) => {
+    let tasklist_url = {
+   		url: `https://bp-api.coohua.com/bubuduo-kxhy/task/list`,
+        headers: JSON.parse(kxhyheader),
+       
+   	}
+   $.get(tasklist_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.code == 0){
+          let status = data.match(/"state":\d/g)
+          for(let j = 0; j < status.length; j++){
+          let statu = status[j].replace(/"state":/,"")
+          if(statu == 2)
+             finished = 1;
+}
+          if(finished == 1){
+             $.log("每日福利已完成\n")
+          }else{
+         let taskid = data.match(/taskId":\d+/g)
+          //$.log(taskid)
+          for(let i = 0; i < taskid.length; i++){
+          id = taskid[i].replace(/taskId":/,"")
+          await getReward()
+          await daily()
+}
+}
+        }else
+          $.log(result.message+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function getReward(){
+ return new Promise((resolve) => {
+    let getReward_url = {
+   		url: `https://bp-api.coohua.com/bubuduo-kxhy/task/daily/getReward?taskId=${id}`,
+        headers: JSON.parse(kxhyheader),
+        
+   	}
+   $.post(getReward_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.code == 0)
+          $.log(id+"任务完成\n")
+        else
+          $.log(result.message+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function daily(){
+ return new Promise((resolve) => {
+    let daily_url = {
+   		url: `https://bp-api.coohua.com/bubuduo-kxhy/task/finish/daily?taskId=${id}`,
+        headers: JSON.parse(kxhyheader),
+        
+   	}
+   $.post(daily_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.code == 0)
+          $.log(id+"领取成功\n")
+        else
+          $.log(result.message+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
 //showmsg
 //boxjs设置tz=1，在12点<=20和23点>=40时间段通知，其余时间打印日志
 
