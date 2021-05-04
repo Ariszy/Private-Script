@@ -2,10 +2,12 @@ const zhiyi = '开心花园'
 const $ = Env(zhiyi)
 const notify = $.isNode() ?require('./sendNotify') : '';
 let no,No,no0,no1,no2,no3,no4,no5,no6,no7,no8;
-var roomcount,id,finished;
+var roomcount,id;
 let status;
 status = (status = ($.getval("kxhystatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
-kxhyheaderArr = []
+var kxhyheaderArr = []
+var adheaderArr = []
+var adbodyArr = []
 let kxhyheader = $.getdata('kxhyheader')
 let adheader = $.getdata('adheader')
 let adbody = $.getdata('adbody')
@@ -29,9 +31,13 @@ if (isGetCookie) {
 } 
 
 kxhyheaderArr.push($.getdata('kxhyheader'))
+adheaderArr.push($.getdata('adheader'))
+adbodyArr.push($.getdata('adbody'))
     let kxhycount = ($.getval('kxhycount') || '1');
   for (let i = 2; i <= kxhycount; i++) {
     kxhyheaderArr.push($.getdata(`kxhyheader${i}`))
+    adheaderArr.push($.getdata(`adheader${i}`))
+    adbodyArr.push($.getdata(`adbody${i}`))
   }
 !(async () => {
 if (!kxhyheaderArr[0]) {
@@ -43,6 +49,8 @@ if (!kxhyheaderArr[0]) {
     if (kxhyheaderArr[i]) {
       message = ''
       kxhyheader = kxhyheaderArr[i];
+      adheader = adheaderArr[i];
+      adbody = adbodyArr[i];
       $.index = i + 1;
       console.log(`\n开始【开心花园${$.index}】`)
       await haves()
@@ -51,6 +59,7 @@ if (!kxhyheaderArr[0]) {
       await plant()
       await cashlist()
       await tasklist()
+await lookvideo()
   }
  }
 })()
@@ -426,30 +435,7 @@ async function havest(){
     })
    })
   }  
-
-async function lookvideo(){
- return new Promise((resolve) => {
-    let lookvideo_url = {
-   		url: `https://bp-api.coohua.com/bubuduo-kxhy/ad/lookVideo`,
-        headers: JSON.parse(adheader),
-        body: adbody
-   	}
-   $.post(lookvideo_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        if(logs)$.log(data)
-        if(result.code == 0)
-          $.log("收获成功\n")
-        if(result.code == 50003)
-          $.log(result.message+"\n")
-        }catch(e) {
-          $.logErr(e, response);
-      } finally {
-        resolve();
-      } 
-    })
-   })
-  }  
+  
 async function lookvideo(){
  return new Promise((resolve) => {
     let lookvideo_url = {
@@ -538,11 +524,11 @@ async function tasklist(){
         const result = JSON.parse(data)
         if(logs)$.log(data)
         if(result.code == 0){
-          let status = data.match(/"state":\d/g)
-          let statu0 = status[0].replace(/"state":/,"")
-          let statu1 = status[1].replace(/"state":/,"")
-          let statu2 = status[2].replace(/"state":/,"")
-          let statu3 = status[3].replace(/"state":/,"")
+          let statues = data.match(/"state":\d/g)
+          let statu0 = statues[0].replace(/"state":/,"")
+          let statu1 = statues[1].replace(/"state":/,"")
+          let statu2 = statues[2].replace(/"state":/,"")
+          let statu3 = statues[3].replace(/"state":/,"")
           if(statu0 == 2 && statu1 == 2 && statu2 == 2 && statu3 == 2){
              $.log("每日福利已完成\n")
           }else{
