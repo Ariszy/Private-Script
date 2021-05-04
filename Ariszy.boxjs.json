@@ -67,7 +67,7 @@
      {
     "id": "kxhy",
     "name": "开熏化缘",
-    "keys": ["kxhyheader", "kxhyheader2","kxhyheader3", "kxhyheader4", "kxhyheader5","kxhyheader6", "kxhyheader7", "kxhyheader8","kxhyheader9", "kxhyheader10"],
+    "keys": ["kxhyheader","adheader","adbody", "kxhyheader2","adheader2","adbody2","kxhyheader3","adheader3","adbody3", "kxhyheader4", "adheader4","adbody4","kxhyheader5","adheader5","adbody5","kxhyheader6", "adheader6","adbody6","kxhyheader7","adheader7","adbody7", "kxhyheader8","adheader8","adbody8","kxhyheader9","adheader9","adbody9", "kxhyheader10","adheader10","adbody10"],
     "author": "@Ariszy",
     "settings": [{
             "id": "tz",
