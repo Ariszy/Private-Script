@@ -59,7 +59,6 @@ if (!kxhyheaderArr[0]) {
       await plant()
       await cashlist()
       await tasklist()
-await lookvideo()
   }
  }
 })()
