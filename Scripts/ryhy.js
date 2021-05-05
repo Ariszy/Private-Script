@@ -46,7 +46,7 @@ ryhyadbodyArr.push($.getdata('ryhyadbody'))
   for (let i = 2; i <= ryhycount; i++) {
     ryhyheaderArr.push($.getdata(`ryhyheader${i}`))
     ryhyadheaderArr.push($.getdata(`ryhyadheader${i}`))
-    ryhyadbodyArr.push($.getdata(`ryhtadbody${i}`))
+    ryhyadbodyArr.push($.getdata(`ryhyadbody${i}`))
   }
 !(async () => {
 if (!ryhyheaderArr[0]) {
