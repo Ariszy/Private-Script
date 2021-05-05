@@ -1,3 +1,10 @@
+/*
+
+https://bp-api.coohua.com/bubuduo-kxhy/game/plant url script-request-header kxhy.js
+https://bp-api.coohua.com/bubuduo-kxhy/ad/lookVideo url script-request-body kxhy.js
+hostname = bp-api.coohua.com
+
+*/
 const zhiyi = '开心花园'
 const $ = Env(zhiyi)
 const notify = $.isNode() ?require('./sendNotify') : '';
