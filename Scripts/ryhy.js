@@ -10,7 +10,7 @@ const zhiyi = '如意花园'
 const $ = Env(zhiyi)
 const notify = $.isNode() ?require('./sendNotify') : '';
 let no,No,no0,no1,no2,no3,no4,no5,no6,no7,no8;
-var roomcount,unlockno
+var roomcount,unlockno,id
 let shouldplan0,shouldplant1,shouldplant2,shouldplan3,ahouldplant4
 let status;
 status = (status = ($.getval("ryhystatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -46,7 +46,7 @@ ryhyadbodyArr.push($.getdata('ryhyadbody'))
   for (let i = 2; i <= ryhycount; i++) {
     ryhyheaderArr.push($.getdata(`ryhyheader${i}`))
     ryhyadheaderArr.push($.getdata(`ryhyadheader${i}`))
-    ryhyadbodyArr.push($.getdata(`ryhyadbody${i}`))
+    ryhyadbodyArr.push($.getdata(`ryhtadbody${i}`))
   }
 !(async () => {
 if (!ryhyheaderArr[0]) {
@@ -68,6 +68,7 @@ if (!ryhyheaderArr[0]) {
       await list()
       await plant()
       await rewardlist()
+      await tasklist()
   }
  }
 })()
@@ -604,14 +605,104 @@ async function rewardlist(){
         const result = JSON.parse(data)
         if(logs)$.log(data)
         if(result.code == 0){
-          $.log("当前打卡进度："+result.result.cashLimit.todayVideoNum+"/"+result.result.signVideo+"\n")
-          if(result.result.cashLimit.todayVideoNum < result.result.signVideo){
+          $.log("今日打卡进度："+result.result.cashLimit.todayVideoNum+"/"+result.result.signVideo+"\n")
+          $.log("总打卡进度："+result.result.cashLimit.signDays+"\n"+"打卡5天、10天、15天、20天、30天、50天、80天、100天、120天可以兑换，请兑换\n")
+      if(result.result.cashLimit.todayVideoNum < result.result.signVideo){
         await lookVideo()
         await cloud()
 }else{
         console.log("今日打卡已经完成，不再进行云加速，如有需要请手动\n")
 }
         }else
+          $.log(result.message+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function tasklist(){
+ return new Promise((resolve) => {
+    let tasklist_url = {
+   		url: `https://bp-api.coohua.com/bubuduo-ryhy/task/list`,
+        headers: JSON.parse(ryhyheader),
+       
+   	}
+   $.get(tasklist_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.code == 0){
+          let statues = data.match(/"state":\d/g)
+          let statu0 = statues[0].replace(/"state":/,"")
+          let statu1 = statues[1].replace(/"state":/,"")
+          let statu2 = statues[2].replace(/"state":/,"")
+          let statu3 = statues[3].replace(/"state":/,"")
+          let statu4 = statues[4].replace(/"state":/,"")
+          let statu5 = statues[5].replace(/"state":/,"")
+          let statu6 = statues[6].replace(/"state":/,"")
+          let statu7 = statues[7].replace(/"state":/,"")
+          if(statu0 == 2 && statu1 == 2 && statu2 == 2 && statu3 == 2 && statu4 == 2 && statu5 == 2 && statu6 == 2 && statu7 == 2){
+             $.log("每日福利已完成\n")
+             $.log("福利完成进度："+result.result.redNum+"/"+result.result.redNumLimit+"\n")
+          }else{
+         let taskid = data.match(/taskId":\d+/g)
+          //$.log(taskid)
+          for(let i = 0; i < taskid.length; i++){
+          id = taskid[i].replace(/taskId":/,"")
+          await getReward()
+          await daily()
+}
+}
+        }else
+          $.log(result.message+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function getReward(){
+ return new Promise((resolve) => {
+    let getReward_url = {
+   		url: `https://bp-api.coohua.com/bubuduo-ryhy/task/daily/getReward?taskId=${id}`,
+        headers: JSON.parse(ryhyheader),
+        
+   	}
+   $.post(getReward_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.code == 0)
+          $.log(id+"任务完成\n")
+        else
+          $.log(result.message+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function daily(){
+ return new Promise((resolve) => {
+    let daily_url = {
+   		url: `https://bp-api.coohua.com/bubuduo-ryhy/task/finish/daily?taskId=${id}`,
+        headers: JSON.parse(ryhyheader),
+        
+   	}
+   $.post(daily_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.code == 0)
+          $.log(id+"领取成功\n")
+        else
           $.log(result.message+"\n")
         }catch(e) {
           $.logErr(e, response);
