@@ -534,8 +534,8 @@ async function tasklist(){
           let statu0 = statues[0].replace(/"state":/,"")
           let statu1 = statues[1].replace(/"state":/,"")
           let statu2 = statues[2].replace(/"state":/,"")
-          let statu3 = statues[3].replace(/"state":/,"")
-          if(statu0 == 2 && statu1 == 2 && statu2 == 2 && statu3 == 2){
+          //let statu3 = statues[3].replace(/"state":/,"")
+          if(statu0 == 2 && statu1 == 2 && statu2 == 2){
              $.log("每日福利已完成\n")
           }else{
          let taskid = data.match(/taskId":\d+/g)
