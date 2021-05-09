@@ -89,6 +89,13 @@
         "val": "1",
         "type": "number",
         "desc": "需要几个账号，数字为几"
+      },
+       {
+        "id": "secret",
+        "name": "请输入运行密码",
+        "val": "",
+        "type": "string",
+        "desc": "私密脚本，请尊重作者意愿"
       }],
     "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/kxhy.js",
     "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/kxhy-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/kxhy.png"],
