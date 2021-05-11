@@ -71,6 +71,36 @@
     "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/cglm-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/cglm.png"],
     "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/cglm.js"
   },
+   {
+    "id": "klcg",
+    "name": "快乐猜歌",
+    "keys": ["ygkcurl","ygkchd", "ygkcurl2","ygkchd2"],
+    "author": "@肥皂 @Ariszy",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+      {
+        "id": "ygkcstatus",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "ygkccount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/klcg.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/klcg-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/klcg.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/klcg.js"
+  },
     {
     "id": "ryhy",
     "name": "如意化缘",
