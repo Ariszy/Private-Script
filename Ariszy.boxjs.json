@@ -21,7 +21,7 @@
             "name": "自定义延时",
             "val": "30",
             "type": "number",
-            "desc": "填写脚本延时时间"
+            "desc": "填写脚本延时时间，例：30为30s"
         },
       {
         "id": "xpreadstatus",
