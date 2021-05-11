@@ -63,7 +63,6 @@ if (isGetCookie) {
     let xpreadcount = ($.getval('xpreadcount') || '1');
   for (let i = 2; i <= xpreadcount; i++) {
     xpreadCookieArr.push($.getdata(`xpreadCookie${i}`))
-    xpreadTokenArr.push($.getdata(`xpreadToken${i}`))
   }
 !(async () => {
 if (!xpreadCookieArr[0]) {
