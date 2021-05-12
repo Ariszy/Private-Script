@@ -209,7 +209,7 @@ async function newscomplete(){
         }else if(result.errorCode == 10331){
            $.log("😫"+result.errorMsg+"\n")
            await cash()
-           $done();
+           $.done();
         }else{
            $.log("😫"+result.errorMsg+"\n")
         }
