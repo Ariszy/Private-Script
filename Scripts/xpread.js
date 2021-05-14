@@ -12,6 +12,38 @@ boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.bo
 
 5.11 17:00开始制作
 5.11 22:00完成
+5.14 9:00加入签到+抽奖
+
+具体多大毛不知道，初步估计运行一次ok，0.5元左右，调整每次阅读延时25秒，为阅读20s➕跳转5s，手动阅读20s完成任务，故设置为20s，运行一次时间很长，请注意
+
+[mitm]
+hostname = lrqd.wasair.com
+
+#quanx
+[rewrite local]
+https://lrqd.wasair.com/advert/task/news/list url script-request-header https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/xpread.js
+
+#loon
+http-request https://lrqd.wasair.com/advert/task/news/list script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/xpread.js, requires-body=true, timeout=10, tag=笑谱阅读
+
+
+#surge
+笑谱阅读 = type=http-request,pattern=https://lrqd.wasair.com/advert/task/news/list,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/xpread.js,script-update-interval=0
+*/
+/*
+tgchannel：https://t.me/Ariszy_Script
+github：https://github.com/Ariszy/script
+boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
+
+转载留个名字，谢谢
+
+作者：执意Ariszy
+
+#####笑谱app最新版V1.5.6
+天天领现金-每日签到领现金-点击随便一个任务，获取ck
+
+5.11 17:00开始制作
+5.11 22:00完成
 
 具体多大毛不知道，初步估计运行一次ok，0.5元左右，调整每次阅读延时25秒，为阅读20s➕跳转5s，手动阅读20s完成任务，故设置为20s，运行一次时间很长，请注意
 
@@ -76,6 +108,8 @@ if (!xpreadCookieArr[0]) {
       xpreadCookie = xpreadCookieArr[i];
       $.index = i + 1;
       console.log(`\n开始【笑谱阅读${$.index}】`)
+      await sign1()
+      await sign2()
       await newslists()
     }
   }
@@ -208,6 +242,7 @@ async function newscomplete(){
           console.log("😄成功获得"+result.data.money+"\n") 
         }else if(result.errorCode == 10331){
            $.log("😫"+result.errorMsg+"\n")
+           await lotterycontrol()
            await cash()
            $.done();
         }else{
@@ -234,6 +269,83 @@ async function cash(){
           $.msg("😄本次阅读完成，现有余额："+result.data.cash+"\n")
         }else{
            $.log("😫"+result.errorMsg+"\n")
+        }
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function sign1(){
+ const body = `watchAgain=0&autoTouch=1`;
+ const MyRequest = PostRequest('cash/user/advert/sign', body)
+ return new Promise((resolve) => {
+   $.post(MyRequest,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.errorCode == 0){
+          console.log("😄自动签到完成，获得现金："+result.data.money+"\n") 
+          //await sign2()
+        }else{
+           $.log("😫"+result.errorMsg+"\n")
+        }
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function sign2(){
+ const body = `watchAgain=1&autoTouch=1`;
+ const MyRequest = PostRequest('cash/user/advert/sign', body)
+ return new Promise((resolve) => {
+   $.post(MyRequest,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.errorCode == 0){
+          console.log("😄视频签到完成，获得现金："+result.data.money+"\n") 
+        }else{
+           $.log("😫"+result.errorMsg+"\n")
+        }
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function lotterycontrol(){
+$.num = 1;
+await lottery()
+}
+async function lottery(){
+ const body = `num=${$.num}&drawType=common`;
+ const MyRequest = PostRequest('advert/games/dazhuanpan/draw', body)
+ return new Promise((resolve) => {
+   $.post(MyRequest,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.errorCode == 0){ 
+        if(data.indexOf("advertId") < 0){
+          console.log("😄第"+$.num+"次抽奖完成，获得"+result.data.money+"\n") 
+        }else{
+           $.log("😫遗憾未抽中现金奖励"+"\n")
+        }
+        }
+        else{
+           $.log(result.errorMsg+"\n")
+        }
+        if($.num < 8){
+          $.num++;
+          await lottery()
         }
         }catch(e) {
           $.logErr(e, response);
