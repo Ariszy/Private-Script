@@ -110,7 +110,8 @@ if($request&&$request.url.indexOf("CollectCurrentElectricity")>=0) {
 }
 async function collect(){
 let url = jxcollecturl.replace(/doubleflag=\d/,'doubleflag=1')
-$.uri = boxjsnum = 0 ? url : jxcollecturl
+let jxcollectdoublenum = $.getval("jxcollectdoublenum")
+$.uri = jxcollectdoublenum = 0 ? url : jxcollecturl
 let name = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
  return new Promise((resolve) => {
     let collect_url = {
