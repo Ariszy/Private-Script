@@ -600,7 +600,7 @@
   {
     "id": "jxcollect",
     "name": "京喜工厂电力收取",
-    "keys": ["jxcollecturl", "jxcollectheader","jxcollecturl2", "jxcollectheader2", "jxcollecturl3","jxcollectheader3", "jxcollecturl4", "jxcollectheader4","jxcollecturl5", "jxcollectheader5", "jxcollecturl6","jxcollectheader6", "jxcollecturl7", "jxcollectheader7","jxcollecturl8", "jxcollectheader8", "jxcollecturl9","jxcollectheader9", "jxcollecturl10", "jxcollectheader10"],
+    "keys": ["jxcollecturl","jxcollecturl2", "jxcollecturl3", "jxcollecturl4", "jxcollecturl5",  "jxcollecturl6","jxcollecturl7", "jxcollecturl8", "jxcollecturl9","jxcollecturl10"],
     "author": "@Ariszy",
     "settings": [{
             "id": "tz",
@@ -622,7 +622,14 @@
         "val": "1",
         "type": "number",
         "desc": "需要几个账号，数字为几"
-      }],
+      },
+       {
+        "id": "jxcollectdoublenum",
+        "name": "是否double领取",
+        "val": "0",
+        "type": "number",
+        "desc": "0为不double，1为double且必须满了运行才ok，否则火爆"
+      }         ],
     "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/jxcollect.js",
     "icons": ["https://raw.githubusercontent.com/58xinian/icon/master/jdgc_mini.png","https://github.com/58xinian/icon/raw/master/jdgc.png"],
     "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jxcollect.js"
