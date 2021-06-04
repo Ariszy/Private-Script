@@ -85,7 +85,7 @@ function GetRequest(uri) {
 
 async function reportGame(itemtoken){
  let score = Math.floor(Math.random()*40)+50;
- const MyRequest = GetRequest(`functionId=mcxhd_brandcity_reportGame&appid=publicUseApi&body=%7B%22token%22%3A%22jd17919499fb7031e5%22%2C%22score%22%3A${score}%7D&t=1622745157413&client=wh5&clientVersion=1.0.0&sid=6d815a8fdbd5d7bd5bd45acb30b81c1w&uuid=0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849&area=13_1016_47166_57860&networkType=4g`)
+ const MyRequest = GetRequest(`functionId=mcxhd_brandcity_reportGame&appid=publicUseApi&body=%7B%22token%22%3A%22jd17919499fb7031e5%22%2C%22score%22%3A${score}%7D&t=${new Date().getTime()}&client=wh5&clientVersion=1.0.0&sid=6d815a8fdbd5d7bd5bd45acb30b81c1w&uuid=0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849&area=13_1016_47166_57860&networkType=4g`)
  return new Promise((resolve) => {
    $.get(MyRequest,async(error, response, data) =>{
     try{
@@ -105,7 +105,7 @@ async function reportGame(itemtoken){
    })
   }
 async function doTask(itemtoken){
- const MyRequest = GetRequest(`functionId=mcxhd_brandcity_doTask&appid=publicUseApi&body=%7B%22itemToken%22%3A%22${itemtoken}%22%2C%22token%22%3A%22jd17919499fb7031e5%22%7D&t=1622741788741&client=wh5&clientVersion=1.0.0&sid=7eef03e1ab21433872a1eef04777989w&uuid=62c8e3ec5aa89f3dcb2ee72c39b3041d98fc34ca&area=13_1016_47166_57860&networkType=4g`)
+ const MyRequest = GetRequest(`functionId=mcxhd_brandcity_doTask&appid=publicUseApi&body=%7B%22itemToken%22%3A%22${itemtoken}%22%2C%22token%22%3A%22jd17919499fb7031e5%22%7D&t=${new Date().getTime()}&client=wh5&clientVersion=1.0.0&sid=7eef03e1ab21433872a1eef04777989w&uuid=62c8e3ec5aa89f3dcb2ee72c39b3041d98fc34ca&area=13_1016_47166_57860&networkType=4g`)
  return new Promise((resolve) => {
    $.get(MyRequest,async(error, response, data) =>{
     try{
@@ -126,7 +126,6 @@ async function doTask(itemtoken){
   }
 async function check(tasktoken){
 //$.log(tasktoken)
- const body = `{"dataSource":"newshortAward","method":"getTaskAward","reqParams":"{\\"taskToken\\":\\"${tasktoken}\\"}","sdkVersion":"1.0.0","clientLanguage":"zh"}`
 const MyRequest = GetRequest(encodeURI`functionId=qryViewkitCallbackResult&client=wh5&body={"dataSource":"newshortAward","method":"getTaskAward","reqParams":"{\\"taskToken\\":\\"${tasktoken}\\"}","sdkVersion":"1.0.0","clientLanguage":"zh"}`)
  return new Promise((resolve) => {
    $.get(MyRequest,async(error, response, data) =>{
@@ -147,7 +146,7 @@ const MyRequest = GetRequest(encodeURI`functionId=qryViewkitCallbackResult&clien
    })
   }
 async function getlist(){
- const MyRequest = GetRequest(`functionId=mcxhd_brandcity_taskList&appid=publicUseApi&body=%7B%22lat%22%3A%2236.808112%22%2C%22lng%22%3A%22118.039608%22%2C%22token%22%3A%22jd17919499fb7031e5%22%7D&t=1622741794680&client=wh5&clientVersion=1.0.0&sid=7eef03e1ab21433872a1eef04777989w&uuid=0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849&area=13_1016_47166_57860&networkType=4g`)
+ const MyRequest = GetRequest(`functionId=mcxhd_brandcity_taskList&appid=publicUseApi&body=%7B%22lat%22%3A%2236.808112%22%2C%22lng%22%3A%22118.039608%22%2C%22token%22%3A%22jd17919499fb7031e5%22%7D&t=${new Date().getTime()}&client=wh5&clientVersion=1.0.0&sid=7eef03e1ab21433872a1eef04777989w&uuid=0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849&area=13_1016_47166_57860&networkType=4g`)
  return new Promise((resolve) => {
    $.get(MyRequest,async(error, response, data) =>{
     try{
@@ -158,7 +157,7 @@ async function getlist(){
 
 if(tasklist1Arr.times < tasklist1Arr.maxTimes){
           console.log("开始任务1⃣️"+tasklist1Arr.taskName+"\n")
-          for(let i = 0; i < tasklist1Arr.subItem.length; i++){
+          for(let i = 0; i == tasklist1Arr.subItem.length; i++){
           if(tasklist1Arr.subItem[i].status == 1){
           task1Arr.push(tasklist1Arr.subItem[i].itemToken)
 for(let j = 0; j < task1Arr.length; j++){
@@ -176,7 +175,7 @@ for(let j = 0; j < task1Arr.length; j++){
     if(tasklist2Arr.times < tasklist2Arr.maxTimes){
           console.log("开始任务2⃣️"+tasklist2Arr.taskName+"\n")
           for(let i = 0; i < tasklist2Arr.subItem.length; i++){
-          if(tasklist2Arr.subItem[i].status == 1 || tasklist2Arr.times == tasklist2Arr.maxTimes){
+          if(tasklist2Arr.subItem[i].status == 1){
           task2Arr.push(tasklist2Arr.subItem[i].itemToken)
 for(let j = 0; j < task2Arr.length; j++){
   $.log("开始"+task2Arr[j])
@@ -195,7 +194,7 @@ for(let j = 0; j < task2Arr.length; j++){
       if(tasklist3Arr.times < tasklist3Arr.maxTimes){
           console.log("开始任务3⃣️"+tasklist3Arr.taskName+"\n")
           for(let i = 0; i < tasklist3Arr.subItem.length; i++){
-          if(tasklist3Arr.subItem[i].status == 1 || tasklist3Arr.times == tasklist3Arr.maxTimes){
+          if(tasklist3Arr.subItem[i].status == 1){
           task3Arr.push(tasklist3Arr.subItem[i].itemToken)
 tasktokenArr.push(tasklist3Arr.subItem[i].taskToken)
 for(let j = 0; j < task3Arr.length; j++){
@@ -236,7 +235,7 @@ for (let i =0; i < cookiesArr.length; i++) {
 }
 }
 async function getlists(){
- const MyRequest = GetRequest(`functionId=mcxhd_brandcity_taskList&appid=publicUseApi&body=%7B%22lat%22%3A%2236.808112%22%2C%22lng%22%3A%22118.039608%22%2C%22token%22%3A%22jd17919499fb7031e5%22%7D&t=1622741794680&client=wh5&clientVersion=1.0.0&sid=7eef03e1ab21433872a1eef04777989w&uuid=0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849&area=13_1016_47166_57860&networkType=4g`)
+ const MyRequest = GetRequest(`functionId=mcxhd_brandcity_taskList&appid=publicUseApi&body=%7B%22lat%22%3A%2236.808112%22%2C%22lng%22%3A%22118.039608%22%2C%22token%22%3A%22jd17919499fb7031e5%22%7D&t=${new Date().getTime()}&client=wh5&clientVersion=1.0.0&sid=7eef03e1ab21433872a1eef04777989w&uuid=0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849&area=13_1016_47166_57860&networkType=4g`)
  return new Promise((resolve) => {
     $.get(MyRequest,async(error, response, data) =>{
     try{
