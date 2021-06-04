@@ -73,25 +73,48 @@ if ($.isNode()) {
 function PostRequest(uri,body) {
   const url = `https://brandquiz.m.jd.com/api/${uri}`;
   const method = `POST`;
-  const headers = {"Accept": "application/json, text/plain, */*","Accept-Encoding": "gzip, deflate, br","Accept-Language": "zh-cn","Connection": "keep-alive","Content-Type": "application/json;charset=utf-8","Cookie": cookie,"Host": "brandquiz.m.jd.com","User-Agent": "jdapp;iPhone;10.0.1;14.4;0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849;network/4g;model/iPhone12,1;addressid/2377723269;appBuild/167685;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"}
+  const headers = {"Accept": "application/json, text/plain, */*",
+"Accept-Encoding": "gzip, deflate, br",
+"Accept-Language": "zh-cn",
+"Connection": "keep-alive",
+"Content-Type": "application/json;charset=utf-8",
+"Cookie": cookie,
+"Host": "brandquiz.m.jd.com",
+"User-Agent": "jdapp;iPhone;9.4.6;14.4;0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849;network/4g;ADID/BF650B20-A81A-4172-98EE-064834D97D6E;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone12,1;addressid/2377723269;supportBestPay/0;appBuild/167618;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"
+}
   return {url: url, method: method, headers: headers, body: body};
 }
 function PostRequests(uri,body) {
   const url = `https://brandquiz.m.jd.com/api/${uri}`;
   const method = `POST`;
-  const headers = {"Accept": "application/json, text/plain, */*","Accept-Encoding": "gzip, deflate, br","Accept-Language": "zh-cn","Cookie": cookie,"Host": "brandquiz.m.jd.com","User-Agent": "jdapp;iPhone;10.0.1;14.4;0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849;network/4g;model/iPhone12,1;addressid/2377723269;appBuild/167685;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"}
+  const headers = {
+"Accept": "application/json, text/plain, */*",
+"Accept-Encoding": "gzip, deflate, br",
+"Accept-Language": "zh-cn",
+"Cookie": cookie,
+"Host": "brandquiz.m.jd.com",
+"User-Agent": "jdapp;iPhone;9.4.6;14.4;0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849;network/4g;ADID/BF650B20-A81A-4172-98EE-064834D97D6E;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone12,1;addressid/2377723269;supportBestPay/0;appBuild/167618;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"
+}
   return {url: url, method: method, headers: headers, body: body};
 }
 function GetRequest(uri) {
   const url = `https://brandquiz.m.jd.com/api/${uri}`;
   const method = `GET`;
-  const headers = {"Accept": "application/json, text/plain, */*","Accept-Encoding": "gzip, deflate, br","Accept-Language": "zh-cn","Connection": "keep-alive","Cookie": cookie,"User-Agent": "jdapp;iPhone;10.0.1;14.4;0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849;network/4g;model/iPhone12,1;addressid/2377723269;appBuild/167685;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"};
+  const headers = {
+"Accept": "application/json, text/plain, */*",
+"Accept-Encoding": "gzip, deflate, br",
+"Accept-Language": "zh-cn",
+"Connection": "keep-alive",
+"Cookie": cookie,
+"User-Agent": "jdapp;iPhone;9.4.6;14.4;0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849;network/4g;ADID/BF650B20-A81A-4172-98EE-064834D97D6E;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone12,1;addressid/2377723269;supportBestPay/0;appBuild/167618;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"
+};
   return {url: url, method: method, headers: headers};
 }
 
 
 async function quiz(){
- const body = `{"quizId":5,"myQuiz":${JSON.stringify(brandlistArr.distinct())}}`
+let day = new Date().getDate()+1
+ const body = `{"quizId":${day},"myQuiz":${JSON.stringify(brandlistArr.distinct())}}`
  const MyRequest = PostRequest(`index/quiz`,body)
  return new Promise((resolve) => {
    $.post(MyRequest,async(error, response, data) =>{
@@ -119,7 +142,8 @@ for (let i =0; i < cookiesArr.length; i++) {
 }
 }
 async function getshareid(){
- const MyRequest = GetRequest(`/support/getSupport?quizId=5&t=${new Date().getTime()}`)
+ let day = new Date().getDate()+1; 
+ const MyRequest = GetRequest(`/support/getSupport?quizId=${day}&t=${new Date().getTime()}`)
  return new Promise((resolve) => {
     $.get(MyRequest,async(error, response, data) =>{
     try{
@@ -199,6 +223,26 @@ await $.wait(8000)
     })
    })
   }
+async function upload(){
+ return new Promise((resolve) => {
+    let upload_url = {
+   		url: `https://pool.nz.lu/upload/PKv2/Phoneupload/11111`,
+   	}
+   $.get(upload_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        if(result.code == 0)
+          $.log(result.msg+"观看"+result.amount+"\n")
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  } 
+
 //showmsg
 //boxjs设置tz=1，在12点<=20和23点>=40时间段通知，其余时间打印日志
 
