@@ -2,6 +2,7 @@
   "name": "Ariszy task gallery",
   "description": "后5个失效!",
   "task": [
+" 10 10 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zy_618jc.js, tag=618手机竞猜, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true",
 " 0 10 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zy_xckh.js, tag=新潮品牌狂欢, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true",
 " 0 23 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/qqMsgDel.js, tag=QQ批量删除空间留言,img-url=https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/qq.png, enabled=true",
 " 0 */3 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zy_ccfxj.js, tag=城城分现金互助, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true",
