@@ -43,6 +43,7 @@ if ($.isNode()) {
     $.msg($.name, '【提示】请先获取cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
+  await control()
   for (let i =0; i < cookiesArr.length; i++) {
       cookie = cookiesArr[i];
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -60,7 +61,6 @@ if ($.isNode()) {
                 }
                 continue
             }
-      await control()
       await getlist()
       await reportGame()
   }
@@ -110,7 +110,7 @@ async function doTask(itemtoken){
    $.get(MyRequest,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        if(logs)$.log(data)
         if(result && result.retCode && result.retCode == 200){
            console.log(result.retMessage+"\n")
         }else{
