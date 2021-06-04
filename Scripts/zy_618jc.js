@@ -99,7 +99,7 @@ async function quiz(){
         const result = JSON.parse(data)
         if(logs)$.log(data)
         if(result && result.code && result.code == 200){
-           console.log("\n竞猜成功，获得"+result.data.beanNum+"豆豆\n开奖时间为:"+data.match(/"\d.\d/)+" 10:00 \n下轮竞猜时间为："+result.data.nextQuizDate)
+           console.log("\n参与竞猜成功，获得"+result.data.beanNum+"豆豆\n开奖时间为:"+data.match(/"\d.\d/)+" 10:00 \n下轮竞猜时间为："+result.data.nextQuizDate)
    await $.wait(8000)
         }else{
            $.log(result.msg+"\n")
@@ -149,7 +149,7 @@ async function dosupport(shareid){
     $.post(MyRequest,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        if(logs)$.log(data)
         if(result && result.code && result.code == 200 && result.data == 7){
          console.log("助力成功\n")
         }else if(result.data == 1){
@@ -167,7 +167,7 @@ async function dosupport(shareid){
   }
 async function zy(){
 for(let i = 0; i < shareidArr.distinct().length;i++){
-console.log("开始内部助力"+shareidArr[i]+"\n")
+console.log("\n开始内部助力"+shareidArr[i]+"")
 await dosupport(shareidArr[i])
 await $.wait(8000)
 }
