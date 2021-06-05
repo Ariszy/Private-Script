@@ -3,7 +3,21 @@ tgchannel：https://t.me/Ariszy_Script
 github：https://github.com/Ariszy/script
 boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
 
+[task_local]
+#618竞猜
+23 0 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zy_618jc.js, tag=618竞猜, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+
+==============Loon==============
+[Script]
+cron "23 0 * * *" script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zy_618jc.js,tag=618竞猜
+
+================Surge===============
+618竞猜 = type=cron,cronexp="23 0 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zy_618jc.js
+
+===============小火箭==========
+618竞猜 = type=cron,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zy_618jc.js, cronexpr="23 0 * * *", timeout=3600, enable=true
 */
+
 const Ariszy = '618手机竞猜'
 const $ = Env(Ariszy)
 const notify = $.isNode() ?require('./sendNotify') : '';
