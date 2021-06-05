@@ -122,7 +122,7 @@ let day = new Date().getDate()+1
         const result = JSON.parse(data)
         if(logs)$.log(data)
         if(result && result.code && result.code == 200){
-           console.log("\n参与竞猜成功，获得"+result.data.beanNum+"豆豆\n开奖时间为:"+data.match(/"\d.\d/)+" 10:00 \n下轮竞猜时间为："+result.data.nextQuizDate)
+           console.log("\n参与竞猜成功，获得"+result.data.beanNum+"豆豆\n开奖时间为:"+(new Date().getDay()+"月"+(new Date().getDate()+2)+"日")+" 10:00 \n下轮竞猜时间为："+result.data.nextQuizDate)
    await $.wait(8000)
         }else{
            $.log(result.msg+"\n")
