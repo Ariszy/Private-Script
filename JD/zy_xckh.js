@@ -4,8 +4,7 @@ github：https://github.com/Ariszy/script
 boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
 
 */
-const Ariszy = '新潮品牌狂欢'
-const $ = Env(Ariszy)
+const $ = new Env('新潮品牌狂欢')
 const notify = $.isNode() ?require('./sendNotify') : '';
 cookiesArr = []
 CodeArr = []
