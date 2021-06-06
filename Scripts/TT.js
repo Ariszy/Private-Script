@@ -29,7 +29,7 @@ const $ = Env(Ariszy)
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status;
 status = (status = ($.getval("TTstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
-const TTreferArr = [],TTbodyArr = []
+let TTreferArr = [],TTbodyArr = []
 let TTrefer = $.getdata('TTrefer')
 let TTbody= $.getdata('TTbody')
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
@@ -52,24 +52,24 @@ if (isGetCookie) {
 } 
 if ($.isNode()) {
    if (process.env.TTREFER && process.env.TTREFER .indexOf('#') > -1) {
-   TTrefer = process.env.TTREFER .split('#');
+   TTreferArr = process.env.TTREFER .split('#');
    console.log(`您选择的是用"#"隔开\n`)
   }
   else if (process.env.TTREFER && process.env.TTREFER .indexOf('\n') > -1) {
-   TTrefer = process.env.TTREFER .split('\n');
+   TTreferArr = process.env.TTREFER .split('\n');
    console.log(`您选择的是用换行隔开\n`)
   } else {
-   TTrefer = process.env.TTREFER .split()
+   TTreferArr = process.env.TTREFER .split()
   };
   if (process.env.TTBODY&& process.env.TTBODY.indexOf('#') > -1) {
-   TTbody= process.env.TTBODY.split('#');
+   TTbodyArr= process.env.TTBODY.split('#');
    console.log(`您选择的是用"#"隔开\n`)
   }
   else if (process.env.TTBODY&& process.env.TTBODY.indexOf('\n') > -1) {
-   TTbody= process.env.TTBODY.split('\n');
+  TTbodyArr= process.env.TTBODY.split('\n');
    console.log(`您选择的是用换行隔开\n`)
   } else {
-   TTbody= process.env.TTBODY.split()
+  TTbodyArr= process.env.TTBODY.split()
   };
     console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
     console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
