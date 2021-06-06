@@ -25,8 +25,7 @@ http-request https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectrici
 #surge
 京喜工厂电力收取 = type=http-request,pattern=https://m.jingxi.com/dreamfactory/generator/CollectCurrentElectricity?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jxcollect.js,script-update-interval=0
 */
-const zhiyi = '京喜工厂收取电力'
-const $ = Env(zhiyi)
+const $ = new Env('京喜工厂收取电力')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status;
 status = (status = ($.getval("jxcollectstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -156,7 +155,7 @@ async function showmsg() {
         }
       } else {
         if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-          $.msg(zhiyi, '', message)
+          $.msg($.jsname, '', message)
         } else {
           $.log(message)
         }

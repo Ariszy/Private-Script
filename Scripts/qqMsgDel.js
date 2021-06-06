@@ -4,8 +4,7 @@ https://h5.qzone.qq.com/webapp/json/get_message_list/getApplist? url script-requ
 
 hostname = h5.qzone.qq.com
 */
-const zhiyi = 'qq空间一键删除留言'
-const $ = Env(zhiyi)
+const $ = new Env('qq空间批量删除留言')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status;
 var listArr,msgs;

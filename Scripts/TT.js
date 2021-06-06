@@ -24,8 +24,7 @@ TT语音 = type=http-request,pattern=https://node.52tt.com/activity-production/n
 
 */
 
-const Ariszy = 'TT语音'
-const $ = Env(Ariszy)
+const $ = new Env('TT语音')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status;
 status = (status = ($.getval("TTstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -167,7 +166,7 @@ async function showmsg() {
         }
       } else {
         if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-          $.msg(zhiyi, '', message)
+          $.msg($.jsname, '', message)
         } else {
           $.log(message)
         }

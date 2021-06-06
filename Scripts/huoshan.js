@@ -24,8 +24,7 @@ http-request /hotsoon/item/reaction/_play/? script-path=https://raw.githubuserco
 抖音火山版play = type=http-request,pattern=/hotsoon/item/reaction/_play/?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/huoshan.js,script-update-interval=0
 */
 
-const Ariszy = '抖音火山版'
-const $ = Env(Ariszy)
+const $ = new Env('抖音火山版')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status;
 status = (status = ($.getval("hsstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -689,7 +688,7 @@ if(tz==1){
    }else{
      $.log(message+note)
     //if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-       $.msg(Ariszy,'',message+note)
+       $.msg($.jsname,'',message+note)
 //}
 }
    }else{

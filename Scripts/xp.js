@@ -22,8 +22,7 @@ http-request https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf_customer_activity\/
 #surge
 笑谱 = type=http-request,pattern=^https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf_customer_activity\/day_cash\/v1\/give_gold_coin_by_video\.json,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/xp.js,script-update-interval=0
 */
-const jsname='笑谱'
-const $ = Env(jsname)
+const $ = new Env('笑谱')
 const notify = $.isNode() ?require('./sendNotify') : '';
 $.idx = ($.idx = ($.getval("xpsetting") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const videoheaderArr = [],videobodyArr=[]
@@ -377,7 +376,7 @@ if(tz==1){
    }else{
      $.log(message)
     if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-       $.msg(jsname,'',message)
+       $.msg($.jsname,'',message)
 }
 }
    }else{

@@ -38,8 +38,7 @@ kkdcookie = type=http-request,pattern=^https:\/\/api\.yuncheapp\.cn\/pearl-incen
 kkdcookie = type=http-request,pattern=^https://api.yuncheapp.cn/pearl-incentive/api/v1/task/signIn/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/kkd.js,script-update-interval=0
 
 */
-const jsname='快看点'
-const $ = Env(jsname)
+const $ = new Env('快看点')
 const notify = $.isNode() ? require('./sendNotify') : '';
 $.idx = ($.idx = ($.getval("kkdcount") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const kkdheaderArr=[]
@@ -474,7 +473,7 @@ async function showmsg() {
         }
       } else {
         if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-          $.msg(jsname, '', message)
+          $.msg($.jsname, '', message)
         } else {
           $.log(message)
         }

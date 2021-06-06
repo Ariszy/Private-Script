@@ -46,8 +46,7 @@ jrttfarm = type=http-request,pattern=\/ttgame\/game_farm\/home_info,requires-bod
 jrtt = type=cron,cronexp="5,35 8-23 * * *",wake-system=1,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/jrtt.js,script-update-interval=0
 */
 
-const jsname='今日头条极速版'
-const $ = Env(jsname)
+const $ = new Env('今日头条极速版')
 const notify = $.isNode() ?require('./sendNotify') : '';
 $.idx = ($.idx = ($.getval("jrttcount") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const signurlArr = [],signkeyArr=[]
@@ -690,7 +689,7 @@ async function showmsg() {
         }
       } else {
         if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-          $.msg(jsname, '', other)
+          $.msg($.jsname, '', other)
         } else {
           $.log(other)
         }

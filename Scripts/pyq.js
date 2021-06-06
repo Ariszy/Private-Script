@@ -25,8 +25,7 @@ http-request https://pingyouquan.com/tp5/public/index.php/app/gold/adv script-pa
 
 */
 
-const Ariszy = '评有圈'
-const $ = Env(Ariszy)
+const $ = new Env('评有圈')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status,commentid;
 status = (status = ($.getval("pyqstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符

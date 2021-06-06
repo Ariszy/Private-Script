@@ -29,8 +29,7 @@ hotsoonsign = type=http-request,pattern=/luckycat/hotsoon/v1/task/sign_in_detail
 hotsoonad = type=http-request,pattern=/luckycat/hotsoon/v1/task/done/draw_excitation_ad?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/hotsoon_old.js,script-update-interval=0
 hotsoonread = type=http-request,pattern=/luckycat/hotsoon/v1/task/done/daily_read_\d+m?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/hotsoon_old.js,script-update-interval=0
 */
-const jsname='火山视频极速版'
-const $ = Env(jsname)
+const $ = new Env('火山视频极速版')
 const notify = $.isNode() ?require('./sendNotify') : '';
 $.idx = ($.idx = ($.getval("hotsooncount") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const hotsoonsignheaderArr = [],hotsoonsignkeyArr=[]
@@ -444,7 +443,7 @@ if(tz==1){
    }else{
       $.log(message)
     if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-       $.msg(jsname,'',message)
+       $.msg($.jsname,'',message)
 }
 }
    }else{

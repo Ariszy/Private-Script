@@ -61,8 +61,7 @@ http-request https://lrqd.wasair.com/advert/task/news/list script-path=https://r
 #surge
 笑谱阅读 = type=http-request,pattern=https://lrqd.wasair.com/advert/task/news/list,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/xpread.js,script-update-interval=0
 */
-const Ariszy = '笑谱阅读'
-const $ = Env(Ariszy)
+const $ = new Env('笑谱阅读')
 const notify = $.isNode() ?require('./sendNotify') : '';
 var newsaid;
 let status;
@@ -368,7 +367,7 @@ async function showmsg() {
         }
       } else {
         if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-          $.msg(zhiyi, '', message)
+          $.msg($.jsname, '', message)
         } else {
           $.log(message)
         }

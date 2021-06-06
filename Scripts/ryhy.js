@@ -6,8 +6,7 @@ https://bp-api.coohua.com/bubuduo-ryhy/ad/lookVideo url script-request-body ryhy
 
 hostname = bp-api.coohua.com
 */
-const zhiyi = '如意花园'
-const $ = Env(zhiyi)
+const $ = new Env('如意花园')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let no,No,no0,no1,no2,no3,no4,no5,no6,no7,no8;
 var roomcount,unlockno,id

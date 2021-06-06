@@ -19,8 +19,7 @@ http-request https:\/\/step-money\.quanxiangweilai\.cn\/api\/step_count\/sync sc
 #surge
 走财运 = type=http-request,pattern=https:\/\/step-money\.quanxiangweilai\.cn\/api\/step_count\/sync,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zcy.js,script-update-interval=0
 */
-const jsname = '走财运'
-const $ = Env(jsname)
+const $ = new Env('走财运')
 const notify = $.isNode() ?require('./sendNotify') : '';
 $.idx = ($.idx = ($.getval("zcysetting") || "1") - 1) > 0 ? `${$.idx + 1}` : ""; // 账号扩展字符
 const zcyheaderArr = [],zcybodyArr = []
@@ -318,7 +317,7 @@ if(tz==1){
    }else{
      $.log(message)
     if ((hour == 12 && minute <= 20) || (hour == 23 && minute >= 40)) {
-       $.msg(jsname,'',message)
+       $.msg($.jsname,'',message)
 }
 }
    }else{

@@ -1,5 +1,5 @@
-const zhiyi = '猜歌联萌'
-const $ = Env(zhiyi)
+
+const $ =  new Env('猜歌联萌')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status;
 let num = 21;
