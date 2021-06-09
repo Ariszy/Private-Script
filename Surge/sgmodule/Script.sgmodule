@@ -5,7 +5,7 @@
 [Script]
 # Ariszy
 http-response https:\/\/api2\.mubu\.com\/v3\/api\/user\/current_user script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/mubu.js, requires-body=true, timeout=10, tag=幕布
-http-response https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/picsew.js, requires-body=true, timeout=10, tag=Picsew专业版
+http-response https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/rewrite/picsew.js, requires-body=true, timeout=10, tag=Picsew专业版
 
 # yichahucha
 http-response ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js, tag=微博去广告
