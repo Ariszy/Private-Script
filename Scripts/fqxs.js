@@ -107,14 +107,14 @@ function fqxsck() {
 if($request&&$request.url.indexOf("sign_in")>=0) {
    const fqxsurl = $request.url.split('?')[1]
    if(fqxsurl)     $.setdata(fqxsurl,`fqxsurl${status}`)
-   $.log(`[${Ariszy}] 获取fqxsurl请求: 成功,fqxsurl: ${fqxsurl}`)
+   $.log(`[${$.jsname}] 获取fqxsurl请求: 成功,fqxsurl: ${fqxsurl}`)
    $.msg(`fqxsurl${status}: 成功🎉`, ``)
    const host = $request.headers['Host']
    if(host)   $.setdata(host,'host')
-   $.log(`[${Ariszy}] 获取host请求: 成功,host: ${host}`)
+   $.log(`[${$.jsname}] 获取host请求: 成功,host: ${host}`)
    const fqxs = JSON.stringify($request.headers)
     if(fqxs)    $.setdata(fqxs,`fqxs${status}`)
-    $.log(`[${Ariszy}] 获取fqxs请求: 成功,fqxs: ${fqxs}`)
+    $.log(`[${$.jsname}] 获取fqxs请求: 成功,fqxs: ${fqxs}`)
     $.msg(`fqxs${status}: 成功🎉`, ``)
 }
 }
