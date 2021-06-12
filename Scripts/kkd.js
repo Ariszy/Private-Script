@@ -160,23 +160,23 @@ function GetCookie() {
  if($request&&$request.url.indexOf("intervalAward")>=0) {
   const kkdheader = $request.url.split(`?`)[1]
     if (kkdheader) $.setdata(kkdheader,`kkdheader${$.idx}`)
-    $.log(`[${jsname}] 获取kkdheader请求: 成功,kkdheader: ${kkdheader}`)
+    $.log(`[${$.jsname}] 获取kkdheader请求: 成功,kkdheader: ${kkdheader}`)
     $.msg(`获取kkdheader: 成功🎉`, ``)
   const kkdcookie = $request.headers['Cookie']
     if (kkdcookie) $.setdata(kkdcookie,`kkdcookie${$.idx}`)
-    $.log(`[${jsname}] 获取kkdcookie请求: 成功,kkdcookie: ${kkdcookie}`)
+    $.log(`[${$.jsname}] 获取kkdcookie请求: 成功,kkdcookie: ${kkdcookie}`)
     $.msg(`获取kkdcookie: 成功🎉`, ``)
     }
 if($request&&$request.url.indexOf("finish")>=0) {
   const kkdbody = $request.body
     if (kkdbody) $.setdata(kkdbody,`kkdbody${$.idx}`)
-    $.log(`[${jsname}] 获取kkdbody请求: 成功,kkdbody: ${kkdbody}`)
+    $.log(`[${$.jsname}] 获取kkdbody请求: 成功,kkdbody: ${kkdbody}`)
     $.msg(`获取kkdbody: 成功🎉`, ``)
     }
 if($request&&$request.url.indexOf("signIn")>=0) {
   const kkdsign = $request.url.split(`?`)[1]
     if (kkdsign) $.setdata(kkdsign,`kkdsign${$.idx}`)
-    $.log(`[${jsname}] 获取kkdsign请求: 成功,kkdsign: ${kkdsign}`)
+    $.log(`[${$.jsname}] 获取kkdsign请求: 成功,kkdsign: ${kkdsign}`)
     $.msg(`获取kkdsign: 成功🎉`, ``)
     }
   }
