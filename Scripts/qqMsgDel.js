@@ -49,7 +49,7 @@ function GetCookie() {
 if($request&&$request.url.indexOf("message/index")>=0) {
    const qqdelurl = $request.url.split(`?`)[1]
     if(qqdelurl)    $.setdata(qqdelurl,`qqdelurl`)
-    $.log(`[${zhiyi}] 获取qqdelurl请求: 成功,qqdelurl: ${qqdelurl}`)
+    $.log(`[${$.jsname}] 获取qqdelurl请求: 成功,qqdelurl: ${qqdelurl}`)
     $.msg(`qqdelurl: 成功🎉`, ``)
 
 
@@ -57,15 +57,15 @@ if($request&&$request.url.indexOf("message/index")>=0) {
 if($request&&$request.url.indexOf("get_message_list/getApplist")>=0) {
    const qqlisturl = $request.url.split(`?`)[1]
     if(qqlisturl)    $.setdata(qqlisturl,`qqlisturl`)
-    $.log(`[${zhiyi}] 获取qqlisturl请求: 成功,qqlisturl: ${qqlisturl}`)
+    $.log(`[${$.jsname}] 获取qqlisturl请求: 成功,qqlisturl: ${qqlisturl}`)
     $.msg(`qqlisturl: 成功🎉`, ``)
 const qqlistheader = JSON.stringify($request.headers)
     if(qqlistheader)    $.setdata(qqlistheader,`qqlistheader`)
-    $.log(`[${zhiyi}] 获取qqlistheader请求: 成功,qqlistheader: ${qqlistheader}`)
+    $.log(`[${$.jsname}] 获取qqlistheader请求: 成功,qqlistheader: ${qqlistheader}`)
     $.msg(`qqlistheader: 成功🎉`, ``)
    const qqlistbody = $request.body
    if(qqlistbody) $.setdata(qqlistbody,`qqlistbody`)
-     $.log(`[${zhiyi}] 获取qqlistbody请求: 成功,qqlistbody: ${qqlistbody}`)
+     $.log(`[${$.jsname}] 获取qqlistbody请求: 成功,qqlistbody: ${qqlistbody}`)
     $.msg(`qqlistbody: 成功🎉`, ``)
 }
 }
