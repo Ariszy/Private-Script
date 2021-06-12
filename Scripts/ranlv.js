@@ -130,11 +130,11 @@ function GetCookie() {
 if($request&&$request.url.indexOf("Common/pvlog")>=0) {
    const rlurl = $request.url.split('?')[1]
    if(rlurl)     $.setdata(rlurl,`rlurl${status}`)
-   $.log(`[${Ariszy}] 获取rlurl请求: 成功,rlurl: ${rlurl}`)
+   $.log(`[${$.jsname}] 获取rlurl请求: 成功,rlurl: ${rlurl}`)
    $.msg(`rlurl${status}: 成功🎉`, ``)
    const rlheader = JSON.stringify($request.headers)
     if(rlheader)    $.setdata(rlheader,`rlheader${status}`)
-    $.log(`[${Ariszy}] 获取rlheader请求: 成功,rlheader: ${rlheader}`)
+    $.log(`[${$.jsname}] 获取rlheader请求: 成功,rlheader: ${rlheader}`)
     $.msg(`rlheader${status}: 成功🎉`, ``)
 }
 }
