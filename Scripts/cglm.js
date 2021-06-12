@@ -63,7 +63,7 @@ if($request&&$request.url.indexOf("passstage")>=0) {
    
    const cglmheader = JSON.stringify($request.headers)
     if(cglmheader)    $.setdata(cglmheader,`cglmheader${status}`)
-    $.log(`[${zhiyi}] 获取cglmheader请求: 成功,cglmheader: ${cglmheader}`)
+    $.log(`[${$.jsname}] 获取cglmheader请求: 成功,cglmheader: ${cglmheader}`)
     $.msg(`cglmheader${status}: 成功🎉`, ``)
 }
 }
