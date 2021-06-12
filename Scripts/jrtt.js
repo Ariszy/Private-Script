@@ -237,25 +237,25 @@ function GetCookie() {
   const farmurlVal = $request.url.split(`?`)[1]
     if (farmurlVal) $.setdata(farmurlVal,
 `farmurl${$.idx}`)
-    $.log(`[${jsname}] 获取farm请求: 成功,farmirlVal: ${farmurl}`)
+    $.log(`[${$.jsname}] 获取farm请求: 成功,farmirlVal: ${farmurl}`)
     $.msg(`获取farmurl: 成功🎉`, ``)
    const jrttfarmKey = JSON.stringify($request.headers)
 $.log(jrttfarmKey)
   if(jrttfarmKey)        $.setdata(jrttfarmKey,`farmkey${$.idx}`)
-    $.log(`[${jsname + $.idx}] 获取farm请求: 成功,jrttfarmKey: ${farmkey}`)
+    $.log(`[${$.jsname + $.idx}] 获取farm请求: 成功,jrttfarmKey: ${farmkey}`)
     $.msg(`获取farmkey: 成功🎉`, ``)
 }
   if($request&&$request.url.indexOf("sign_in")>=0) {
   const signurlVal = $request.url.split(`?`)[1]
     if (signurlVal) $.setdata(signurlVal,
 `signurl${$.idx}`)
-    $.log(`[${jsname + $.idx}] 获取sign请求: 成功,signurlVal: ${signurl}`)
+    $.log(`[${$.jsname + $.idx}] 获取sign请求: 成功,signurlVal: ${signurl}`)
     $.msg(`获取signurl: 成功🎉`, ``)
    const jrttsignKey = JSON.stringify($request.headers)
 //$.log(jrttsignKey)
   if(jrttsignKey.indexOf("STUB")>=0)
     $.setdata(jrttsignKey,`signkey${$.idx}`)
-    $.log(`[${jsname + $.idx}] 获取sign请求: 成功,jrttsignKey: ${signkey}`)
+    $.log(`[${$.jsname + $.idx}] 获取sign请求: 成功,jrttsignKey: ${signkey}`)
     $.msg(`获取signkey: 成功🎉`, ``)
 }
 
