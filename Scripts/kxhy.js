@@ -77,19 +77,19 @@ if($request&&$request.url.indexOf("plant")>=0) {
    
    const kxhyheader = JSON.stringify($request.headers)
     if(kxhyheader)    $.setdata(kxhyheader,`kxhyheader${status}`)
-    $.log(`[${zhiyi}] 获取kxhyheader请求: 成功,kxhyheader: ${kxhyheader}`)
+    $.log(`[${$.jsname}] 获取kxhyheader请求: 成功,kxhyheader: ${kxhyheader}`)
     $.msg(`kxhyheader${status}: 成功🎉`, ``)
 }
 if($request.url.indexOf("ad/lookVideo")>-1){
    const adheader = JSON.stringify($request.headers)
     if(adheader)
 $.setdata(adheader,`adheader${status}`)
-     $.log(`[${zhiyi}] 获取adheader请求: 成功,adheader: ${adheader}`)
+     $.log(`[${$.jsname}] 获取adheader请求: 成功,adheader: ${adheader}`)
     $.msg(`adheader${status}: 成功🎉`, ``)
    const adbody = $request.body
    if(adbody)
 $.setdata(adbody,`adbody${status}`)
-      $.log(`[${zhiyi}] 获取adbody请求: 成功,adbody: ${adbody}`)
+      $.log(`[${$.jsname}] 获取adbody请求: 成功,adbody: ${adbody}`)
     $.msg(`adbody${status}: 成功🎉`, ``)
 }
 }
