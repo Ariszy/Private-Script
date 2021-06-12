@@ -79,19 +79,19 @@ function GetCookie() {
 if($request&&$request.url.indexOf("plant")>=0) {
    const ryhyheader = JSON.stringify($request.headers)
     if(ryhyheader)    $.setdata(ryhyheader,`ryhyheader${status}`)
-    $.log(`[${zhiyi}] 获取ryhyheader请求: 成功,ryhyheader: ${ryhyheader}`)
+    $.log(`[${$.jsname}] 获取ryhyheader请求: 成功,ryhyheader: ${ryhyheader}`)
     $.msg(`ryhyheader${status}: 成功🎉`, ``)
 }
 if($request.url.indexOf("ad/lookVideo")>-1){
    const ryhyadheader = JSON.stringify($request.headers)
     if(ryhyadheader)
 $.setdata(ryhyadheader,`ryhyadheader${status}`)
-     $.log(`[${zhiyi}] 获取ryhyadheader请求: 成功,ryhyadheader: ${ryhyadheader}`)
+     $.log(`[${$.jsname}] 获取ryhyadheader请求: 成功,ryhyadheader: ${ryhyadheader}`)
     $.msg(`ryhyadheader${status}: 成功🎉`, ``)
    const ryhyadbody = $request.body
    if(ryhyadbody)
 $.setdata(ryhyadbody,`ryhyadbody${status}`)
-      $.log(`[${zhiyi}] 获取ryhyadbody请求: 成功,ryhyadbody: ${ryhyadbody}`)
+      $.log(`[${$.jsname}] 获取ryhyadbody请求: 成功,ryhyadbody: ${ryhyadbody}`)
     $.msg(`ryhyadbody${status}: 成功🎉`, ``)
 }
 }
