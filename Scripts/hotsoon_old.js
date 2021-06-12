@@ -206,31 +206,31 @@ function GetCookie() {
  if($request&&$request.url.indexOf("hotsoon"&&"sign_in_detail")>=0) {
   const hotsoonsignheader = $request.url.split(`?`)[1]
     if (hotsoonsignheader) $.setdata(hotsoonsignheader,`hotsoonsignheader${$.idx}`)
-    $.log(`[${jsname}] 获取sign请求: 成功,hotsoonsignheader: ${hotsoonsignheader}`)
+    $.log(`[${$.jsname}] 获取sign请求: 成功,hotsoonsignheader: ${hotsoonsignheader}`)
     $.msg(`获取hotsoonsignheader: 成功🎉`, ``)
    const hotsoonsignkey = JSON.stringify($request.headers)
   if(hotsoonsignkey)        $.setdata(hotsoonsignkey,`hotsoonsignkey${$.idx}`)
-    $.log(`[${jsname}] 获取sign请求: 成功,hotsoonsignkey: ${hotsoonsignkey}`)
+    $.log(`[${$.jsname}] 获取sign请求: 成功,hotsoonsignkey: ${hotsoonsignkey}`)
     $.msg(`获取hotsoonsignkey: 成功🎉`, ``)
  }
  if($request&&$request.url.indexOf('hotsoon'&&"daily_read")>=0) {
 	  const hotsoonreadheader = $request.url.split(`?`)[1]
 	    if (hotsoonreadheader) $.setdata(hotsoonreadheader,`hotsoonreadheader${$.idx}`)
-	    $.log(`[${jsname}] 获取read请求: 成功,hotsoonreadheader: ${hotsoonreadheader}`)
+	    $.log(`[${$.jsname}] 获取read请求: 成功,hotsoonreadheader: ${hotsoonreadheader}`)
 	    $.msg(`获取hotsoonreadheader: 成功🎉`, ``)
 	   const hotsoonreadkey = JSON.stringify($request.headers)
 	  if(hotsoonreadkey)        $.setdata(hotsoonreadkey,`hotsoonreadkey${$.idx}`)
-	    $.log(`[${jsname}] 获取read请求: 成功,readkey: ${hotsoonreadkey}`)
+	    $.log(`[${$.jsname}] 获取read请求: 成功,readkey: ${hotsoonreadkey}`)
 	    $.msg(`获取hotsoonreadkey: 成功🎉`, ``)
 	 }
  if($request&&$request.url.indexOf('hotsoon' && "draw_excitation_ad")>=0) {
 	  const hotsoonadheader = $request.url.split(`?`)[1]
 	    if (hotsoonadheader) $.setdata(hotsoonadheader,`hotsoonadheader${$.idx}`)
-	    $.log(`[${jsname}] 获取AD请求: 成功,hotsoonadheader: ${hotsoonadheader}`)
+	    $.log(`[${$.jsname}] 获取AD请求: 成功,hotsoonadheader: ${hotsoonadheader}`)
 	    $.msg(`获取hotsoonadheader: 成功🎉`, ``)
 	   const hotsoonadkey = JSON.stringify($request.headers)
 	  if(hotsoonadkey)        $.setdata(hotsoonadkey,`hotsoonadkey${$.idx}`)
-	    $.log(`[${jsname}] 获取AD请求: 成功,hotsoonadkey: ${hotsoonadkey}`)
+	    $.log(`[${$.jsname}] 获取AD请求: 成功,hotsoonadkey: ${hotsoonadkey}`)
 	    $.msg(`获取hotsoonadkey: 成功🎉`, ``)
 	 }
     }
