@@ -76,7 +76,7 @@ if ($.isNode()) {
     TTreferArr.push($.getdata('TTrefe'))
     TTbodyArr.push($.getdata('TTbody'))
     let TTcount = ($.getval('TTcount') || '1');
-  for (let i = 2; i <= TTcount; i++) {
+  for (let i = 2; i <= TTcount; i++){
     TTreferArr.push($.getdata(`TTrefer${i}`))
     TTbodyArr.push($.getdata(`TTbody${i}`))
   }
@@ -107,11 +107,11 @@ function GetCookie() {
 if($request&&$request.url.indexOf("checkin")>=0) {
    const TTrefer = $request.headers['Referer']
    if(TTrefer)     $.setdata(TTrefer,`TTrefer${status}`)
-   $.log(`[${Ariszy}] 获取TTrefer请求: 成功,TTrefer: ${TTrefer}`)
+   $.log(`[${$.jsname}] 获取TTrefer请求: 成功,TTrefer: ${TTrefer}`)
    $.msg(`TTrefer${status}: 成功🎉`, ``)
    const TTbody= $request.body
     if(TTbody)    $.setdata(TTbody,`TTbody${status}`)
-    $.log(`[${Ariszy}] 获取TTbody请求: 成功,TTbody: ${TTbody}`)
+    $.log(`[${$.jsname}] 获取TTbody请求: 成功,TTbody: ${TTbody}`)
     $.msg(`TTbody${status}: 成功🎉`, ``)
 }
 }
