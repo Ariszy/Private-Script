@@ -98,12 +98,12 @@ function GetCookie() {
 if($request&&$request.url.indexOf("CollectCurrentElectricity")>=0) {
    const jxcollecturl = $request.url.split('?')[1]
     if(jxcollecturl) $.setdata(jxcollecturl,`jxcollecturl${status}`)
-    $.log(`[${zhiyi}] 获取jxcollecturl请求: 成功,jxcollecturl: ${jxcollecturl}`)
+    $.log(`[${jsname}] 获取jxcollecturl请求: 成功,jxcollecturl: ${jxcollecturl}`)
     $.msg(`jxcollecturl${status}: 成功🎉`, ``)
 
    const jxcollectheader = JSON.stringify($request.headers)
     if(jxcollectheader)    $.setdata(jxcollectheader,`jxcollectheader${status}`)
-    $.log(`[${zhiyi}] 获取jxcollectheader请求: 成功,jxcollectheader: ${jxcollectheader}`)
+    $.log(`[${jsname}] 获取jxcollectheader请求: 成功,jxcollectheader: ${jxcollectheader}`)
     $.msg(`jxcollectheader${status}: 成功🎉`, ``)
 }
 }
