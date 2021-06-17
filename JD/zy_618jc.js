@@ -11,7 +11,7 @@ cron "5 0,23 * * *" script-path=https://raw.githubusercontent.com/Ariszy/Private
 ================Surge===============
 618竞猜 = type=cron,cronexp="5 0,23 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zy_618jc.js
 ===============小火箭==========
-618竞猜 = type=cron,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zy_618jc.js, cronexpr="5 0 * * *", timeout=3600, enable=true
+618竞猜 = type=cron,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/zy_618jc.js, cronexpr="5 0,23 * * *", timeout=3600, enable=true
 */
 const $ = new Env('618手机竞猜')
 const notify = $.isNode() ?require('./sendNotify') : '';
