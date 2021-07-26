@@ -1,0 +1,7 @@
+#!name=TestFlight国区下载
+#!desc=国区id下载外区tf软件
+[Script]
+TF download = type=http-request,pattern=^https?:\/\/testflight\.apple\.com\/v2\/accounts\/.*\/apps\/\d*/builds/\d*/install,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Ariszy/Private-Script/master/User/TF_Download.js
+
+[MITM]
+hostname = %APPEND% testflight.apple.com
