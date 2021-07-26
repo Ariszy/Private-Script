@@ -1,0 +1,8 @@
+#!name=jd_unbind
+#!desc=京东解绑会员卡
+
+[URL Rewrite]
+^https:\/\/shopmember\.m\.jd\.com\/shopcard\/\?(venderId=[0-9]+).* https:\/\/shopmember\.m\.jd\.com\/member\/memberCloseAccount\?$1 302
+
+[MITM]
+hostname = %APPEND% shopmember.m.jd.com
