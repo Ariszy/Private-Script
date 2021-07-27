@@ -1,5 +1,5 @@
 #!name=jd_unbind
-#!desc=京东解绑会员卡
+#!desc=京东解绑会员卡 collected by zy
 
 [URL Rewrite]
 ^https:\/\/shopmember\.m\.jd\.com\/shopcard\/\?(venderId=[0-9]+).* https:\/\/shopmember\.m\.jd\.com\/member\/memberCloseAccount\?$1 302
