@@ -7,10 +7,6 @@
 http-response https:\/\/api2\.mubu\.com\/v3\/api\/user\/current_user script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/mubu.js, requires-body=true, timeout=10, tag=幕布
 http-response https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/rewrite/picsew.js, requires-body=true, timeout=10, tag=Picsew专业版
 
-# yichahucha
-http-response ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js, tag=微博去广告
-http-response ^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/photos/pic_recommend_status|video/tiny_stream_video_list|photo/info) requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js, tag=微博去广告
-
 # Nobyda整理
 http-response ^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/user\/vip|vip\/spi/mservice) requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Kuwo.js, tag=酷我音乐
 http-request ^https?:\/\/musicpay\.kuwo.cn\/music\.pay\?uid=\d+ script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/KuWoMusicDownload.js, tag=酷我音乐下载
@@ -18,4 +14,4 @@ http-response ^https://account.wps.*/api/users/ requires-body=1,script-path=http
 http-response ^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js, tag=百度网盘倍速
 
 [MITM]
-hostname = %APPEND% buy.itunes.apple.com,api.weibo.cn,mapi.weibo.com,*.uve.weibo.com,api2.mubu.com,vip1.kuwo.cn,account.wps.cn, pan.baidu.com
+hostname = %APPEND% buy.itunes.apple.com,api2.mubu.com,vip1.kuwo.cn,account.wps.cn, pan.baidu.com
