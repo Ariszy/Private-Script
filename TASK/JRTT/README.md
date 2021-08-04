@@ -1,8 +1,10 @@
 1、APP Store下载今日头条极速版
 
-2、圈x引用 https://raw.githubusercontent.com/Ariszy/Private-Script/master/TASK/JRTT/jrtt_rewrite.conf
+2、抓包打开右下角包宝箱及视频奖励，重放使用
 
-3、我的--签到集音符 音符兑好礼
+降级7.99版本
+
+1、使用jrtt.js脚本获取ck
 
 ①上方签到或签到详情界面即可获取签到cookie
 
