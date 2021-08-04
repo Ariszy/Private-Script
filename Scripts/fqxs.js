@@ -1,10 +1,11 @@
 /*
-tgchannel：https://t.me/Ariszy_Script
+tgchannel：https://t.me/Ariszy8028
 github：https://github.com/Ariszy/script
 boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
 转载留个名字，谢谢
 邀请码：7672016831
 谢谢
+版本3.5.0
 作者：执意Ariszy
 #签到界面或者签到详情
 #读书任务可以完成，时长上传没做好，广告偶尔可以
