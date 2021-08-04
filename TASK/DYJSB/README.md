@@ -1,4 +1,4 @@
-1、APP Store下载抖音极速版
+1、下载抖音极速版13.6.0
 
 2、圈x引用 https://raw.githubusercontent.com/Ariszy/Private-Script/master/TASK/DYJSB/dyjsb_rewrite.conf 
 
