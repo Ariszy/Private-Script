@@ -1,12 +1,12 @@
 /*
+https://t.me/Ariszy8028
 
-tgchannel：https://t.me/Ariszy_Script
-github：https://github.com/Ariszy/script
-转载给我留个名字，谢谢
+1、今日头条极速版，爱思助手下载7.9.9，脚本获取ck运行
+2、今日头条极速版直接升级最新版本，抓包打开右下角包宝箱及视频奖励
 
+两个版本同时运行，金币叠加
 
 邀请码：1980436898
-我的--输入邀请码，立得一元，直接提现，谢谢
 
 作者：执意Ariszy
 目前包含：
