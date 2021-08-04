@@ -1,4 +1,7 @@
 /*
+
+https://t.me/Ariszy8028
+
 github：https://github.com/Ariszy/script
 boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
 转载留个名字，谢谢
