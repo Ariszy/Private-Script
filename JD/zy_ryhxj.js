@@ -115,7 +115,7 @@ async function doTask(){
         if(logs)$.log(data)
         if(result.code == 0){
            console.log("\n"+result.data.bizMsg+"\n")
-   await $.wait(4000)
+   await $.wait(6000)
         }else{
            $.log(result.data.bizMsg+"\n")
         }
