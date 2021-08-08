@@ -3,7 +3,18 @@ tgchannel：https://t.me/Ariszy8028
 github：https://github.com/Ariszy/Private-Script
 boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
 
+[task_local]
+#荣耀焕新季
+0 1 * * * https://raw.githubusercontent.com/hyzaw/scripts/main/ddo_pk.js, tag= 荣耀焕新季
+================Loon==============
+[Script]
+cron "0 1 * * *" script-path=https://raw.githubusercontent.com/hyzaw/scripts/main/ddo_pk.js,tag= 荣耀焕新季
+===============Surge=================
+荣耀焕新季 = type=cron,cronexp="0 1 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/hyzaw/scripts/main/ddo_pk.js
+============小火箭=========
+荣耀焕新季 = type=cron,script-path=https://raw.githubusercontent.com/hyzaw/scripts/main/ddo_pk.js, cronexpr="0 1 * * *", timeout=3600, enable=true
 */
+
 const $ = new Env('荣耀焕新季')
 const notify = $.isNode() ?require('./sendNotify') : '';
 cookiesArr = []
