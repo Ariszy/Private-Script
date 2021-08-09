@@ -187,7 +187,7 @@ async function getLottery(){
            console.log("\n获得"+result.data.result.userAwardsCacheDto.jBeanAwardVo.prizeName+"\n")
    await $.wait(4000)
         }else{
-           $.log(result.data.bizMsg+"\n")
+           $.log("恭喜你，抽中了0豆豆\n")
         }
         }catch(e) {
           $.logErr(e, response);
