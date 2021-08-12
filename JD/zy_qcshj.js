@@ -71,7 +71,10 @@ if ($.isNode()) {
                 continue
             }
       
-      await gethelpcode()
+       await gethelpcode()
+       await getlist()
+       await Ariszy()
+       await zy()
       
    }
 for(let i = 0; i < cookiesArr.length; i++){
