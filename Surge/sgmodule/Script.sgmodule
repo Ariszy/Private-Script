@@ -4,7 +4,7 @@
 
 [Script]
 # Ariszy
-http-response https:\/\/api2\.mubu\.com\/v3\/api\/user\/current_user script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/mubu.js, requires-body=true, timeout=10, tag=幕布
+http-response https:\/\/api2\.mubu\.com\/v3\/api\/user\/current_user script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/rewrite/mubu.js, requires-body=true, timeout=10, tag=幕布
 http-response https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/rewrite/picsew.js, requires-body=true, timeout=10, tag=Picsew专业版
 
 # Nobyda整理
