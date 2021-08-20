@@ -262,10 +262,10 @@ list2tokenArr.push(list1.simpleRecordInfoVo.taskToken)
 list2tokenArr.push(list2.shoppingActivityVos[i].taskToken)
        }
        
-       let list3 = result.data.result.taskVos.find(item => item.taskId == 3)
-       for(let i = 0; i < list3.shoppingActivityVos.length; i ++){
-       listtokenArr.push(3+list3.shoppingActivityVos[i].taskToken)
-list2tokenArr.push(list3.shoppingActivityVos[i].taskToken)
+       let list6 = result.data.result.taskVos.find(item => item.taskId == 3)
+       for(let i = 0; i < list6.shoppingActivityVos.length; i ++){
+       listtokenArr.push(6+list6.shoppingActivityVos[i].taskToken)
+list2tokenArr.push(list6.shoppingActivityVos[i].taskToken)
        }
        
        let list4 = result.data.result.taskVos.find(item => item.taskId == 4)
