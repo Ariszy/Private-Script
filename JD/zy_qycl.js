@@ -70,7 +70,10 @@ if ($.isNode()) {
                 }
                 continue
             }
-       
+       await gethelpcode()
+       await getlist()
+       await Ariszy()
+       await zy()
    }
 for(let i = 0; i < cookiesArr.length; i++){
       cookie = cookiesArr[i];
@@ -80,6 +83,8 @@ for(let i = 0; i < cookiesArr.length; i++){
       $.index = i + 1;
        console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}助力模块*********\n`);
      
+      await control()
+      await Lottery()
       await userScore()
 }
 
