@@ -118,7 +118,7 @@ async function doTask(){
         if(logs)$.log(data)
         if(result.code == 0){
            console.log("\n"+result.data.bizMsg+"\n")
-   await $.wait(10000)
+   await $.wait(8000)
         }else{
            $.log(result.data.bizMsg+"\n")
         }
@@ -300,7 +300,12 @@ list2tokenArr.push(list5.productInfoVos[i].taskToken)
 //$.log(list5.followShopVo[i].taskToken)
        }
        
-       
+       let list8 = result.data.result.taskVos.find(item => item.taskId == 8)
+       for(let i = 0; i < list8.shoppingActivityVos.length; i ++){
+       listtokenArr.push(8+list8.shoppingActivityVos[i].taskToken)
+list2tokenArr.push(list8.shoppingActivityVos[i].taskToken)
+//$.log(list4.productInfoVos[i].taskToken)
+       }
        
        //$.log(JSON.stringify(listtokenArr))
       
