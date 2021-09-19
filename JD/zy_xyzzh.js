@@ -227,8 +227,8 @@ async function scans(){
 async function zy(){
    listtokenArr.splice(0,listtokenArr.length);
    list2tokenArr.splice(0,list2tokenArr.length);
-list0tokenArr.splice(0,list0tokenArr.length);
-   list1tokenArr.splice(0,list1tokenArr.length);
+   //list0tokenArr.splice(0,list0tokenArr.length);
+   //list1tokenArr.splice(0,list1tokenArr.length);
 }
 async function Zy(){
    for(let i = 0; i < 7; i ++){
