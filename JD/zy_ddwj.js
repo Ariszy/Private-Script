@@ -75,7 +75,7 @@ if ($.isNode()) {
        await getfeedtoken()
        await Ariszy()
        await zy()
-       await userScore()
+       //await userScore()
    }
 
 })()
