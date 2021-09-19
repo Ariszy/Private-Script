@@ -145,7 +145,7 @@ async function DoTask(){
   }
 async function unlock(){
  const body = `functionId=funny_raise&body=%7B%22id%22%3A${userUnlockedPlaceNum}%2C%22ss%22%3A%22%7B%5C%22extraData%5C%22%3A%7B%5C%22log%5C%22%3A%5C%22%5C%22%2C%5C%22sceneid%5C%22%3A%5C%22HWJhPageh5%5C%22%7D%2C%5C%22secretp%5C%22%3A%5C%22${secretp}%5C%22%2C%5C%22random%5C%22%3A%5C%2276834380%5C%22%7D%22%7D&client=wh5&clientVersion=1.0.0&uuid=0bcbcdb2a68f16cf9c9ad7c9b944fd141646a849&appid=o2_act`
-$.log(secretp)
+//$.log(secretp)
  const MyRequest = PostRequest(`advId=funny_raise`,body)
  return new Promise((resolve) => {
    $.post(MyRequest,async(error, response, data) =>{
