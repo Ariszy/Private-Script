@@ -66,9 +66,9 @@ async function check(){
         const result = JSON.parse(data)
         if(logs)$.log(data)
         if(result.retcode == 0)
-        $.log($.UserName+"  ✅Cookie有效中\n")
+        $.log($.UserName+"\n\n"+cookie+"\n✅Cookie有效中\n")
         else
-          $.log($.UserName+"  ❌Cookie失效\n")
+          $.log($.UserName+"\n\n"+cookie+"\n❌Cookie失效\n")
         }catch(e) {
           $.logErr(e, response);
       } finally {
