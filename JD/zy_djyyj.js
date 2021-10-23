@@ -21,6 +21,12 @@ const invite=1;//新用户自动邀请，0关闭，1默认开启
 const logs =0;//0为关闭日志，1为开启
 var hour=''
 var minute=''
+
+if(new Date().getHours() >= 18){
+   $.msg("","不在竞猜时间内！请在18点之前运行")
+   $.done()
+}
+
 if ($.isNode()) {
    hour = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getHours();
    minute = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getMinutes();
