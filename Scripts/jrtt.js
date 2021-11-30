@@ -216,7 +216,9 @@ if (!signurlArr[0]) {
       await profit()
       await sign_in()
       await openbox()
+      if(readurl){
       await reading()
+      }
       await farm_sign_in()
       await openfarmbox()
       await landwarer()
