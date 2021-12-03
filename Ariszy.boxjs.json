@@ -204,6 +204,35 @@
     "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/update_elecv2p_cookies.js",
     "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/elecv2p-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/elecv2p.png"],
     "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/update_elecv2p_cookies.js"
+  }, {
+    "id": "xjaxc",
+    "name": "小鸡爱消除",
+    "keys": ["xjheaders", "xjheaders2", "xjheaders3", "xjheaders4", "xjheaders5", "xjheaders6", "xjheaders7", "xjheaders8", "xjheaders9", "xjheaders10"],
+    "author": "@Ariszy",
+    "settings": [{
+            "id": "tz",
+            "name": "静默运行",
+            "val": "1",
+            "type": "number",
+            "desc": "0为不通知，1为全部通知"
+        },
+       {
+        "id": "xjsetting",
+        "name": "当前账号",
+        "val": "1",
+        "type": "number",
+        "desc": "当前账号对应"
+      },
+      {
+        "id": "xjcount",
+        "name": "账号个数",
+        "val": "1",
+        "type": "number",
+        "desc": "需要几个账号，数字为几"
+      }],
+    "repo": "https://github.com/Ariszy/Private-Script/blob/master/Scripts/xjaxc.js",
+    "icons": ["https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/xjaxc-mini.png", "https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/xjaxc.png"],
+    "script": "https://raw.githubusercontent.com/Ariszy/Private-Script/master/Scripts/xjaxc.js"
   },{
     "id": "jrtt",
     "name": "今日头条极速版",
