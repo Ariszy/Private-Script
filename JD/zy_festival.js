@@ -234,11 +234,11 @@ async function getlist(){
         if(logs)$.log(data)
         if(result.code == 200){
        
-       let list1 = result.data.taskList.find(item => item.taskId == 212)
+       let list1 = result.data.taskList.find(item => item.taskId == 216)
        num1 = Number(list1.totalNum) - Number(list1.finishNum)
        if(num1 > 0){
        
-       taskid = 212;
+       taskid = 216;
        taskItemId = list1.taskItemId
        await doTask()
        await $.wait(2000)
@@ -248,11 +248,11 @@ async function getlist(){
         $.log("任务已完成")
         }
        
-       let list3 = result.data.taskList.find(item => item.taskId == 213)
+       let list3 = result.data.taskList.find(item => item.taskId == 217)
        num3 = Number(list3.totalNum) - Number(list3.finishNum)
        if(num3 > 0){
        
-       taskid = 213;
+       taskid = 217;
        taskItemId = list3.taskItemId
        await doTask()
        await $.wait(2000)
@@ -263,11 +263,11 @@ async function getlist(){
         }
        
 
-       let list4 = result.data.taskList.find(item => item.taskId == 214)
+       let list4 = result.data.taskList.find(item => item.taskId == 218)
        num4 = Number(list4.totalNum) - Number(list4.finishNum)
        if(num4 > 0){
       
-       taskid = 214;
+       taskid = 218;
        taskItemId = list4.taskItemId
        await doTask()
        await $.wait(2000)
@@ -277,12 +277,12 @@ async function getlist(){
         $.log("任务已完成")
         }
        
-       let list5 = result.data.taskList.find(item => item.taskId == 215)
+       let list5 = result.data.taskList.find(item => item.taskId == 219)
        
        num5 = Number(list5.totalNum) - Number(list5.finishNum)
       if(num5 > 0){
        
-       taskid = 215;
+       taskid = 219;
        taskItemId = list5.taskItemId
        await doTask()
        await $.wait(2000)
