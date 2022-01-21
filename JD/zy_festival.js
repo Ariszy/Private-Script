@@ -9,7 +9,7 @@ cookiesArr = []
 CodeArr = []
 cookie = ''
 var taskItemIdArr = [],task1ItemIdArr = []
-let t,num1,num2,num3,num4,num5,num = 0;
+let t,num1,num2,num3,num4,num5
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
@@ -46,6 +46,7 @@ if ($.isNode()) {
       cookie = cookiesArr[i];
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
       message = ''
+      num = 0
       $.isLogin = true;
       $.index = i + 1;
        console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
@@ -108,7 +109,7 @@ async function doTask(){
    })
   }
 async function DoTask(){
- const body = `appid=china-joy&functionId=festival_floor_prod&body=%7B%22taskId%22:%22${taskid}%22,%22taskItemId%22:%22${taskItemId}%22,%22timestamp%22:${t},%22skuId%22:%22%22,%22taskType%22:null,%22apiMapping%22:%22/api/task/getReward%22%7D&t=1642672924093&loginType=2`
+ const body = `appid=china-joy&functionId=festival_floor_prod&body=%7B%22taskId%22:%22${taskid}%22,%22taskItemId%22:%22${taskItemId}%22,%22timestamp%22:${t},%22skuId%22:%22%22,%22taskType%22:null,%22apiMapping%22:%22/api/task/getReward%22%7D&t=${t}&loginType=2`
  const MyRequest = PostRequest(``,body)
  return new Promise((resolve) => {
    $.post(MyRequest,async(error, response, data) =>{
@@ -121,6 +122,9 @@ async function DoTask(){
           }else{
            console.log("任务继续")
          }
+         
+        }else{
+          $.log(result.msg)
         }
         }catch(e) {
           $.logErr(e, response);
@@ -271,6 +275,7 @@ async function getlist(){
       
        taskid = list4.taskId;
        taskItemId = list4.taskItemId
+       await doTask()
        await $.wait(2000)
        await DoTask()
        
