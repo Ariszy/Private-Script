@@ -1,3 +1,4 @@
+#!icon= https://raw.githubusercontent.com/Ariszy/Private-Script/master/img/Ariszy.jpg
 ﻿[URL Rewrite]
 ctier=[A-Z] citer=A 302
 [Script]
